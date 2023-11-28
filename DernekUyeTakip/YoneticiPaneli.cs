@@ -81,20 +81,42 @@ namespace DernekUyeTakip
 
         private void BtnSehir2_Click(object sender, EventArgs e)
         {
-            List<EntityUye> UyeList = LogicUye.LLUyeListesi("Sehir", CbSehir2.SelectedItem.ToString());
-            dataGridView1.DataSource = UyeList;
+            if (CbSehir2.SelectedItem != null) { 
+                List<EntityUye> UyeList = LogicUye.LLUyeListesi("Sehir", CbSehir2.SelectedItem.ToString());
+                dataGridView1.DataSource = UyeList;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen listedeki değerleri seçin");
+            }
         }
 
         private void BtnAP2_Click(object sender, EventArgs e)
         {
-            List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", CbAktifPasif2.SelectedIndex.ToString());
-            dataGridView1.DataSource = UyeList;
+            if (CbAktifPasif2.SelectedItem != null)
+            {
+                List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", CbAktifPasif2.SelectedIndex.ToString());
+                dataGridView1.DataSource = UyeList;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen listedeki değerleri seçin");
+            }
+            
         }
         
         private void BtnBorc2_Click(object sender, EventArgs e)
         {
-            List<EntityUye> UyeList = LogicUye.LLUyeListesi("Borc", CbBorc2.SelectedItem.ToString());
-            dataGridView1.DataSource = UyeList;
+            if (CbBorc2.SelectedItem != null)
+            {
+                List<EntityUye> UyeList = LogicUye.LLUyeListesi("Borc", CbBorc2.SelectedItem.ToString());
+                dataGridView1.DataSource = UyeList;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen listedeki değerleri seçin");
+            }
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -31,3 +31,14 @@ C:\Users\sansa\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\Logic
 C:\Users\sansa\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.csproj.CopyComplete
 C:\Users\sansa\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.dll
 C:\Users\sansa\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.pdb
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\LogicLayer.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\LogicLayer.pdb
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\DataAccessLayer.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\EntityLayer.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\DataAccessLayer.pdb
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\bin\x64\Debug\EntityLayer.pdb
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.csproj.AssemblyReference.cache
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.csproj.CopyComplete
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\LogicLayer\obj\x64\Debug\LogicLayer.pdb
