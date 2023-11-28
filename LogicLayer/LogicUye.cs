@@ -53,7 +53,14 @@ namespace LogicLayer
         }
         public static List<EntityUye> LLUyeListesi(string Sec, string deger)
         {
-            return DALUye.UyeListesi(Sec,deger);
+            if (Sec != "" && deger != "")
+            {
+                return DALUye.UyeListesi(Sec, deger);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

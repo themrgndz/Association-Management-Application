@@ -51,10 +51,10 @@ namespace DataAccessLayer
         {
             List<EntityUye> uyeler = new List<EntityUye>();
             
-            string sorgu = "SELECT * FROM Uye WHERE "+Sec+" = @Deger";
+            string sorgu = "SELECT * FROM Uye WHERE " +Sec+ " = @Deger";
 
             OleDbCommand cmd = new OleDbCommand(sorgu, Baglanti.dbc);
-
+            
             cmd.Parameters.AddWithValue("@Deger", Deger);
 
             //Eğer veritabanı bağlantısı açık değilse açıyoruz.

@@ -68,23 +68,33 @@ namespace DernekUyeTakip
 
         private void BtnKanGrubu2_Click(object sender, EventArgs e)
         {
-            List<EntityUye> UyeList = LogicUye.LLUyeListesi("KanGrubu", CbKanGrubu2.SelectedItem.ToString());
-            dataGridView1.DataSource = UyeList;
+            if (CbKanGrubu2.SelectedItem != null)
+            {
+                List<EntityUye> UyeList = LogicUye.LLUyeListesi("KanGrubu", CbKanGrubu2.SelectedItem.ToString());
+                dataGridView1.DataSource = UyeList;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen listedeki değerleri seçin");
+            }
         }
 
         private void BtnSehir2_Click(object sender, EventArgs e)
         {
-
+            List<EntityUye> UyeList = LogicUye.LLUyeListesi("Sehir", CbSehir2.SelectedItem.ToString());
+            dataGridView1.DataSource = UyeList;
         }
 
         private void BtnAP2_Click(object sender, EventArgs e)
         {
-
+            List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", CbAktifPasif2.SelectedIndex.ToString());
+            dataGridView1.DataSource = UyeList;
         }
         
         private void BtnBorc2_Click(object sender, EventArgs e)
         {
-
+            List<EntityUye> UyeList = LogicUye.LLUyeListesi("Borc", CbBorc2.SelectedItem.ToString());
+            dataGridView1.DataSource = UyeList;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
