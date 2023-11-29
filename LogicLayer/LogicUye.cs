@@ -16,6 +16,37 @@ namespace LogicLayer
             return DALUye.UyeListesi();
         }
 
+        public static List<EntityUye> LLUyeListesi(string Sec, string deger)
+        {
+            if (Sec != "" && deger != "")
+            {
+                if (deger == "Var")
+                {
+                    return DALUye.UyeListesi(Sec, ">0");
+                }
+                else
+                {
+                    return DALUye.UyeListesi(Sec, "0");
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static List<EntityUye> LLUyeListesi(string Sec, bool deger)
+        {
+            if (Sec != "")
+            {
+                return DALUye.UyeListesi(Sec, deger);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static int LLUyeEkle(EntityUye u)
         {
             if (u.Tc != "" && u.Ad != "" && u.Soyad != "" && u.KanGrubu != "" && u.Sifre != "" && u.Sehir != "")
@@ -49,17 +80,6 @@ namespace LogicLayer
             else
             {
                 return false;
-            }
-        }
-        public static List<EntityUye> LLUyeListesi(string Sec, string deger)
-        {
-            if (Sec != "" && deger != "")
-            {
-                return DALUye.UyeListesi(Sec, deger);
-            }
-            else
-            {
-                return null;
             }
         }
     }

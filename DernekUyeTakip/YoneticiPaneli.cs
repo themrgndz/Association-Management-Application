@@ -14,11 +14,18 @@ namespace DernekUyeTakip
 {
     public partial class YoneticiPaneli : Form
     {
+        /*
+         
+         
+         Borç Var/Yok yapıyordun
+         
+         
+         
+         */
         public YoneticiPaneli()
         {
             InitializeComponent();
         }
-
 
         private void BtnListele_Click(object sender, EventArgs e)
         {
@@ -62,6 +69,7 @@ namespace DernekUyeTakip
             ent.Sifre = TbSifre.Text;
             ent.KanGrubu = CbKanGrubu.Text;
             ent.Aktif_Pasif = CbAktifPasif.Checked;
+            ent.Borc = float.Parse(TbBorc.Text);
             LogicUye.LLUyeGuncelle(ent);
             BtnListele_Click(sender, e);
         }
@@ -95,8 +103,16 @@ namespace DernekUyeTakip
         {
             if (CbAktifPasif2.SelectedItem != null)
             {
-                List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", CbAktifPasif2.SelectedIndex.ToString());
-                dataGridView1.DataSource = UyeList;
+                if (CbAktifPasif2.SelectedIndex == 0)
+                {
+                    List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", false);
+                    dataGridView1.DataSource = UyeList;
+                }
+                else
+                {
+                    List<EntityUye> UyeList = LogicUye.LLUyeListesi("AktifPasif", true);
+                    dataGridView1.DataSource = UyeList;
+                }
             }
             else
             {
@@ -138,6 +154,7 @@ namespace DernekUyeTakip
                 string sifre = row.Cells["Sifre"].Value.ToString();
                 string kanGrubu = row.Cells["KanGrubu"].Value.ToString();
                 string ap = row.Cells["Aktif_Pasif"].Value.ToString();
+                string borc = row.Cells["Borc"].Value.ToString();
 
 
                 // TextBox'lara atama kısmı
@@ -148,6 +165,7 @@ namespace DernekUyeTakip
                 CbSehir.Text = sehir;
                 TbSifre.Text = sifre;
                 CbKanGrubu.Text = kanGrubu;
+                TbBorc.Text = borc;
                 if (ap == "True")
                 {
                     CbAktifPasif.Checked = true;
