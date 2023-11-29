@@ -20,14 +20,7 @@ namespace LogicLayer
         {
             if (Sec != "" && deger != "")
             {
-                if (deger == "Var")
-                {
-                    return DALUye.UyeListesi(Sec, ">0");
-                }
-                else
-                {
-                    return DALUye.UyeListesi(Sec, "0");
-                }
+                return DALUye.UyeListesi(Sec, deger);
             }
             else
             {

@@ -14,14 +14,6 @@ namespace DernekUyeTakip
 {
     public partial class YoneticiPaneli : Form
     {
-        /*
-         
-         
-         Borç Var/Yok yapıyordun
-         
-         
-         
-         */
         public YoneticiPaneli()
         {
             InitializeComponent();
