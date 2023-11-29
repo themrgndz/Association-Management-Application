@@ -54,6 +54,8 @@
             this.BtnAP2 = new System.Windows.Forms.Button();
             this.BtnBorc2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TbBorc = new System.Windows.Forms.TextBox();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,8 +65,7 @@
             this.CbSehir2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.TbBorc = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.BtnUyeDetay = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,7 +90,7 @@
             this.label8.Location = new System.Drawing.Point(482, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(296, 37);
-            this.label8.TabIndex = 18;
+            this.label8.TabIndex = 30;
             this.label8.Text = "Üye Yönetim Paneli";
             // 
             // BtnGuncelle
@@ -203,7 +204,7 @@
             this.CbSehir.Location = new System.Drawing.Point(282, 57);
             this.CbSehir.Name = "CbSehir";
             this.CbSehir.Size = new System.Drawing.Size(107, 28);
-            this.CbSehir.TabIndex = 5;
+            this.CbSehir.TabIndex = 4;
             // 
             // CbKanGrubu
             // 
@@ -221,7 +222,7 @@
             this.CbKanGrubu.Location = new System.Drawing.Point(282, 124);
             this.CbKanGrubu.Name = "CbKanGrubu";
             this.CbKanGrubu.Size = new System.Drawing.Size(107, 28);
-            this.CbKanGrubu.TabIndex = 7;
+            this.CbKanGrubu.TabIndex = 6;
             // 
             // BtnEkle
             // 
@@ -262,7 +263,7 @@
             this.TbSifre.Name = "TbSifre";
             this.TbSifre.PasswordChar = '*';
             this.TbSifre.Size = new System.Drawing.Size(107, 26);
-            this.TbSifre.TabIndex = 6;
+            this.TbSifre.TabIndex = 5;
             // 
             // label5
             // 
@@ -292,7 +293,7 @@
             this.TbYas.Location = new System.Drawing.Point(282, 25);
             this.TbYas.Name = "TbYas";
             this.TbYas.Size = new System.Drawing.Size(107, 26);
-            this.TbYas.TabIndex = 4;
+            this.TbYas.TabIndex = 3;
             // 
             // label3
             // 
@@ -337,10 +338,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 259);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 247);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(953, 418);
+            this.dataGridView1.Size = new System.Drawing.Size(953, 430);
             this.dataGridView1.TabIndex = 48;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -378,7 +379,7 @@
             this.BtnKanGrubu2.Location = new System.Drawing.Point(6, 101);
             this.BtnKanGrubu2.Name = "BtnKanGrubu2";
             this.BtnKanGrubu2.Size = new System.Drawing.Size(125, 28);
-            this.BtnKanGrubu2.TabIndex = 12;
+            this.BtnKanGrubu2.TabIndex = 18;
             this.BtnKanGrubu2.Text = "Kan Grubu";
             this.BtnKanGrubu2.UseVisualStyleBackColor = true;
             this.BtnKanGrubu2.Click += new System.EventHandler(this.BtnKanGrubu2_Click);
@@ -388,7 +389,7 @@
             this.BtnSehir2.Location = new System.Drawing.Point(137, 101);
             this.BtnSehir2.Name = "BtnSehir2";
             this.BtnSehir2.Size = new System.Drawing.Size(125, 28);
-            this.BtnSehir2.TabIndex = 13;
+            this.BtnSehir2.TabIndex = 19;
             this.BtnSehir2.Text = "Şehir";
             this.BtnSehir2.UseVisualStyleBackColor = true;
             this.BtnSehir2.Click += new System.EventHandler(this.BtnSehir2_Click);
@@ -398,7 +399,7 @@
             this.BtnAP2.Location = new System.Drawing.Point(268, 101);
             this.BtnAP2.Name = "BtnAP2";
             this.BtnAP2.Size = new System.Drawing.Size(125, 28);
-            this.BtnAP2.TabIndex = 14;
+            this.BtnAP2.TabIndex = 20;
             this.BtnAP2.Text = "Aktif/Pasif";
             this.BtnAP2.UseVisualStyleBackColor = true;
             this.BtnAP2.Click += new System.EventHandler(this.BtnAP2_Click);
@@ -408,13 +409,14 @@
             this.BtnBorc2.Location = new System.Drawing.Point(399, 101);
             this.BtnBorc2.Name = "BtnBorc2";
             this.BtnBorc2.Size = new System.Drawing.Size(125, 28);
-            this.BtnBorc2.TabIndex = 15;
+            this.BtnBorc2.TabIndex = 21;
             this.BtnBorc2.Text = "Borç";
             this.BtnBorc2.UseVisualStyleBackColor = true;
             this.BtnBorc2.Click += new System.EventHandler(this.BtnBorc2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnUyeDetay);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.TbBorc);
             this.groupBox1.Controls.Add(this.CbAktifPasif);
@@ -443,6 +445,25 @@
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(395, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 20);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Borc:";
+            // 
+            // TbBorc
+            // 
+            this.TbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbBorc.Location = new System.Drawing.Point(447, 25);
+            this.TbBorc.Name = "TbBorc";
+            this.TbBorc.Size = new System.Drawing.Size(120, 26);
+            this.TbBorc.TabIndex = 7;
+            // 
             // CbAktifPasif
             // 
             this.CbAktifPasif.AutoSize = true;
@@ -451,7 +472,7 @@
             this.CbAktifPasif.Location = new System.Drawing.Point(447, 59);
             this.CbAktifPasif.Name = "CbAktifPasif";
             this.CbAktifPasif.Size = new System.Drawing.Size(99, 24);
-            this.CbAktifPasif.TabIndex = 61;
+            this.CbAktifPasif.TabIndex = 13;
             this.CbAktifPasif.Text = "Aktif/Pasif";
             this.CbAktifPasif.UseVisualStyleBackColor = true;
             // 
@@ -488,12 +509,12 @@
             this.CbBorc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CbBorc2.FormattingEnabled = true;
             this.CbBorc2.Items.AddRange(new object[] {
-            "Var",
-            "Yok"});
+            "Yok",
+            "Var"});
             this.CbBorc2.Location = new System.Drawing.Point(399, 67);
             this.CbBorc2.Name = "CbBorc2";
             this.CbBorc2.Size = new System.Drawing.Size(125, 28);
-            this.CbBorc2.TabIndex = 11;
+            this.CbBorc2.TabIndex = 17;
             // 
             // CbAktifPasif2
             // 
@@ -505,7 +526,7 @@
             this.CbAktifPasif2.Location = new System.Drawing.Point(268, 67);
             this.CbAktifPasif2.Name = "CbAktifPasif2";
             this.CbAktifPasif2.Size = new System.Drawing.Size(125, 28);
-            this.CbAktifPasif2.TabIndex = 10;
+            this.CbAktifPasif2.TabIndex = 16;
             // 
             // CbKanGrubu2
             // 
@@ -523,7 +544,7 @@
             this.CbKanGrubu2.Location = new System.Drawing.Point(6, 67);
             this.CbKanGrubu2.Name = "CbKanGrubu2";
             this.CbKanGrubu2.Size = new System.Drawing.Size(125, 28);
-            this.CbKanGrubu2.TabIndex = 8;
+            this.CbKanGrubu2.TabIndex = 14;
             // 
             // CbSehir2
             // 
@@ -614,7 +635,7 @@
             this.CbSehir2.Location = new System.Drawing.Point(137, 67);
             this.CbSehir2.Name = "CbSehir2";
             this.CbSehir2.Size = new System.Drawing.Size(125, 28);
-            this.CbSehir2.TabIndex = 9;
+            this.CbSehir2.TabIndex = 15;
             // 
             // label9
             // 
@@ -635,24 +656,15 @@
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
             // 
-            // TbBorc
+            // BtnUyeDetay
             // 
-            this.TbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbBorc.Location = new System.Drawing.Point(447, 25);
-            this.TbBorc.Name = "TbBorc";
-            this.TbBorc.Size = new System.Drawing.Size(120, 26);
-            this.TbBorc.TabIndex = 62;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(395, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 20);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Borc:";
+            this.BtnUyeDetay.Location = new System.Drawing.Point(399, 94);
+            this.BtnUyeDetay.Name = "BtnUyeDetay";
+            this.BtnUyeDetay.Size = new System.Drawing.Size(168, 58);
+            this.BtnUyeDetay.TabIndex = 12;
+            this.BtnUyeDetay.Text = "Üye Detay";
+            this.BtnUyeDetay.UseVisualStyleBackColor = true;
+            this.BtnUyeDetay.Click += new System.EventHandler(this.BtnUyeDetay_Click);
             // 
             // YoneticiPaneli
             // 
@@ -721,5 +733,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TbBorc;
+        private System.Windows.Forms.Button BtnUyeDetay;
     }
 }

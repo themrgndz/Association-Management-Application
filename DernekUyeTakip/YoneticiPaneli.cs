@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DernekUyeTakip
 {
@@ -117,7 +119,7 @@ namespace DernekUyeTakip
         {
             if (CbBorc2.SelectedItem != null)
             {
-                List<EntityUye> UyeList = LogicUye.LLUyeListesi("Borc", CbBorc2.SelectedItem.ToString());
+                List<EntityUye> UyeList = LogicUye.LLUyeListesi(CbBorc2.SelectedIndex);
                 dataGridView1.DataSource = UyeList;
             }
             else
@@ -172,6 +174,13 @@ namespace DernekUyeTakip
         private void YoneticiPaneli_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnUyeDetay_Click(object sender, EventArgs e)
+        {
+            
+            UyeDetay uyeDetay = new UyeDetay(TbTc.Text);
+            uyeDetay.Show();
         }
     }
 }

@@ -88,3 +88,4 @@ C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekUyeTakip\obj\x64\Debug\D
 C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.csproj.CopyComplete
 C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.exe
 C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.pdb
+C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.UyeDetay.resources

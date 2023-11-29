@@ -15,7 +15,7 @@ namespace DataAccessLayer
         public static List<EntityUye> UyeListesi()
         {
             List<EntityUye> uyeler = new List<EntityUye>();
-            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Uye", Baglanti.dbc)) 
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Uye ORDER BY BORC DESC", Baglanti.dbc)) 
             {
                 try
                 {
@@ -59,6 +59,64 @@ namespace DataAccessLayer
             
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
+        
+        //Bütün üyelerin listesini borç durumuna göre datagridview'e aktarır
+        public static List<EntityUye> UyeListesi(int borc)
+        {
+            string sorgu;
+            if (borc == 0)
+            {
+                sorgu = "SELECT * FROM Uye Where Borc = 0";
+            }
+            else
+            {
+                sorgu = "SELECT * FROM Uye Where Borc > 0 ORDER BY Borc DESC";
+            }
+            List<EntityUye> uyeler = new List<EntityUye>();
+            using (OleDbCommand cmd = new OleDbCommand(sorgu, Baglanti.dbc))
+            {
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUye ent = new EntityUye();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.Ad = dr["Ad"].ToString();
+                        ent.Soyad = dr["Soyad"].ToString();
+                        ent.Yas = int.Parse(dr["Yas"].ToString());
+                        ent.Sehir = dr["Sehir"].ToString();
+                        ent.Sifre = dr["Sifre"].ToString();
+                        ent.KanGrubu = dr["KanGrubu"].ToString();
+                        ent.Borc = int.Parse(dr["Borc"].ToString());
+                        if (bool.Parse(dr["AktifPasif"].ToString()) == true)
+                        {
+                            ent.Aktif_Pasif = true;
+                        }
+                        else
+                        {
+                            ent.Aktif_Pasif = false;
+                        }
+                        uyeler.Add(ent);
+                    }
+                    dr.Close();
+                    return uyeler;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------
+        
+        //Bütün üyelerin listesini istenen sıralamaya durumuna göre datagridview'e aktarır
         public static List<EntityUye> UyeListesi(string Sec, string Deger)
         {
             List<EntityUye> uyeler = new List<EntityUye>();
@@ -111,11 +169,13 @@ namespace DataAccessLayer
             
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
+        
+        //Bütün üyelerin listesini Aktif Pasif durumuna göre datagridview'e aktarır
         public static List<EntityUye> UyeListesi(string Sec, bool Deger)
         {
             List<EntityUye> uyeler = new List<EntityUye>();
 
-            string sorgu = "SELECT * FROM Uye WHERE " + Sec + " = @Deger";
+            string sorgu = "SELECT * FROM Uye WHERE " + Sec + " = @Deger ORDER BY Borc DESC";
 
             using (OleDbCommand cmd = new OleDbCommand(sorgu, Baglanti.dbc))
             {
@@ -163,6 +223,7 @@ namespace DataAccessLayer
 
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
+        
         //Bilgileri girilen üyeyi veritabanına kaydeder
         public static int UyeEkle(EntityUye u)
         {

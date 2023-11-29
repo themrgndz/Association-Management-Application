@@ -10,6 +10,6 @@ namespace DataAccessLayer
     public class Baglanti
     {
         //Her seferinde yeni bir nesne türetmemek için static olarak oluşturuyoruz
-        public static OleDbConnection dbc = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\emrgn\source\repos\DernekUyeTakipApp\DernekTakipDb.accdb");
+        public static OleDbConnection dbc = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\emrgn\OneDrive\Masaüstü\DernekTakipApp\DernekTakipDb.accdb");
     }
 }
