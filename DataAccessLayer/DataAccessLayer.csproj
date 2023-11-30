@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baglanti.cs" />
+    <Compile Include="DALAidat.cs" />
     <Compile Include="DALUye.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

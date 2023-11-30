@@ -391,5 +391,10 @@ namespace DataAccessLayer
                 return dogrulandi;
             }
         }
+
+        public static void AidatGuncelle(int YeniAidat)
+        {
+
+        }
     }
 }

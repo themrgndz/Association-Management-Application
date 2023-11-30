@@ -1,4 +1,5 @@
-﻿using EntityLayer;
+﻿using DataAccessLayer;
+using EntityLayer;
 using LogicLayer;
 using System;
 using System.Collections.Generic;
@@ -188,6 +189,27 @@ namespace DernekUyeTakip
                 MessageBox.Show("Lütfen bir tc değeri giriniz...");
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            // Kullanım örneği
+            DateTime baslangicTarihi = new DateTime(2023, 1, 1);
+            DateTime bitisTarihi = new DateTime(2023, 12, 31);
+            decimal aylikAidatTutari = 100; // Ay başına düşen aidat tutarı
+
+            Dictionary<DateTime, decimal> aidatlar = DALAidat.AidatBelirle(baslangicTarihi, bitisTarihi, aylikAidatTutari);
+
+            // Elde edilen aidatları kullanabilirsiniz
+            foreach (var aidat in aidatlar)
+            {
+                MessageBox.Show($"{aidat.Key.ToString("MMMM yyyy")}: {aidat.Value} TL");
+            }
+
+
+
         }
     }
 }
