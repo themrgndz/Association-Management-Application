@@ -178,9 +178,16 @@ namespace DernekUyeTakip
 
         private void BtnUyeDetay_Click(object sender, EventArgs e)
         {
+            if (TbTc.Text != "")
+            {
+                UyeDetay uyeDetay = new UyeDetay(TbTc.Text);
+                uyeDetay.Show();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir tc değeri giriniz...");
+            }
             
-            UyeDetay uyeDetay = new UyeDetay(TbTc.Text);
-            uyeDetay.Show();
         }
     }
 }

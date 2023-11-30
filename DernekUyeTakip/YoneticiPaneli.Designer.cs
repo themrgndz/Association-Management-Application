@@ -54,6 +54,7 @@
             this.BtnAP2 = new System.Windows.Forms.Button();
             this.BtnBorc2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnUyeDetay = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.TbBorc = new System.Windows.Forms.TextBox();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
@@ -65,11 +66,12 @@
             this.CbSehir2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnUyeDetay = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -366,9 +368,10 @@
             // 
             // BtnListele
             // 
-            this.BtnListele.Location = new System.Drawing.Point(573, 23);
+            this.BtnListele.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnListele.Location = new System.Drawing.Point(399, 92);
             this.BtnListele.Name = "BtnListele";
-            this.BtnListele.Size = new System.Drawing.Size(120, 28);
+            this.BtnListele.Size = new System.Drawing.Size(168, 57);
             this.BtnListele.TabIndex = 8;
             this.BtnListele.Text = "Tüm Üyeleri Listele";
             this.BtnListele.UseVisualStyleBackColor = true;
@@ -445,6 +448,16 @@
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
+            // BtnUyeDetay
+            // 
+            this.BtnUyeDetay.Location = new System.Drawing.Point(573, 25);
+            this.BtnUyeDetay.Name = "BtnUyeDetay";
+            this.BtnUyeDetay.Size = new System.Drawing.Size(120, 28);
+            this.BtnUyeDetay.TabIndex = 12;
+            this.BtnUyeDetay.Text = "Üye Detay";
+            this.BtnUyeDetay.UseVisualStyleBackColor = true;
+            this.BtnUyeDetay.Click += new System.EventHandler(this.BtnUyeDetay_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -469,7 +482,7 @@
             this.CbAktifPasif.AutoSize = true;
             this.CbAktifPasif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CbAktifPasif.ForeColor = System.Drawing.SystemColors.Control;
-            this.CbAktifPasif.Location = new System.Drawing.Point(447, 59);
+            this.CbAktifPasif.Location = new System.Drawing.Point(447, 62);
             this.CbAktifPasif.Name = "CbAktifPasif";
             this.CbAktifPasif.Size = new System.Drawing.Size(99, 24);
             this.CbAktifPasif.TabIndex = 13;
@@ -481,7 +494,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(403, 60);
+            this.label10.Location = new System.Drawing.Point(403, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 20);
             this.label10.TabIndex = 60;
@@ -650,21 +663,23 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Location = new System.Drawing.Point(959, 247);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(289, 430);
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
             // 
-            // BtnUyeDetay
+            // label12
             // 
-            this.BtnUyeDetay.Location = new System.Drawing.Point(399, 94);
-            this.BtnUyeDetay.Name = "BtnUyeDetay";
-            this.BtnUyeDetay.Size = new System.Drawing.Size(168, 58);
-            this.BtnUyeDetay.TabIndex = 12;
-            this.BtnUyeDetay.Text = "Üye Detay";
-            this.BtnUyeDetay.UseVisualStyleBackColor = true;
-            this.BtnUyeDetay.Click += new System.EventHandler(this.BtnUyeDetay_Click);
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Control;
+            this.label12.Location = new System.Drawing.Point(67, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(155, 29);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Aidat Bölümü";
             // 
             // YoneticiPaneli
             // 
@@ -690,6 +705,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -734,5 +751,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TbBorc;
         private System.Windows.Forms.Button BtnUyeDetay;
+        private System.Windows.Forms.Label label12;
     }
 }
