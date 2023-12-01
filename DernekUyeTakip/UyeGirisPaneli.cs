@@ -22,7 +22,7 @@ namespace DernekUyeTakip
             if (DALUye.UyeDogrula(Tb_TcNo.Text.ToString(),Tb_Sifre.Text.ToString()) == true)
             {
                 this.Hide();
-                UyePaneli uyePaneli = new UyePaneli();
+                UyePaneli uyePaneli = new UyePaneli(Tb_TcNo.Text);
                 uyePaneli.Show();
             }
         }

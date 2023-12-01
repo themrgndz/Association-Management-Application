@@ -29,6 +29,8 @@ namespace EntityLayer
 
         private float borc;
 
+        private string kayitTarihi;
+
         //-----------------------------------------------------------------------------
         public string Tc { get => tc; set => tc = value; }
         public string Ad { get => ad; set => ad = value; }
@@ -39,6 +41,7 @@ namespace EntityLayer
         public string KanGrubu { get => kanGrubu; set => kanGrubu = value; }
         public bool Aktif_Pasif { get => aktif_Pasif; set => aktif_Pasif = value; }
         public float Borc { get => borc; set => borc = value; }
+        public string KayitTarihi { get => kayitTarihi; set => kayitTarihi = value; }
 
         //-----------------------------------------------------------------------------
 

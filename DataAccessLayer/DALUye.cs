@@ -37,6 +37,7 @@ namespace DataAccessLayer
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         ent.Borc = int.Parse(dr["Borc"].ToString());
+                        ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
                             ent.Aktif_Pasif = true;
@@ -59,7 +60,56 @@ namespace DataAccessLayer
             
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
-        
+
+        //Tc'si verilen üyenin listesini aktarır
+        public static List<EntityUye> UyeListesi(string tc)
+        {
+            List<EntityUye> uyeler = new List<EntityUye>();
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Uye WHERE Tc = @Tc", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@Tc", tc);
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUye ent = new EntityUye();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.Ad = dr["Ad"].ToString();
+                        ent.Soyad = dr["Soyad"].ToString();
+                        ent.Yas = int.Parse(dr["Yas"].ToString());
+                        ent.Sehir = dr["Sehir"].ToString();
+                        ent.Sifre = dr["Sifre"].ToString();
+                        ent.KanGrubu = dr["KanGrubu"].ToString();
+                        ent.Borc = int.Parse(dr["Borc"].ToString());
+                        ent.KayitTarihi = dr["KayitTarihi"].ToString();
+                        if (bool.Parse(dr["AktifPasif"].ToString()) == true)
+                        {
+                            ent.Aktif_Pasif = true;
+                        }
+                        else
+                        {
+                            ent.Aktif_Pasif = false;
+                        }
+                        uyeler.Add(ent);
+                    }
+                    dr.Close();
+                    return uyeler;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------
+
         //Bütün üyelerin listesini borç durumuna göre datagridview'e aktarır
         public static List<EntityUye> UyeListesi(int borc)
         {
@@ -227,7 +277,7 @@ namespace DataAccessLayer
         //Bilgileri girilen üyeyi veritabanına kaydeder
         public static int UyeEkle(EntityUye u)
         {
-            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,AktifPasif,Borc) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9)", Baglanti.dbc))
+            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,AktifPasif,Borc,KayitTarihi) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9,@P10)", Baglanti.dbc))
             {
                 try
                 {
@@ -245,6 +295,7 @@ namespace DataAccessLayer
                     cmd2.Parameters.AddWithValue("@P7", u.KanGrubu);
                     cmd2.Parameters.AddWithValue("@P8", u.Aktif_Pasif);
                     cmd2.Parameters.AddWithValue("@P9", u.Borc);
+                    cmd2.Parameters.AddWithValue("@P10", u.KayitTarihi);
 
                     return cmd2.ExecuteNonQuery();
                 }
@@ -390,11 +441,6 @@ namespace DataAccessLayer
 
                 return dogrulandi;
             }
-        }
-
-        public static void AidatGuncelle(int YeniAidat)
-        {
-
         }
     }
 }

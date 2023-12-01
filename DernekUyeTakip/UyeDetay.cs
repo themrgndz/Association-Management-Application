@@ -103,26 +103,5 @@ namespace DernekUyeTakip
             zedGraphControl1.AxisChange();
             zedGraphControl1.Invalidate();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-            // Kullanım örneği
-            DateTime baslangicTarihi = new DateTime(2023, 1, 1);
-            DateTime bitisTarihi = new DateTime(2023, 12, 31);
-            decimal aylikAidatTutari = 100; // Ay başına düşen aidat tutarı
-
-            Dictionary<DateTime, decimal> aidatlar = DALAidat.AidatBelirle(baslangicTarihi, bitisTarihi, aylikAidatTutari);
-
-            // Elde edilen aidatları kullanabilirsiniz
-            foreach (var aidat in aidatlar)
-            {
-                MessageBox.Show($"{aidat.Key.ToString("MMMM yyyy")}: {aidat.Value} TL");
-            }
-
-
-
-        }
     }
 }

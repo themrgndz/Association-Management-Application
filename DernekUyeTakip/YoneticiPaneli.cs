@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,6 +40,7 @@ namespace DernekUyeTakip
             ent.Sehir = CbSehir.Text;
             ent.Sifre = TbSifre.Text;
             ent.KanGrubu = CbKanGrubu.Text;
+            ent.KayitTarihi = DateTime.Today.ToString("dd.MM.yyyy");
 
             LogicUye.LLUyeEkle(ent);
             BtnListele_Click(sender, e);
@@ -64,7 +66,6 @@ namespace DernekUyeTakip
             ent.Sifre = TbSifre.Text;
             ent.KanGrubu = CbKanGrubu.Text;
             ent.Aktif_Pasif = CbAktifPasif.Checked;
-            ent.Borc = float.Parse(TbBorc.Text);
             LogicUye.LLUyeGuncelle(ent);
             BtnListele_Click(sender, e);
         }
@@ -151,7 +152,6 @@ namespace DernekUyeTakip
                 string ap = row.Cells["Aktif_Pasif"].Value.ToString();
                 string borc = row.Cells["Borc"].Value.ToString();
 
-
                 // TextBox'lara atama kısmı
                 TbTc.Text = tc;
                 TbAd.Text = ad;
@@ -160,7 +160,7 @@ namespace DernekUyeTakip
                 CbSehir.Text = sehir;
                 TbSifre.Text = sifre;
                 CbKanGrubu.Text = kanGrubu;
-                TbBorc.Text = borc;
+                LblBorc.Text = borc + "₺";
                 if (ap == "True")
                 {
                     CbAktifPasif.Checked = true;
@@ -191,25 +191,17 @@ namespace DernekUyeTakip
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnSifirla_Click(object sender, EventArgs e)
         {
-
-
-            // Kullanım örneği
-            DateTime baslangicTarihi = new DateTime(2023, 1, 1);
-            DateTime bitisTarihi = new DateTime(2023, 12, 31);
-            decimal aylikAidatTutari = 100; // Ay başına düşen aidat tutarı
-
-            Dictionary<DateTime, decimal> aidatlar = DALAidat.AidatBelirle(baslangicTarihi, bitisTarihi, aylikAidatTutari);
-
-            // Elde edilen aidatları kullanabilirsiniz
-            foreach (var aidat in aidatlar)
-            {
-                MessageBox.Show($"{aidat.Key.ToString("MMMM yyyy")}: {aidat.Value} TL");
-            }
-
-
-
+            TbTc.Text = "";
+            TbAd.Text = "";
+            TbSoyad.Text = "";
+            TbYas.Text = "";
+            CbSehir.Text = "";
+            TbSifre.Text = "";
+            CbKanGrubu.Text = "";
+            LblBorc.Text = "";
+            CbAktifPasif.Checked = false;
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnSil = new System.Windows.Forms.Button();
@@ -54,9 +56,8 @@
             this.BtnAP2 = new System.Windows.Forms.Button();
             this.BtnBorc2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnUyeDetay = new System.Windows.Forms.Button();
+            this.LblBorc = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.TbBorc = new System.Windows.Forms.TextBox();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -67,11 +68,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnSifirla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,12 +81,34 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 65);
             this.panel1.TabIndex = 64;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DernekUyeTakip.Properties.Resources.users_alt;
+            this.pictureBox2.Location = new System.Drawing.Point(434, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(42, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 31;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DernekUyeTakip.Properties.Resources.users_alt;
+            this.pictureBox1.Location = new System.Drawing.Point(784, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 39);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -102,22 +124,22 @@
             // BtnGuncelle
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnGuncelle.Location = new System.Drawing.Point(573, 124);
+            this.BtnGuncelle.Location = new System.Drawing.Point(573, 120);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(120, 28);
             this.BtnGuncelle.TabIndex = 11;
-            this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Text = "Uye Güncelle";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnSil.Location = new System.Drawing.Point(573, 91);
+            this.BtnSil.Location = new System.Drawing.Point(573, 75);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(120, 28);
             this.BtnSil.TabIndex = 10;
-            this.BtnSil.Text = "Sil";
+            this.BtnSil.Text = "Uye Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
             this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
@@ -232,11 +254,11 @@
             // 
             // BtnEkle
             // 
-            this.BtnEkle.Location = new System.Drawing.Point(573, 57);
+            this.BtnEkle.Location = new System.Drawing.Point(573, 30);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(120, 28);
             this.BtnEkle.TabIndex = 9;
-            this.BtnEkle.Text = "Ekle";
+            this.BtnEkle.Text = "Uye Ekle";
             this.BtnEkle.UseVisualStyleBackColor = true;
             this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
@@ -343,11 +365,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 247);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(953, 430);
+            this.dataGridView1.RowHeadersWidth = 46;
+            this.dataGridView1.Size = new System.Drawing.Size(848, 430);
             this.dataGridView1.TabIndex = 48;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -423,9 +448,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BtnUyeDetay);
+            this.groupBox1.Controls.Add(this.BtnSifirla);
+            this.groupBox1.Controls.Add(this.LblBorc);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.TbBorc);
             this.groupBox1.Controls.Add(this.CbAktifPasif);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
@@ -452,15 +477,16 @@
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
-            // BtnUyeDetay
+            // LblBorc
             // 
-            this.BtnUyeDetay.Location = new System.Drawing.Point(573, 25);
-            this.BtnUyeDetay.Name = "BtnUyeDetay";
-            this.BtnUyeDetay.Size = new System.Drawing.Size(120, 28);
-            this.BtnUyeDetay.TabIndex = 12;
-            this.BtnUyeDetay.Text = "Üye Detay";
-            this.BtnUyeDetay.UseVisualStyleBackColor = true;
-            this.BtnUyeDetay.Click += new System.EventHandler(this.BtnUyeDetay_Click);
+            this.LblBorc.AutoSize = true;
+            this.LblBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBorc.ForeColor = System.Drawing.SystemColors.Control;
+            this.LblBorc.Location = new System.Drawing.Point(443, 28);
+            this.LblBorc.Name = "LblBorc";
+            this.LblBorc.Size = new System.Drawing.Size(123, 24);
+            this.LblBorc.TabIndex = 64;
+            this.LblBorc.Text = "Borc Miktarı ₺";
             // 
             // label11
             // 
@@ -472,14 +498,6 @@
             this.label11.Size = new System.Drawing.Size(46, 20);
             this.label11.TabIndex = 63;
             this.label11.Text = "Borc:";
-            // 
-            // TbBorc
-            // 
-            this.TbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbBorc.Location = new System.Drawing.Point(447, 25);
-            this.TbBorc.Name = "TbBorc";
-            this.TbBorc.Size = new System.Drawing.Size(120, 26);
-            this.TbBorc.TabIndex = 7;
             // 
             // CbAktifPasif
             // 
@@ -667,14 +685,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(959, 247);
+            this.groupBox3.Location = new System.Drawing.Point(854, 247);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(289, 430);
+            this.groupBox3.Size = new System.Drawing.Size(394, 430);
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
             // 
@@ -683,48 +697,21 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(67, 30);
+            this.label12.Location = new System.Drawing.Point(120, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 29);
             this.label12.TabIndex = 1;
             this.label12.Text = "Aidat Bölümü";
             // 
-            // button1
+            // BtnSifirla
             // 
-            this.button1.Location = new System.Drawing.Point(26, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 28);
-            this.button1.TabIndex = 68;
-            this.button1.Text = "Aidat Belirle";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(26, 116);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 28);
-            this.button2.TabIndex = 69;
-            this.button2.Text = "Gelir Tablosu";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(26, 150);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 28);
-            this.button3.TabIndex = 70;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(26, 184);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 28);
-            this.button4.TabIndex = 71;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
+            this.BtnSifirla.Name = "BtnSifirla";
+            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
+            this.BtnSifirla.TabIndex = 68;
+            this.BtnSifirla.Text = "Sıfırla";
+            this.BtnSifirla.UseVisualStyleBackColor = true;
+            this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
             // 
             // YoneticiPaneli
             // 
@@ -745,6 +732,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.YoneticiPaneli_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -794,12 +783,10 @@
         private System.Windows.Forms.CheckBox CbAktifPasif;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TbBorc;
-        private System.Windows.Forms.Button BtnUyeDetay;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label LblBorc;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button BtnSifirla;
     }
 }

@@ -47,7 +47,6 @@
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -225,7 +224,6 @@
             this.groupBox1.Size = new System.Drawing.Size(360, 217);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // zedGraphControl1
             // 
@@ -263,16 +261,6 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Şehirlere göre üye dağılımı";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(467, 138);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 42);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // UyeDetay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,7 +268,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -319,6 +306,5 @@
         private ZedGraph.ZedGraphControl zedGraphControl1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
     }
 }
