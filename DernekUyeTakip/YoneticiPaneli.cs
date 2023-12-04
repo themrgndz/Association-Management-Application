@@ -203,5 +203,12 @@ namespace DernekUyeTakip
             LblBorc.Text = "";
             CbAktifPasif.Checked = false;
         }
+
+        Giris g = new Giris();
+        private void BtnGuvenliCikis_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            g.Show();
+        }
     }
 }
