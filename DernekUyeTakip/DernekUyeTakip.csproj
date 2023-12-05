@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aidat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aidat.Designer.cs">
+      <DependentUpon>Aidat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Giris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <Compile Include="YoneticiPaneli.Designer.cs">
       <DependentUpon>YoneticiPaneli.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aidat.resx">
+      <DependentUpon>Aidat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Giris.resx">
       <DependentUpon>Giris.cs</DependentUpon>
     </EmbeddedResource>

@@ -71,6 +71,8 @@
             this.BtnUyeGiris.Text = "Üye Giriş";
             this.BtnUyeGiris.UseVisualStyleBackColor = true;
             this.BtnUyeGiris.Click += new System.EventHandler(this.BtnUyeGiris_Click);
+            this.BtnUyeGiris.MouseEnter += new System.EventHandler(this.BtnUyeGiris_MouseEnter);
+            this.BtnUyeGiris.MouseLeave += new System.EventHandler(this.BtnUyeGiris_MouseLeave);
             // 
             // BtnYoneticiGiris
             // 
@@ -82,6 +84,8 @@
             this.BtnYoneticiGiris.Text = "Yönetici Giriş";
             this.BtnYoneticiGiris.UseVisualStyleBackColor = true;
             this.BtnYoneticiGiris.Click += new System.EventHandler(this.BtnYoneticiGiris_Click);
+            this.BtnYoneticiGiris.MouseEnter += new System.EventHandler(this.BtnYoneticiGiris_MouseEnter);
+            this.BtnYoneticiGiris.MouseLeave += new System.EventHandler(this.BtnYoneticiGiris_MouseLeave);
             // 
             // panel3
             // 
@@ -105,7 +109,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
+            this.button1.Text = "Kestirme";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -121,6 +125,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Giris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";

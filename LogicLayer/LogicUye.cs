@@ -15,10 +15,6 @@ namespace LogicLayer
         {
             return DALUye.UyeListesi();
         }
-        public static List<EntityUye> LLUyeListesi(int borc)
-        {
-            return DALUye.UyeListesi(borc);
-        }
 
         public static List<EntityUye> LLUyeListesi(string Sec, string deger)
         {

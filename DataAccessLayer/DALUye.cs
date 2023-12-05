@@ -15,7 +15,7 @@ namespace DataAccessLayer
         public static List<EntityUye> UyeListesi()
         {
             List<EntityUye> uyeler = new List<EntityUye>();
-            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Uye ORDER BY BORC DESC", Baglanti.dbc)) 
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Uye", Baglanti.dbc)) 
             {
                 try
                 {
@@ -36,7 +36,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Borc = int.Parse(dr["Borc"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -87,7 +86,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Borc = int.Parse(dr["Borc"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -110,62 +108,6 @@ namespace DataAccessLayer
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
 
-        //Bütün üyelerin listesini borç durumuna göre datagridview'e aktarır
-        public static List<EntityUye> UyeListesi(int borc)
-        {
-            string sorgu;
-            if (borc == 0)
-            {
-                sorgu = "SELECT * FROM Uye Where Borc = 0";
-            }
-            else
-            {
-                sorgu = "SELECT * FROM Uye Where Borc > 0 ORDER BY Borc DESC";
-            }
-            List<EntityUye> uyeler = new List<EntityUye>();
-            using (OleDbCommand cmd = new OleDbCommand(sorgu, Baglanti.dbc))
-            {
-                try
-                {
-                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
-                    if (cmd.Connection.State != ConnectionState.Open)
-                    {
-                        cmd.Connection.Open();
-                    }
-                    OleDbDataReader dr = cmd.ExecuteReader();
-                    //Veritabanından bütün verileri çekiyoruz.
-                    while (dr.Read())
-                    {
-                        EntityUye ent = new EntityUye();
-                        ent.Tc = dr["Tc"].ToString();
-                        ent.Ad = dr["Ad"].ToString();
-                        ent.Soyad = dr["Soyad"].ToString();
-                        ent.Yas = int.Parse(dr["Yas"].ToString());
-                        ent.Sehir = dr["Sehir"].ToString();
-                        ent.Sifre = dr["Sifre"].ToString();
-                        ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Borc = int.Parse(dr["Borc"].ToString());
-                        if (bool.Parse(dr["AktifPasif"].ToString()) == true)
-                        {
-                            ent.Aktif_Pasif = true;
-                        }
-                        else
-                        {
-                            ent.Aktif_Pasif = false;
-                        }
-                        uyeler.Add(ent);
-                    }
-                    dr.Close();
-                    return uyeler;
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
-        //--------------------------------------------------------------------------------------------------------------------------------------
-        
         //Bütün üyelerin listesini istenen sıralamaya durumuna göre datagridview'e aktarır
         public static List<EntityUye> UyeListesi(string Sec, string Deger)
         {
@@ -196,7 +138,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Borc = int.Parse(dr["Borc"].ToString());
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
                             ent.Aktif_Pasif = true;
@@ -225,7 +166,7 @@ namespace DataAccessLayer
         {
             List<EntityUye> uyeler = new List<EntityUye>();
 
-            string sorgu = "SELECT * FROM Uye WHERE " + Sec + " = @Deger ORDER BY Borc DESC";
+            string sorgu = "SELECT * FROM Uye WHERE " + Sec + " = @Deger";
 
             using (OleDbCommand cmd = new OleDbCommand(sorgu, Baglanti.dbc))
             {
@@ -250,7 +191,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Borc = int.Parse(dr["Borc"].ToString());
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
                             ent.Aktif_Pasif = true;
@@ -277,7 +217,7 @@ namespace DataAccessLayer
         //Bilgileri girilen üyeyi veritabanına kaydeder
         public static int UyeEkle(EntityUye u)
         {
-            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,AktifPasif,Borc,KayitTarihi) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9,@P10)", Baglanti.dbc))
+            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,AktifPasif,KayitTarihi) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9)", Baglanti.dbc))
             {
                 try
                 {
@@ -294,8 +234,7 @@ namespace DataAccessLayer
                     cmd2.Parameters.AddWithValue("@P6", u.Sifre);
                     cmd2.Parameters.AddWithValue("@P7", u.KanGrubu);
                     cmd2.Parameters.AddWithValue("@P8", u.Aktif_Pasif);
-                    cmd2.Parameters.AddWithValue("@P9", u.Borc);
-                    cmd2.Parameters.AddWithValue("@P10", u.KayitTarihi);
+                    cmd2.Parameters.AddWithValue("@P9", u.KayitTarihi);
 
                     return cmd2.ExecuteNonQuery();
                 }
@@ -336,7 +275,7 @@ namespace DataAccessLayer
         //Tc'si girilen üyeyi günceller
         public static bool UyeGuncelle(EntityUye ent)
         {
-            using (OleDbCommand cmd4 = new OleDbCommand("UPDATE Uye SET Ad = @P1, Soyad = @P2, Yas = @P3, Sehir = @P4, Sifre = @P5, KanGrubu = @P6, AktifPasif = @P7, Borc = @P8 WHERE Tc = @P9", Baglanti.dbc))
+            using (OleDbCommand cmd4 = new OleDbCommand("UPDATE Uye SET Ad = @P1, Soyad = @P2, Yas = @P3, Sehir = @P4, Sifre = @P5, KanGrubu = @P6, AktifPasif = @P7 WHERE Tc = @P8", Baglanti.dbc))
             {
                 try
                 {
@@ -351,8 +290,7 @@ namespace DataAccessLayer
                     cmd4.Parameters.AddWithValue("@P5", ent.Sifre);
                     cmd4.Parameters.AddWithValue("@P6", ent.KanGrubu);
                     cmd4.Parameters.AddWithValue("@P7", ent.Aktif_Pasif);
-                    cmd4.Parameters.AddWithValue("@P8", ent.Borc);
-                    cmd4.Parameters.AddWithValue("@P9", ent.Tc);
+                    cmd4.Parameters.AddWithValue("@P8", ent.Tc);
 
                     return cmd4.ExecuteNonQuery() > 0;
                 }

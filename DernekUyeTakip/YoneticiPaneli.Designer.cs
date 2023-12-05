@@ -54,21 +54,18 @@
             this.BtnKanGrubu2 = new System.Windows.Forms.Button();
             this.BtnSehir2 = new System.Windows.Forms.Button();
             this.BtnAP2 = new System.Windows.Forms.Button();
-            this.BtnBorc2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LblBorc = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.BtnSifirla = new System.Windows.Forms.Button();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.CbBorc2 = new System.Windows.Forms.ComboBox();
             this.CbAktifPasif2 = new System.Windows.Forms.ComboBox();
             this.CbKanGrubu2 = new System.Windows.Forms.ComboBox();
             this.CbSehir2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnAidatBelirle = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnSifirla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -124,7 +121,7 @@
             // BtnGuncelle
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnGuncelle.Location = new System.Drawing.Point(573, 120);
+            this.BtnGuncelle.Location = new System.Drawing.Point(632, 121);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(120, 28);
             this.BtnGuncelle.TabIndex = 11;
@@ -135,7 +132,7 @@
             // BtnSil
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnSil.Location = new System.Drawing.Point(573, 75);
+            this.BtnSil.Location = new System.Drawing.Point(632, 74);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(120, 28);
             this.BtnSil.TabIndex = 10;
@@ -229,7 +226,7 @@
             "Yalova",
             "Yozgat",
             "Zonguldak"});
-            this.CbSehir.Location = new System.Drawing.Point(282, 57);
+            this.CbSehir.Location = new System.Drawing.Point(302, 57);
             this.CbSehir.Name = "CbSehir";
             this.CbSehir.Size = new System.Drawing.Size(107, 28);
             this.CbSehir.TabIndex = 4;
@@ -247,14 +244,14 @@
             "AB Rh-",
             "0 Rh+",
             "0 Rh-"});
-            this.CbKanGrubu.Location = new System.Drawing.Point(282, 124);
+            this.CbKanGrubu.Location = new System.Drawing.Point(302, 124);
             this.CbKanGrubu.Name = "CbKanGrubu";
             this.CbKanGrubu.Size = new System.Drawing.Size(107, 28);
             this.CbKanGrubu.TabIndex = 6;
             // 
             // BtnEkle
             // 
-            this.BtnEkle.Location = new System.Drawing.Point(573, 30);
+            this.BtnEkle.Location = new System.Drawing.Point(632, 27);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(120, 28);
             this.BtnEkle.TabIndex = 9;
@@ -267,7 +264,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(190, 129);
+            this.label7.Location = new System.Drawing.Point(210, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 58;
@@ -278,7 +275,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(230, 97);
+            this.label6.Location = new System.Drawing.Point(250, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
             this.label6.TabIndex = 57;
@@ -287,7 +284,7 @@
             // TbSifre
             // 
             this.TbSifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbSifre.Location = new System.Drawing.Point(282, 92);
+            this.TbSifre.Location = new System.Drawing.Point(302, 92);
             this.TbSifre.Name = "TbSifre";
             this.TbSifre.PasswordChar = '*';
             this.TbSifre.Size = new System.Drawing.Size(107, 26);
@@ -298,7 +295,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(226, 62);
+            this.label5.Location = new System.Drawing.Point(246, 62);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 55;
@@ -309,7 +306,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(235, 30);
+            this.label4.Location = new System.Drawing.Point(255, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 54;
@@ -318,7 +315,7 @@
             // TbYas
             // 
             this.TbYas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbYas.Location = new System.Drawing.Point(282, 25);
+            this.TbYas.Location = new System.Drawing.Point(302, 25);
             this.TbYas.Name = "TbYas";
             this.TbYas.Size = new System.Drawing.Size(107, 26);
             this.TbYas.TabIndex = 3;
@@ -398,9 +395,9 @@
             // BtnListele
             // 
             this.BtnListele.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListele.Location = new System.Drawing.Point(399, 92);
+            this.BtnListele.Location = new System.Drawing.Point(434, 53);
             this.BtnListele.Name = "BtnListele";
-            this.BtnListele.Size = new System.Drawing.Size(168, 57);
+            this.BtnListele.Size = new System.Drawing.Size(168, 99);
             this.BtnListele.TabIndex = 8;
             this.BtnListele.Text = "Tüm Üyeleri Listele";
             this.BtnListele.UseVisualStyleBackColor = true;
@@ -408,7 +405,7 @@
             // 
             // BtnKanGrubu2
             // 
-            this.BtnKanGrubu2.Location = new System.Drawing.Point(6, 101);
+            this.BtnKanGrubu2.Location = new System.Drawing.Point(35, 101);
             this.BtnKanGrubu2.Name = "BtnKanGrubu2";
             this.BtnKanGrubu2.Size = new System.Drawing.Size(125, 28);
             this.BtnKanGrubu2.TabIndex = 18;
@@ -418,7 +415,7 @@
             // 
             // BtnSehir2
             // 
-            this.BtnSehir2.Location = new System.Drawing.Point(137, 101);
+            this.BtnSehir2.Location = new System.Drawing.Point(176, 101);
             this.BtnSehir2.Name = "BtnSehir2";
             this.BtnSehir2.Size = new System.Drawing.Size(125, 28);
             this.BtnSehir2.TabIndex = 19;
@@ -428,7 +425,7 @@
             // 
             // BtnAP2
             // 
-            this.BtnAP2.Location = new System.Drawing.Point(268, 101);
+            this.BtnAP2.Location = new System.Drawing.Point(317, 101);
             this.BtnAP2.Name = "BtnAP2";
             this.BtnAP2.Size = new System.Drawing.Size(125, 28);
             this.BtnAP2.TabIndex = 20;
@@ -436,21 +433,9 @@
             this.BtnAP2.UseVisualStyleBackColor = true;
             this.BtnAP2.Click += new System.EventHandler(this.BtnAP2_Click);
             // 
-            // BtnBorc2
-            // 
-            this.BtnBorc2.Location = new System.Drawing.Point(399, 101);
-            this.BtnBorc2.Name = "BtnBorc2";
-            this.BtnBorc2.Size = new System.Drawing.Size(125, 28);
-            this.BtnBorc2.TabIndex = 21;
-            this.BtnBorc2.Text = "Borç";
-            this.BtnBorc2.UseVisualStyleBackColor = true;
-            this.BtnBorc2.Click += new System.EventHandler(this.BtnBorc2_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.BtnSifirla);
-            this.groupBox1.Controls.Add(this.LblBorc);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.CbAktifPasif);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
@@ -471,40 +456,28 @@
             this.groupBox1.Controls.Add(this.CbKanGrubu);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(12, 71);
+            this.groupBox1.Location = new System.Drawing.Point(0, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(699, 170);
+            this.groupBox1.Size = new System.Drawing.Size(778, 170);
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
-            // LblBorc
+            // BtnSifirla
             // 
-            this.LblBorc.AutoSize = true;
-            this.LblBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblBorc.ForeColor = System.Drawing.SystemColors.Control;
-            this.LblBorc.Location = new System.Drawing.Point(443, 28);
-            this.LblBorc.Name = "LblBorc";
-            this.LblBorc.Size = new System.Drawing.Size(123, 24);
-            this.LblBorc.TabIndex = 64;
-            this.LblBorc.Text = "Borc Miktarı ₺";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(395, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 20);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Borc:";
+            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
+            this.BtnSifirla.Name = "BtnSifirla";
+            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
+            this.BtnSifirla.TabIndex = 68;
+            this.BtnSifirla.Text = "Sıfırla";
+            this.BtnSifirla.UseVisualStyleBackColor = true;
+            this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
             // 
             // CbAktifPasif
             // 
             this.CbAktifPasif.AutoSize = true;
             this.CbAktifPasif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CbAktifPasif.ForeColor = System.Drawing.SystemColors.Control;
-            this.CbAktifPasif.Location = new System.Drawing.Point(447, 62);
+            this.CbAktifPasif.Location = new System.Drawing.Point(482, 23);
             this.CbAktifPasif.Name = "CbAktifPasif";
             this.CbAktifPasif.Size = new System.Drawing.Size(99, 24);
             this.CbAktifPasif.TabIndex = 13;
@@ -516,7 +489,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(403, 63);
+            this.label10.Location = new System.Drawing.Point(438, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 20);
             this.label10.TabIndex = 60;
@@ -524,32 +497,18 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.CbBorc2);
             this.groupBox2.Controls.Add(this.CbAktifPasif2);
             this.groupBox2.Controls.Add(this.CbKanGrubu2);
             this.groupBox2.Controls.Add(this.CbSehir2);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.BtnKanGrubu2);
-            this.groupBox2.Controls.Add(this.BtnBorc2);
             this.groupBox2.Controls.Add(this.BtnAP2);
             this.groupBox2.Controls.Add(this.BtnSehir2);
-            this.groupBox2.Location = new System.Drawing.Point(717, 71);
+            this.groupBox2.Location = new System.Drawing.Point(784, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(531, 170);
+            this.groupBox2.Size = new System.Drawing.Size(476, 170);
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
-            // 
-            // CbBorc2
-            // 
-            this.CbBorc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CbBorc2.FormattingEnabled = true;
-            this.CbBorc2.Items.AddRange(new object[] {
-            "Yok",
-            "Var"});
-            this.CbBorc2.Location = new System.Drawing.Point(399, 67);
-            this.CbBorc2.Name = "CbBorc2";
-            this.CbBorc2.Size = new System.Drawing.Size(125, 28);
-            this.CbBorc2.TabIndex = 17;
             // 
             // CbAktifPasif2
             // 
@@ -558,7 +517,7 @@
             this.CbAktifPasif2.Items.AddRange(new object[] {
             "Pasif",
             "Aktif"});
-            this.CbAktifPasif2.Location = new System.Drawing.Point(268, 67);
+            this.CbAktifPasif2.Location = new System.Drawing.Point(317, 67);
             this.CbAktifPasif2.Name = "CbAktifPasif2";
             this.CbAktifPasif2.Size = new System.Drawing.Size(125, 28);
             this.CbAktifPasif2.TabIndex = 16;
@@ -576,7 +535,7 @@
             "AB Rh-",
             "0 Rh+",
             "0 Rh-"});
-            this.CbKanGrubu2.Location = new System.Drawing.Point(6, 67);
+            this.CbKanGrubu2.Location = new System.Drawing.Point(35, 67);
             this.CbKanGrubu2.Name = "CbKanGrubu2";
             this.CbKanGrubu2.Size = new System.Drawing.Size(125, 28);
             this.CbKanGrubu2.TabIndex = 14;
@@ -667,7 +626,7 @@
             "Yalova",
             "Yozgat",
             "Zonguldak"});
-            this.CbSehir2.Location = new System.Drawing.Point(137, 67);
+            this.CbSehir2.Location = new System.Drawing.Point(176, 67);
             this.CbSehir2.Name = "CbSehir2";
             this.CbSehir2.Size = new System.Drawing.Size(125, 28);
             this.CbSehir2.TabIndex = 15;
@@ -677,7 +636,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(114, 18);
+            this.label9.Location = new System.Drawing.Point(91, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(290, 29);
             this.label9.TabIndex = 19;
@@ -685,12 +644,23 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.BtnAidatBelirle);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Location = new System.Drawing.Point(854, 247);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(394, 430);
+            this.groupBox3.Size = new System.Drawing.Size(406, 430);
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
+            // 
+            // BtnAidatBelirle
+            // 
+            this.BtnAidatBelirle.Location = new System.Drawing.Point(130, 85);
+            this.BtnAidatBelirle.Name = "BtnAidatBelirle";
+            this.BtnAidatBelirle.Size = new System.Drawing.Size(135, 41);
+            this.BtnAidatBelirle.TabIndex = 68;
+            this.BtnAidatBelirle.Text = "Aidat Belirle";
+            this.BtnAidatBelirle.UseVisualStyleBackColor = true;
+            this.BtnAidatBelirle.Click += new System.EventHandler(this.BtnAidatBelirle_Click);
             // 
             // label12
             // 
@@ -702,16 +672,6 @@
             this.label12.Size = new System.Drawing.Size(155, 29);
             this.label12.TabIndex = 1;
             this.label12.Text = "Aidat Bölümü";
-            // 
-            // BtnSifirla
-            // 
-            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
-            this.BtnSifirla.Name = "BtnSifirla";
-            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
-            this.BtnSifirla.TabIndex = 68;
-            this.BtnSifirla.Text = "Sıfırla";
-            this.BtnSifirla.UseVisualStyleBackColor = true;
-            this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
             // 
             // YoneticiPaneli
             // 
@@ -726,6 +686,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "YoneticiPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YoneticiPaneli";
@@ -771,22 +733,19 @@
         private System.Windows.Forms.Button BtnKanGrubu2;
         private System.Windows.Forms.Button BtnSehir2;
         private System.Windows.Forms.Button BtnAP2;
-        private System.Windows.Forms.Button BtnBorc2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox CbBorc2;
         private System.Windows.Forms.ComboBox CbAktifPasif2;
         private System.Windows.Forms.ComboBox CbKanGrubu2;
         private System.Windows.Forms.ComboBox CbSehir2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox CbAktifPasif;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label LblBorc;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button BtnSifirla;
+        private System.Windows.Forms.Button BtnAidatBelirle;
     }
 }

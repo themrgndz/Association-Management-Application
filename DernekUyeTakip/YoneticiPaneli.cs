@@ -117,20 +117,6 @@ namespace DernekUyeTakip
             
         }
         
-        private void BtnBorc2_Click(object sender, EventArgs e)
-        {
-            if (CbBorc2.SelectedItem != null)
-            {
-                List<EntityUye> UyeList = LogicUye.LLUyeListesi(CbBorc2.SelectedIndex);
-                dataGridView1.DataSource = UyeList;
-            }
-            else
-            {
-                MessageBox.Show("Lütfen listedeki değerleri seçin");
-            }
-            
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Seçili satırın indeksi
@@ -150,7 +136,6 @@ namespace DernekUyeTakip
                 string sifre = row.Cells["Sifre"].Value.ToString();
                 string kanGrubu = row.Cells["KanGrubu"].Value.ToString();
                 string ap = row.Cells["Aktif_Pasif"].Value.ToString();
-                string borc = row.Cells["Borc"].Value.ToString();
 
                 // TextBox'lara atama kısmı
                 TbTc.Text = tc;
@@ -160,7 +145,6 @@ namespace DernekUyeTakip
                 CbSehir.Text = sehir;
                 TbSifre.Text = sifre;
                 CbKanGrubu.Text = kanGrubu;
-                LblBorc.Text = borc + "₺";
                 if (ap == "True")
                 {
                     CbAktifPasif.Checked = true;
@@ -200,8 +184,14 @@ namespace DernekUyeTakip
             CbSehir.Text = "";
             TbSifre.Text = "";
             CbKanGrubu.Text = "";
-            LblBorc.Text = "";
             CbAktifPasif.Checked = false;
+        }
+
+        private void BtnAidatBelirle_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Aidat aidat = new Aidat();
+            aidat.Show();
         }
     }
 }
