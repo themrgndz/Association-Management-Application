@@ -56,7 +56,6 @@
             this.BtnAP2 = new System.Windows.Forms.Button();
             this.BtnBorc2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnSifirla = new System.Windows.Forms.Button();
             this.LblBorc = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
@@ -69,7 +68,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnGuvenliCikis = new System.Windows.Forms.Button();
+            this.BtnSifirla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +81,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.BtnGuvenliCikis);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
@@ -479,16 +477,6 @@
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
-            // BtnSifirla
-            // 
-            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
-            this.BtnSifirla.Name = "BtnSifirla";
-            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
-            this.BtnSifirla.TabIndex = 68;
-            this.BtnSifirla.Text = "Sıfırla";
-            this.BtnSifirla.UseVisualStyleBackColor = true;
-            this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
-            // 
             // LblBorc
             // 
             this.LblBorc.AutoSize = true;
@@ -715,15 +703,15 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Aidat Bölümü";
             // 
-            // BtnGuvenliCikis
+            // BtnSifirla
             // 
-            this.BtnGuvenliCikis.Location = new System.Drawing.Point(1116, 12);
-            this.BtnGuvenliCikis.Name = "BtnGuvenliCikis";
-            this.BtnGuvenliCikis.Size = new System.Drawing.Size(132, 39);
-            this.BtnGuvenliCikis.TabIndex = 68;
-            this.BtnGuvenliCikis.Text = "Güvenli Çıkış";
-            this.BtnGuvenliCikis.UseVisualStyleBackColor = true;
-            this.BtnGuvenliCikis.Click += new System.EventHandler(this.BtnGuvenliCikis_Click);
+            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
+            this.BtnSifirla.Name = "BtnSifirla";
+            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
+            this.BtnSifirla.TabIndex = 68;
+            this.BtnSifirla.Text = "Sıfırla";
+            this.BtnSifirla.UseVisualStyleBackColor = true;
+            this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
             // 
             // YoneticiPaneli
             // 
@@ -800,6 +788,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button BtnSifirla;
-        private System.Windows.Forms.Button BtnGuvenliCikis;
     }
 }
