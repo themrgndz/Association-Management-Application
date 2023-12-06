@@ -28,7 +28,6 @@ namespace DernekUyeTakip
                 textBox3.Text = uyeler[0].Yas.ToString();
                 textBox4.Text = uyeler[0].Sehir;
                 textBox5.Text = uyeler[0].KanGrubu;
-                textBox6.Text = uyeler[0].Borc.ToString();
                 textBox7.Text = uyeler[0].KayitTarihi.ToString();
                 textBox8.Text = uyeler[0].Aktif_Pasif ? "Aktif" : "Pasif";
             }

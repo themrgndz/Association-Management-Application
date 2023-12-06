@@ -118,14 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Merhaba,
+    <value>Değerli üyemiz,
 
-Bu mesajla size bu dönemin aidatını hatırlatmak istiyoruz. Aylık aidat miktarı aşağıda belirtilmiştir. Ödemelerinizi ay sonuna kadar yapmanız önemlidir.
+Bu mesajla size bu dönemin aidatını hatırlatmak istiyoruz. Ödemelerinizi aylık süreçte yapmanız önemlidir.
 
 Katılımınız ve desteklerinizle derneğimiz, topluma daha fazla hizmet etme fırsatı bulacaktır. Sorularınız veya yardım ihtiyaçlarınız için bize her zaman ulaşabilirsiniz.
 
-Teşekkür ederiz...
-
-Aidat tutarı: </value>
+Teşekkür ederiz...</value>
   </data>
 </root>

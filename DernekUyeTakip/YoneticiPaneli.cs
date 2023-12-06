@@ -23,12 +23,18 @@ namespace DernekUyeTakip
             InitializeComponent();
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Listele butonuna basıldığında DataGridView'e tüm verileri çeker
         private void BtnListele_Click(object sender, EventArgs e)
         {
             List<EntityUye> UyeList = LogicUye.LLUyeListesi();
             dataGridView1.DataSource = UyeList;
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Ekle butonuna basıldığında verileri girilen üyeyi veritabanına ekliyor
         private void BtnEkle_Click(object sender, EventArgs e)
         {
             EntityUye ent = new EntityUye();
@@ -40,12 +46,17 @@ namespace DernekUyeTakip
             ent.Sehir = CbSehir.Text;
             ent.Sifre = TbSifre.Text;
             ent.KanGrubu = CbKanGrubu.Text;
+            ent.Eposta = TbEposta.Text;
+            ent.Aktif_Pasif = CbAktifPasif.Checked;
             ent.KayitTarihi = DateTime.Today.ToString("dd.MM.yyyy");
 
             LogicUye.LLUyeEkle(ent);
             BtnListele_Click(sender, e);
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Sil butonuna basıldığında Tc'si girilen veriyi veritabanından siliyor
         private void BtnSil_Click(object sender, EventArgs e)
         {
             EntityUye ent = new EntityUye();
@@ -54,6 +65,9 @@ namespace DernekUyeTakip
             BtnListele_Click(sender, e);
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Güncelle butonuna basıldığında Tc'si verilen üyenin bilgilerini textboxlara girilen verilerle güncelliyor
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
             EntityUye ent = new EntityUye();
@@ -64,12 +78,16 @@ namespace DernekUyeTakip
             ent.Yas = int.Parse(TbYas.Text);
             ent.Sehir = CbSehir.Text;
             ent.Sifre = TbSifre.Text;
+            ent.Eposta = TbEposta.Text;
             ent.KanGrubu = CbKanGrubu.Text;
             ent.Aktif_Pasif = CbAktifPasif.Checked;
             LogicUye.LLUyeGuncelle(ent);
             BtnListele_Click(sender, e);
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Seçilen kan grubuna göre DataGridView'deki verileri filtreliyor
         private void BtnKanGrubu2_Click(object sender, EventArgs e)
         {
             if (CbKanGrubu2.SelectedItem != null)
@@ -83,6 +101,9 @@ namespace DernekUyeTakip
             }
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Seçilen kan grubuna göre DataGridView'deki verileri filtreliyor
         private void BtnSehir2_Click(object sender, EventArgs e)
         {
             if (CbSehir2.SelectedItem != null) { 
@@ -95,6 +116,9 @@ namespace DernekUyeTakip
             }
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Seçilen kan grubuna göre DataGridView'deki verileri filtreliyor
         private void BtnAP2_Click(object sender, EventArgs e)
         {
             if (CbAktifPasif2.SelectedItem != null)
@@ -116,13 +140,16 @@ namespace DernekUyeTakip
             }
             
         }
-        
+
+        //---------------------------------------------------------------------------------
+
+        //DataGridView üzerinde tıklanılan üyenin bilgilerini textboxlara aktarır
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Seçili satırın indeksi
             int selectedRow = e.RowIndex;
 
-            // Satır seçilmişse devam et
+            // Satır seçilmişse devam ediyoruz
             if (selectedRow >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
@@ -136,6 +163,7 @@ namespace DernekUyeTakip
                 string sifre = row.Cells["Sifre"].Value.ToString();
                 string kanGrubu = row.Cells["KanGrubu"].Value.ToString();
                 string ap = row.Cells["Aktif_Pasif"].Value.ToString();
+                string Eposta = row.Cells["Eposta"].Value.ToString();
 
                 // TextBox'lara atama kısmı
                 TbTc.Text = tc;
@@ -143,6 +171,7 @@ namespace DernekUyeTakip
                 TbSoyad.Text = soyad;
                 TbYas.Text = yas;
                 CbSehir.Text = sehir;
+                TbEposta.Text = Eposta;
                 TbSifre.Text = sifre;
                 CbKanGrubu.Text = kanGrubu;
                 if (ap == "True")
@@ -156,25 +185,17 @@ namespace DernekUyeTakip
             }
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Panel kapatılırsa uygulamayı da kapatır
         private void YoneticiPaneli_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-        private void BtnUyeDetay_Click(object sender, EventArgs e)
-        {
-            if (TbTc.Text != "")
-            {
-                UyeDetay uyeDetay = new UyeDetay(TbTc.Text);
-                uyeDetay.Show();
-            }
-            else
-            {
-                MessageBox.Show("Lütfen bir tc değeri giriniz...");
-            }
-            
-        }
+        //---------------------------------------------------------------------------------
 
+        //Textboxlarda bulunan tüm yazıları siler
         private void BtnSifirla_Click(object sender, EventArgs e)
         {
             TbTc.Text = "";
@@ -184,14 +205,19 @@ namespace DernekUyeTakip
             CbSehir.Text = "";
             TbSifre.Text = "";
             CbKanGrubu.Text = "";
+            TbEposta.Text = "";
             CbAktifPasif.Checked = false;
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Aidat ile ilgili form sayfasını açar
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
             this.Hide();
             Aidat aidat = new Aidat();
             aidat.Show();
         }
+
     }
 }

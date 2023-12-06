@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicAidat.cs" />
     <Compile Include="LogicUye.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

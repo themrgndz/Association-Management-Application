@@ -55,6 +55,8 @@
             this.BtnSehir2 = new System.Windows.Forms.Button();
             this.BtnAP2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TbEposta = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.BtnSifirla = new System.Windows.Forms.Button();
             this.CbAktifPasif = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -121,10 +123,10 @@
             // BtnGuncelle
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnGuncelle.Location = new System.Drawing.Point(632, 121);
+            this.BtnGuncelle.Location = new System.Drawing.Point(676, 125);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(120, 28);
-            this.BtnGuncelle.TabIndex = 11;
+            this.BtnGuncelle.TabIndex = 13;
             this.BtnGuncelle.Text = "Uye Güncelle";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
@@ -132,10 +134,10 @@
             // BtnSil
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnSil.Location = new System.Drawing.Point(632, 74);
+            this.BtnSil.Location = new System.Drawing.Point(676, 75);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(120, 28);
-            this.BtnSil.TabIndex = 10;
+            this.BtnSil.TabIndex = 12;
             this.BtnSil.Text = "Uye Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
             this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
@@ -226,10 +228,10 @@
             "Yalova",
             "Yozgat",
             "Zonguldak"});
-            this.CbSehir.Location = new System.Drawing.Point(302, 57);
+            this.CbSehir.Location = new System.Drawing.Point(324, 56);
             this.CbSehir.Name = "CbSehir";
-            this.CbSehir.Size = new System.Drawing.Size(107, 28);
-            this.CbSehir.TabIndex = 4;
+            this.CbSehir.Size = new System.Drawing.Size(152, 28);
+            this.CbSehir.TabIndex = 5;
             // 
             // CbKanGrubu
             // 
@@ -244,17 +246,17 @@
             "AB Rh-",
             "0 Rh+",
             "0 Rh-"});
-            this.CbKanGrubu.Location = new System.Drawing.Point(302, 124);
+            this.CbKanGrubu.Location = new System.Drawing.Point(324, 122);
             this.CbKanGrubu.Name = "CbKanGrubu";
-            this.CbKanGrubu.Size = new System.Drawing.Size(107, 28);
-            this.CbKanGrubu.TabIndex = 6;
+            this.CbKanGrubu.Size = new System.Drawing.Size(152, 28);
+            this.CbKanGrubu.TabIndex = 7;
             // 
             // BtnEkle
             // 
-            this.BtnEkle.Location = new System.Drawing.Point(632, 27);
+            this.BtnEkle.Location = new System.Drawing.Point(676, 25);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(120, 28);
-            this.BtnEkle.TabIndex = 9;
+            this.BtnEkle.TabIndex = 11;
             this.BtnEkle.Text = "Uye Ekle";
             this.BtnEkle.UseVisualStyleBackColor = true;
             this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
@@ -264,7 +266,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(210, 129);
+            this.label7.Location = new System.Drawing.Point(232, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 58;
@@ -275,7 +277,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(250, 97);
+            this.label6.Location = new System.Drawing.Point(272, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
             this.label6.TabIndex = 57;
@@ -284,18 +286,18 @@
             // TbSifre
             // 
             this.TbSifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbSifre.Location = new System.Drawing.Point(302, 92);
+            this.TbSifre.Location = new System.Drawing.Point(324, 90);
             this.TbSifre.Name = "TbSifre";
             this.TbSifre.PasswordChar = '*';
-            this.TbSifre.Size = new System.Drawing.Size(107, 26);
-            this.TbSifre.TabIndex = 5;
+            this.TbSifre.Size = new System.Drawing.Size(152, 26);
+            this.TbSifre.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(246, 62);
+            this.label5.Location = new System.Drawing.Point(268, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 55;
@@ -306,7 +308,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(255, 30);
+            this.label4.Location = new System.Drawing.Point(18, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 54;
@@ -315,9 +317,9 @@
             // TbYas
             // 
             this.TbYas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbYas.Location = new System.Drawing.Point(302, 25);
+            this.TbYas.Location = new System.Drawing.Point(77, 125);
             this.TbYas.Name = "TbYas";
-            this.TbYas.Size = new System.Drawing.Size(107, 26);
+            this.TbYas.Size = new System.Drawing.Size(144, 26);
             this.TbYas.TabIndex = 3;
             // 
             // label3
@@ -369,7 +371,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 46;
-            this.dataGridView1.Size = new System.Drawing.Size(848, 430);
+            this.dataGridView1.Size = new System.Drawing.Size(813, 430);
             this.dataGridView1.TabIndex = 48;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -395,46 +397,48 @@
             // BtnListele
             // 
             this.BtnListele.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListele.Location = new System.Drawing.Point(434, 53);
+            this.BtnListele.Location = new System.Drawing.Point(508, 94);
             this.BtnListele.Name = "BtnListele";
-            this.BtnListele.Size = new System.Drawing.Size(168, 99);
-            this.BtnListele.TabIndex = 8;
+            this.BtnListele.Size = new System.Drawing.Size(139, 60);
+            this.BtnListele.TabIndex = 10;
             this.BtnListele.Text = "Tüm Üyeleri Listele";
             this.BtnListele.UseVisualStyleBackColor = true;
             this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
             // BtnKanGrubu2
             // 
-            this.BtnKanGrubu2.Location = new System.Drawing.Point(35, 101);
+            this.BtnKanGrubu2.Location = new System.Drawing.Point(240, 67);
             this.BtnKanGrubu2.Name = "BtnKanGrubu2";
             this.BtnKanGrubu2.Size = new System.Drawing.Size(125, 28);
-            this.BtnKanGrubu2.TabIndex = 18;
+            this.BtnKanGrubu2.TabIndex = 15;
             this.BtnKanGrubu2.Text = "Kan Grubu";
             this.BtnKanGrubu2.UseVisualStyleBackColor = true;
             this.BtnKanGrubu2.Click += new System.EventHandler(this.BtnKanGrubu2_Click);
             // 
             // BtnSehir2
             // 
-            this.BtnSehir2.Location = new System.Drawing.Point(176, 101);
+            this.BtnSehir2.Location = new System.Drawing.Point(240, 101);
             this.BtnSehir2.Name = "BtnSehir2";
             this.BtnSehir2.Size = new System.Drawing.Size(125, 28);
-            this.BtnSehir2.TabIndex = 19;
+            this.BtnSehir2.TabIndex = 17;
             this.BtnSehir2.Text = "Şehir";
             this.BtnSehir2.UseVisualStyleBackColor = true;
             this.BtnSehir2.Click += new System.EventHandler(this.BtnSehir2_Click);
             // 
             // BtnAP2
             // 
-            this.BtnAP2.Location = new System.Drawing.Point(317, 101);
+            this.BtnAP2.Location = new System.Drawing.Point(240, 135);
             this.BtnAP2.Name = "BtnAP2";
             this.BtnAP2.Size = new System.Drawing.Size(125, 28);
-            this.BtnAP2.TabIndex = 20;
+            this.BtnAP2.TabIndex = 19;
             this.BtnAP2.Text = "Aktif/Pasif";
             this.BtnAP2.UseVisualStyleBackColor = true;
             this.BtnAP2.Click += new System.EventHandler(this.BtnAP2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TbEposta);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.BtnSifirla);
             this.groupBox1.Controls.Add(this.CbAktifPasif);
             this.groupBox1.Controls.Add(this.label10);
@@ -458,16 +462,35 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(0, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(778, 170);
+            this.groupBox1.Size = new System.Drawing.Size(813, 170);
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             // 
+            // TbEposta
+            // 
+            this.TbEposta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbEposta.Location = new System.Drawing.Point(324, 24);
+            this.TbEposta.Name = "TbEposta";
+            this.TbEposta.Size = new System.Drawing.Size(152, 26);
+            this.TbEposta.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(250, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 20);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "E posta:";
+            // 
             // BtnSifirla
             // 
-            this.BtnSifirla.Location = new System.Drawing.Point(16, 129);
+            this.BtnSifirla.Location = new System.Drawing.Point(508, 59);
             this.BtnSifirla.Name = "BtnSifirla";
-            this.BtnSifirla.Size = new System.Drawing.Size(168, 23);
-            this.BtnSifirla.TabIndex = 68;
+            this.BtnSifirla.Size = new System.Drawing.Size(139, 24);
+            this.BtnSifirla.TabIndex = 9;
             this.BtnSifirla.Text = "Sıfırla";
             this.BtnSifirla.UseVisualStyleBackColor = true;
             this.BtnSifirla.Click += new System.EventHandler(this.BtnSifirla_Click);
@@ -477,10 +500,10 @@
             this.CbAktifPasif.AutoSize = true;
             this.CbAktifPasif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CbAktifPasif.ForeColor = System.Drawing.SystemColors.Control;
-            this.CbAktifPasif.Location = new System.Drawing.Point(482, 23);
+            this.CbAktifPasif.Location = new System.Drawing.Point(548, 24);
             this.CbAktifPasif.Name = "CbAktifPasif";
             this.CbAktifPasif.Size = new System.Drawing.Size(99, 24);
-            this.CbAktifPasif.TabIndex = 13;
+            this.CbAktifPasif.TabIndex = 8;
             this.CbAktifPasif.Text = "Aktif/Pasif";
             this.CbAktifPasif.UseVisualStyleBackColor = true;
             // 
@@ -489,7 +512,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(438, 24);
+            this.label10.Location = new System.Drawing.Point(504, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 20);
             this.label10.TabIndex = 60;
@@ -504,9 +527,9 @@
             this.groupBox2.Controls.Add(this.BtnKanGrubu2);
             this.groupBox2.Controls.Add(this.BtnAP2);
             this.groupBox2.Controls.Add(this.BtnSehir2);
-            this.groupBox2.Location = new System.Drawing.Point(784, 71);
+            this.groupBox2.Location = new System.Drawing.Point(819, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(476, 170);
+            this.groupBox2.Size = new System.Drawing.Size(441, 197);
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             // 
@@ -517,10 +540,10 @@
             this.CbAktifPasif2.Items.AddRange(new object[] {
             "Pasif",
             "Aktif"});
-            this.CbAktifPasif2.Location = new System.Drawing.Point(317, 67);
+            this.CbAktifPasif2.Location = new System.Drawing.Point(80, 135);
             this.CbAktifPasif2.Name = "CbAktifPasif2";
-            this.CbAktifPasif2.Size = new System.Drawing.Size(125, 28);
-            this.CbAktifPasif2.TabIndex = 16;
+            this.CbAktifPasif2.Size = new System.Drawing.Size(154, 28);
+            this.CbAktifPasif2.TabIndex = 18;
             // 
             // CbKanGrubu2
             // 
@@ -535,9 +558,9 @@
             "AB Rh-",
             "0 Rh+",
             "0 Rh-"});
-            this.CbKanGrubu2.Location = new System.Drawing.Point(35, 67);
+            this.CbKanGrubu2.Location = new System.Drawing.Point(80, 67);
             this.CbKanGrubu2.Name = "CbKanGrubu2";
-            this.CbKanGrubu2.Size = new System.Drawing.Size(125, 28);
+            this.CbKanGrubu2.Size = new System.Drawing.Size(154, 28);
             this.CbKanGrubu2.TabIndex = 14;
             // 
             // CbSehir2
@@ -626,17 +649,17 @@
             "Yalova",
             "Yozgat",
             "Zonguldak"});
-            this.CbSehir2.Location = new System.Drawing.Point(176, 67);
+            this.CbSehir2.Location = new System.Drawing.Point(80, 101);
             this.CbSehir2.Name = "CbSehir2";
-            this.CbSehir2.Size = new System.Drawing.Size(125, 28);
-            this.CbSehir2.TabIndex = 15;
+            this.CbSehir2.Size = new System.Drawing.Size(154, 28);
+            this.CbSehir2.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(91, 18);
+            this.label9.Location = new System.Drawing.Point(75, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(290, 29);
             this.label9.TabIndex = 19;
@@ -646,18 +669,18 @@
             // 
             this.groupBox3.Controls.Add(this.BtnAidatBelirle);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Location = new System.Drawing.Point(854, 247);
+            this.groupBox3.Location = new System.Drawing.Point(819, 274);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(406, 430);
+            this.groupBox3.Size = new System.Drawing.Size(441, 403);
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
             // 
             // BtnAidatBelirle
             // 
-            this.BtnAidatBelirle.Location = new System.Drawing.Point(130, 85);
+            this.BtnAidatBelirle.Location = new System.Drawing.Point(148, 89);
             this.BtnAidatBelirle.Name = "BtnAidatBelirle";
             this.BtnAidatBelirle.Size = new System.Drawing.Size(135, 41);
-            this.BtnAidatBelirle.TabIndex = 68;
+            this.BtnAidatBelirle.TabIndex = 20;
             this.BtnAidatBelirle.Text = "Aidat Belirle";
             this.BtnAidatBelirle.UseVisualStyleBackColor = true;
             this.BtnAidatBelirle.Click += new System.EventHandler(this.BtnAidatBelirle_Click);
@@ -667,7 +690,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(120, 30);
+            this.label12.Location = new System.Drawing.Point(143, 29);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 29);
             this.label12.TabIndex = 1;
@@ -747,5 +770,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button BtnSifirla;
         private System.Windows.Forms.Button BtnAidatBelirle;
+        private System.Windows.Forms.TextBox TbEposta;
+        private System.Windows.Forms.Label label11;
     }
 }

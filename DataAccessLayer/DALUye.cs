@@ -37,6 +37,7 @@ namespace DataAccessLayer
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
+                        ent.Eposta = dr["Eposta"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
                             ent.Aktif_Pasif = true;
@@ -86,6 +87,7 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
+                        ent.Eposta = dr["Eposta"].ToString();
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -137,6 +139,7 @@ namespace DataAccessLayer
                         ent.Yas = int.Parse(dr["Yas"].ToString());
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
+                        ent.Eposta = dr["Eposta"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -190,15 +193,11 @@ namespace DataAccessLayer
                         ent.Yas = int.Parse(dr["Yas"].ToString());
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
+                        ent.Eposta = dr["Eposta"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        if (bool.Parse(dr["AktifPasif"].ToString()) == true)
-                        {
-                            ent.Aktif_Pasif = true;
-                        }
-                        else
-                        {
-                            ent.Aktif_Pasif = false;
-                        }
+                        ent.Aktif_Pasif = true;
+                        ent.KayitTarihi = dr["KayitTarihi"].ToString();
+                        
                         uyeler.Add(ent);
                     }
                     dr.Close();
@@ -217,7 +216,7 @@ namespace DataAccessLayer
         //Bilgileri girilen üyeyi veritabanına kaydeder
         public static int UyeEkle(EntityUye u)
         {
-            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,AktifPasif,KayitTarihi) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9)", Baglanti.dbc))
+            using (OleDbCommand cmd2 = new OleDbCommand("INSERT INTO Uye(Tc,Ad,Soyad,Yas,Sehir,Sifre,KanGrubu,KayitTarihi,Eposta,AktifPasif) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9,@P10)", Baglanti.dbc))
             {
                 try
                 {
@@ -233,8 +232,10 @@ namespace DataAccessLayer
                     cmd2.Parameters.AddWithValue("@P5", u.Sehir);
                     cmd2.Parameters.AddWithValue("@P6", u.Sifre);
                     cmd2.Parameters.AddWithValue("@P7", u.KanGrubu);
-                    cmd2.Parameters.AddWithValue("@P8", u.Aktif_Pasif);
-                    cmd2.Parameters.AddWithValue("@P9", u.KayitTarihi);
+                    cmd2.Parameters.AddWithValue("@P8", u.KayitTarihi);
+                    cmd2.Parameters.AddWithValue("@P9", u.Eposta);
+                    cmd2.Parameters.AddWithValue("@P10", u.Aktif_Pasif);
+                    
 
                     return cmd2.ExecuteNonQuery();
                 }
@@ -275,7 +276,7 @@ namespace DataAccessLayer
         //Tc'si girilen üyeyi günceller
         public static bool UyeGuncelle(EntityUye ent)
         {
-            using (OleDbCommand cmd4 = new OleDbCommand("UPDATE Uye SET Ad = @P1, Soyad = @P2, Yas = @P3, Sehir = @P4, Sifre = @P5, KanGrubu = @P6, AktifPasif = @P7 WHERE Tc = @P8", Baglanti.dbc))
+            using (OleDbCommand cmd4 = new OleDbCommand("UPDATE Uye SET Ad = @P1, Soyad = @P2, Yas = @P3, Sehir = @P4, Sifre = @P5, KanGrubu = @P6, AktifPasif = @P7, Eposta = @P8 WHERE Tc = @P9", Baglanti.dbc))
             {
                 try
                 {
@@ -290,7 +291,8 @@ namespace DataAccessLayer
                     cmd4.Parameters.AddWithValue("@P5", ent.Sifre);
                     cmd4.Parameters.AddWithValue("@P6", ent.KanGrubu);
                     cmd4.Parameters.AddWithValue("@P7", ent.Aktif_Pasif);
-                    cmd4.Parameters.AddWithValue("@P8", ent.Tc);
+                    cmd4.Parameters.AddWithValue("@P8", ent.Eposta);
+                    cmd4.Parameters.AddWithValue("@P9", ent.Tc);
 
                     return cmd4.ExecuteNonQuery() > 0;
                 }
@@ -380,5 +382,6 @@ namespace DataAccessLayer
                 return dogrulandi;
             }
         }
+        
     }
 }
