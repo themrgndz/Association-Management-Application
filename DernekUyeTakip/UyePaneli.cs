@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using EntityLayer;
+using LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,18 +19,16 @@ namespace DernekUyeTakip
         {
             InitializeComponent();
 
-            List<EntityUye> uyeler = DALUye.UyeListesi(tc);
-
+            List<EntityUye> uyeler = LogicUye.LLUyeListesi(tc);
 
             if (uyeler != null && uyeler.Count > 0)
             {
-                textBox1.Text = uyeler[0].Ad;
-                textBox2.Text = uyeler[0].Soyad;
-                textBox3.Text = uyeler[0].Yas.ToString();
-                textBox4.Text = uyeler[0].Sehir;
-                textBox5.Text = uyeler[0].KanGrubu;
-                textBox7.Text = uyeler[0].KayitTarihi.ToString();
-                textBox8.Text = uyeler[0].Aktif_Pasif ? "Aktif" : "Pasif";
+                TbAd.Text = uyeler[0].Ad;
+                TbSoyad.Text = uyeler[0].Soyad;
+                TbYas.Text = uyeler[0].Yas.ToString();
+                TbSehir.Text = uyeler[0].Sehir;
+                TbKanGrubu.Text = uyeler[0].KanGrubu;
+                TbEposta.Text = uyeler[0].Aktif_Pasif ? "Aktif" : "Pasif";
             }
             else
             {
@@ -47,5 +46,9 @@ namespace DernekUyeTakip
 
         }
 
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

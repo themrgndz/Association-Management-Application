@@ -19,6 +19,13 @@ namespace LogicLayer
         //--------------------------------------------------------------------
 
 
+        //--------------------------------------------------------------------
+        public static List<EntityUye> LLUyeListesi(string tc)
+        {
+            return DALUye.UyeListesi(tc);
+        }
+        //--------------------------------------------------------------------
+
 
         //--------------------------------------------------------------------
         public static List<EntityUye> LLUyeListesi(string Sec, string deger)

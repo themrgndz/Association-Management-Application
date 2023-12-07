@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
@@ -27,24 +28,49 @@ namespace DernekUyeTakip
         //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
-            try
+            if (RbTumAylar.Checked)
             {
-                decimal aidatMiktar = Convert.ToDecimal(TbAidatMiktari.Text);
-                DateTime today = DateTime.Now;
-
-                //02.11.2023
-
-                foreach (EntityLayer.EntityUye uye in LogicUye.LLUyeListesi("AktifPasif", true))
+                try
                 {
-                    DateTime kayitTarihi = DateTime.ParseExact(uye.KayitTarihi, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-                    LogicAidat.LLAidatBelirle(uye.Tc, today, aidatMiktar);
-                }
+                    decimal aidatMiktar = Convert.ToDecimal(TbAidatMiktari.Text);
+                    DateTime today = DateTime.Now;
 
-                MessageBox.Show("Aidatlar başarıyla belirlendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //02.11.2023
+
+                    foreach (EntityLayer.EntityUye uye in LogicUye.LLUyeListesi("AktifPasif", true))
+                    {
+                        DateTime kayitTarihi = DateTime.ParseExact(uye.KayitTarihi, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+                        LogicAidat.LLAidatBelirle(uye.Tc, today, aidatMiktar);
+                    }
+
+                    MessageBox.Show("Aidatlar başarıyla belirlendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //------------------------------------------------------------Bu kodları LLAidat içerisine, oradan da DALAidat'a götürüp orada yaz.
+                if (CbYil.Text != "")
+                {
+                    try
+                    {
+                        using (OleDbCommand cnn = new OleDbCommand("", Baglanti.dbc))
+                        {
+                            //-----------------------------------------------Veritabanından ayların aidat miktarını güncelleyeceksin.
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Yıl Seçiniz");
+                }
             }
         }
 
@@ -55,6 +81,22 @@ namespace DernekUyeTakip
         {
             Application.Exit();
         }
-        
+
+        private void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RbTumAylar.Checked)
+            {
+                TbAidatMiktari.Enabled = true;
+                PnlAylar.Visible = false;
+                TbAidatMiktari.BackColor = Color.White;
+            }
+            else
+            {
+                TbAidatMiktari.Enabled = false;
+                PnlAylar.Visible = true;
+                TbAidatMiktari.BackColor = Color.FromArgb(48,48,48);
+                TbAidatMiktari.Text = "";
+            }
+        }
     }
 }
