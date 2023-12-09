@@ -75,7 +75,6 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.TabBorclular = new System.Windows.Forms.TabPage();
-            this.CbDeneme = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
@@ -134,7 +133,6 @@
             // 
             // PnlAylar
             // 
-            this.PnlAylar.Controls.Add(this.CbDeneme);
             this.PnlAylar.Controls.Add(this.label18);
             this.PnlAylar.Controls.Add(this.TbAralik);
             this.PnlAylar.Controls.Add(this.TbKasim);
@@ -575,14 +573,6 @@
             this.TabBorclular.TabIndex = 1;
             this.TabBorclular.Text = "Borçlular";
             // 
-            // CbDeneme
-            // 
-            this.CbDeneme.FormattingEnabled = true;
-            this.CbDeneme.Location = new System.Drawing.Point(3, 0);
-            this.CbDeneme.Name = "CbDeneme";
-            this.CbDeneme.Size = new System.Drawing.Size(287, 21);
-            this.CbDeneme.TabIndex = 27;
-            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,6 +651,5 @@
         private System.Windows.Forms.TextBox TbSubat;
         private System.Windows.Forms.TextBox TbOcak;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox CbDeneme;
     }
 }

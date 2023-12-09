@@ -12,5 +12,10 @@ namespace LogicLayer
             DALAidat.DALAidatBelirle(tc,tarih,miktar);
         }
         //--------------------------------------------------------------------
+        public static string LLAidatBelirle(int[] yeniMiktarlar, string CbYil)
+        {
+            
+            return DALAidat.DALAidatBelirle(yeniMiktarlar, CbYil);
+        }
     }
 }

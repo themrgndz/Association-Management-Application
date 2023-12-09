@@ -31,10 +31,8 @@ namespace DernekUyeTakip
         {
             try
             {
-                using (OleDbCommand command = new OleDbCommand("UPDATE Aidat SET Miktar = @YeniMiktar WHERE Yil = @SecilenYil AND Ay = @SecilenAy", Baglanti.dbc))
-                {
-                    // Yeni miktarları al
-                    int[] yeniMiktarlar = {
+                // Yeni miktarları al
+                int[] yeniMiktarlar = {
                     int.Parse(TbOcak.Text),
                     int.Parse(TbSubat.Text),
                     int.Parse(TbMart.Text),
@@ -48,21 +46,8 @@ namespace DernekUyeTakip
                     int.Parse(TbKasim.Text),
                     int.Parse(TbAralik.Text)
                 };
+                MessageBox.Show(LogicAidat.LLAidatBelirle(yeniMiktarlar, CbYil.Text));
 
-                    // Ay için döngüyü başlatın
-                    for (short i = 0; i < 12; i++)
-                    {
-                        // Yeni parametreleri ekleyin
-                        command.Parameters.Clear();
-                        command.Parameters.AddWithValue("@YeniMiktar", yeniMiktarlar[i]);
-                        command.Parameters.AddWithValue("@SecilenYil", CbYil.Text);
-                        command.Parameters.AddWithValue("@SecilenAy", i+1);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    MessageBox.Show("Aidat miktarları güncellendi.");
-                }
             }
             catch (Exception ex)
             {
