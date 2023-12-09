@@ -75,6 +75,8 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.TabBorclular = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.CbYil2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
@@ -464,6 +466,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CbYil2);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.RbBelirliAylar);
             this.groupBox1.Controls.Add(this.RbTumAylar);
             this.groupBox1.Controls.Add(this.label2);
@@ -481,7 +485,7 @@
             this.RbBelirliAylar.AutoSize = true;
             this.RbBelirliAylar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.RbBelirliAylar.ForeColor = System.Drawing.SystemColors.Control;
-            this.RbBelirliAylar.Location = new System.Drawing.Point(266, 120);
+            this.RbBelirliAylar.Location = new System.Drawing.Point(267, 128);
             this.RbBelirliAylar.Name = "RbBelirliAylar";
             this.RbBelirliAylar.Size = new System.Drawing.Size(97, 22);
             this.RbBelirliAylar.TabIndex = 19;
@@ -495,7 +499,7 @@
             this.RbTumAylar.Checked = true;
             this.RbTumAylar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.RbTumAylar.ForeColor = System.Drawing.SystemColors.Control;
-            this.RbTumAylar.Location = new System.Drawing.Point(159, 120);
+            this.RbTumAylar.Location = new System.Drawing.Point(160, 128);
             this.RbTumAylar.Name = "RbTumAylar";
             this.RbTumAylar.Size = new System.Drawing.Size(92, 22);
             this.RbTumAylar.TabIndex = 18;
@@ -508,7 +512,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(167, 30);
+            this.label2.Location = new System.Drawing.Point(167, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 24);
             this.label2.TabIndex = 17;
@@ -517,7 +521,7 @@
             // BtnAidatBelirle
             // 
             this.BtnAidatBelirle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAidatBelirle.Location = new System.Drawing.Point(134, 163);
+            this.BtnAidatBelirle.Location = new System.Drawing.Point(135, 169);
             this.BtnAidatBelirle.Name = "BtnAidatBelirle";
             this.BtnAidatBelirle.Size = new System.Drawing.Size(270, 33);
             this.BtnAidatBelirle.TabIndex = 16;
@@ -530,7 +534,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(131, 75);
+            this.label1.Location = new System.Drawing.Point(132, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 24);
             this.label1.TabIndex = 0;
@@ -539,7 +543,7 @@
             // TbAidatMiktari
             // 
             this.TbAidatMiktari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbAidatMiktari.Location = new System.Drawing.Point(256, 75);
+            this.TbAidatMiktari.Location = new System.Drawing.Point(256, 88);
             this.TbAidatMiktari.Name = "TbAidatMiktari";
             this.TbAidatMiktari.Size = new System.Drawing.Size(148, 26);
             this.TbAidatMiktari.TabIndex = 1;
@@ -572,6 +576,34 @@
             this.TabBorclular.Size = new System.Drawing.Size(1252, 586);
             this.TabBorclular.TabIndex = 1;
             this.TabBorclular.Text = "Borçlular";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.ForeColor = System.Drawing.SystemColors.Control;
+            this.label19.Location = new System.Drawing.Point(217, 56);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 24);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "Yıl:";
+            // 
+            // CbYil2
+            // 
+            this.CbYil2.FormattingEnabled = true;
+            this.CbYil2.Items.AddRange(new object[] {
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CbYil2.Location = new System.Drawing.Point(256, 59);
+            this.CbYil2.Name = "CbYil2";
+            this.CbYil2.Size = new System.Drawing.Size(149, 21);
+            this.CbYil2.TabIndex = 21;
             // 
             // Aidat
             // 
@@ -651,5 +683,7 @@
         private System.Windows.Forms.TextBox TbSubat;
         private System.Windows.Forms.TextBox TbOcak;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox CbYil2;
     }
 }

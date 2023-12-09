@@ -17,5 +17,10 @@ namespace LogicLayer
             
             return DALAidat.DALAidatBelirle(yeniMiktarlar, CbYil);
         }
+        public static string LLAidatBelirle(int yeniMiktar, string CbYil)
+        {
+
+            return DALAidat.DALAidatBelirle(yeniMiktar, CbYil);
+        }
     }
 }

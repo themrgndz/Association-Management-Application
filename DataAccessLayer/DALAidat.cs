@@ -56,5 +56,26 @@ namespace DataAccessLayer
             }
 
         }
+
+        public static string DALAidatBelirle(int yeniMiktar, string CbYil)
+        {
+            try
+            {
+                using (OleDbCommand command = new OleDbCommand("UPDATE Aidat SET Miktar = @YeniMiktar WHERE Yil = @SecilenYil", Baglanti.dbc))
+                {
+                    // Yeni parametreleri ekleyin
+                    command.Parameters.AddWithValue("@YeniMiktar", yeniMiktar);
+                    command.Parameters.AddWithValue("@SecilenYil", CbYil);
+
+                    command.ExecuteNonQuery();
+                    return "Aidat miktarı güncellendi.";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

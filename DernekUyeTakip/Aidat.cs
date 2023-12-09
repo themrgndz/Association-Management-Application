@@ -29,10 +29,12 @@ namespace DernekUyeTakip
         //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
-            try
+            if (RbBelirliAylar.Checked)
             {
-                // Yeni miktarları al
-                int[] yeniMiktarlar = {
+                try
+                {
+                    // Yeni miktarları al
+                    int[] yeniMiktarlar = {
                     int.Parse(TbOcak.Text),
                     int.Parse(TbSubat.Text),
                     int.Parse(TbMart.Text),
@@ -46,12 +48,17 @@ namespace DernekUyeTakip
                     int.Parse(TbKasim.Text),
                     int.Parse(TbAralik.Text)
                 };
-                MessageBox.Show(LogicAidat.LLAidatBelirle(yeniMiktarlar, CbYil.Text));
+                    MessageBox.Show(LogicAidat.LLAidatBelirle(yeniMiktarlar, CbYil.Text));
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
+                MessageBox.Show(LogicAidat.LLAidatBelirle(int.Parse(TbAidatMiktari.Text),CbYil2.Text));
             }
         }
 
@@ -70,6 +77,7 @@ namespace DernekUyeTakip
                 TbAidatMiktari.Enabled = true;
                 PnlAylar.Visible = false;
                 TbAidatMiktari.BackColor = Color.White;
+                CbYil2.Enabled = true;
             }
             else
             {
@@ -77,6 +85,7 @@ namespace DernekUyeTakip
                 PnlAylar.Visible = true;
                 TbAidatMiktari.BackColor = Color.FromArgb(48,48,48);
                 TbAidatMiktari.Text = "";
+                CbYil2.Enabled = false;
             }
         }
 
