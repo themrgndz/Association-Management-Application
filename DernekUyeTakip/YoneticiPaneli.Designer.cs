@@ -373,7 +373,7 @@
             this.dataGridView1.RowHeadersWidth = 46;
             this.dataGridView1.Size = new System.Drawing.Size(813, 430);
             this.dataGridView1.TabIndex = 48;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label1
             // 

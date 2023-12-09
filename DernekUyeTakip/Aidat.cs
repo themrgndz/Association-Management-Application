@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using LogicLayer;
+using ZedGraph;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace DernekUyeTakip
@@ -28,49 +29,44 @@ namespace DernekUyeTakip
         //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
-            if (RbTumAylar.Checked)
+            try
             {
-                try
+                using (OleDbCommand command = new OleDbCommand("UPDATE Aidat SET Miktar = @YeniMiktar WHERE Yil = @SecilenYil AND Ay = @SecilenAy", Baglanti.dbc))
                 {
-                    decimal aidatMiktar = Convert.ToDecimal(TbAidatMiktari.Text);
-                    DateTime today = DateTime.Now;
+                    // Yeni miktarları al
+                    int[] yeniMiktarlar = {
+                    int.Parse(TbOcak.Text),
+                    int.Parse(TbSubat.Text),
+                    int.Parse(TbMart.Text),
+                    int.Parse(TbNisan.Text),
+                    int.Parse(TbMayis.Text),
+                    int.Parse(TbHaziran.Text),
+                    int.Parse(TbTemmuz.Text),
+                    int.Parse(TbAgustos.Text),
+                    int.Parse(TbEylul.Text),
+                    int.Parse(TbEkim.Text),
+                    int.Parse(TbKasim.Text),
+                    int.Parse(TbAralik.Text)
+                };
 
-                    //02.11.2023
-
-                    foreach (EntityLayer.EntityUye uye in LogicUye.LLUyeListesi("AktifPasif", true))
+                    // Ay için döngüyü başlatın
+                    for (short i = 0; i < 12; i++)
                     {
-                        DateTime kayitTarihi = DateTime.ParseExact(uye.KayitTarihi, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-                        LogicAidat.LLAidatBelirle(uye.Tc, today, aidatMiktar);
+                        // Yeni parametreleri ekleyin
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@YeniMiktar", yeniMiktarlar[i]);
+                        command.Parameters.AddWithValue("@SecilenYil", CbYil.Text);
+                        command.Parameters.AddWithValue("@SecilenAy", i+1);
+
+                        command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Aidatlar başarıyla belirlendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Aidat miktarları güncellendi.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                //------------------------------------------------------------Bu kodları LLAidat içerisine, oradan da DALAidat'a götürüp orada yaz.
-                if (CbYil.Text != "")
-                {
-                    try
-                    {
-                        using (OleDbCommand cnn = new OleDbCommand("", Baglanti.dbc))
-                        {
-                            //-----------------------------------------------Veritabanından ayların aidat miktarını güncelleyeceksin.
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Yıl Seçiniz");
-                }
+                MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
             }
         }
 
@@ -96,6 +92,74 @@ namespace DernekUyeTakip
                 PnlAylar.Visible = true;
                 TbAidatMiktari.BackColor = Color.FromArgb(48,48,48);
                 TbAidatMiktari.Text = "";
+            }
+        }
+
+        private void CbYil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                OleDbCommand command = new OleDbCommand("SELECT Ay,Miktar FROM Aidat WHERE Yil = @SecilenYil", Baglanti.dbc);
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@SecilenYil", CbYil.Text);
+                
+                if (command.Connection.State != ConnectionState.Open)
+                {
+                    command.Connection.Open();
+                }
+                using (OleDbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int ay = Convert.ToInt32(reader["Ay"])-1;
+                        decimal aidatMiktari = decimal.Parse(reader["Miktar"].ToString());
+
+                        // TextBox'lara değerleri atama işlemi
+                        switch (ay)
+                        {
+                            case 0:
+                                TbOcak.Text = aidatMiktari.ToString();
+                                break;
+                            case 1:
+                                TbSubat.Text = aidatMiktari.ToString();
+                                break;
+                            case 2:
+                                TbMart.Text = aidatMiktari.ToString();
+                                break;
+                            case 3:
+                                TbNisan.Text = aidatMiktari.ToString();
+                                break;
+                            case 4:
+                                TbMayis.Text = aidatMiktari.ToString();
+                                break;
+                            case 5:
+                                TbHaziran.Text = aidatMiktari.ToString();
+                                break;
+                            case 6:
+                                TbTemmuz.Text = aidatMiktari.ToString();
+                                break;
+                            case 7:
+                                TbAgustos.Text = aidatMiktari.ToString();
+                                break;
+                            case 8:
+                                TbEylul.Text = aidatMiktari.ToString();
+                                break;
+                            case 9:
+                                TbEkim.Text = aidatMiktari.ToString();
+                                break;
+                            case 10:
+                                TbKasim.Text = aidatMiktari.ToString();
+                                break;
+                            case 11:
+                                TbAralik.Text = aidatMiktari.ToString();
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
             }
         }
     }

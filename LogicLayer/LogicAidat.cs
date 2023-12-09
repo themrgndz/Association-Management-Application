@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using System;
+using System.Data.OleDb;
 
 namespace LogicLayer
 {
@@ -8,7 +9,7 @@ namespace LogicLayer
         //--------------------------------------------------------------------
         public static void LLAidatBelirle(string tc, DateTime tarih, decimal miktar)
         {
-            DALAidat.AidatBelirle(tc,tarih,miktar);
+            DALAidat.DALAidatBelirle(tc,tarih,miktar);
         }
         //--------------------------------------------------------------------
     }

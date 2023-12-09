@@ -219,3 +219,7 @@ C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTak
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.exe
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.pdb
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.Aidat.resources
+C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\System.Security.AccessControl.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\System.Security.Principal.Windows.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\System.Security.AccessControl.xml
+C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\System.Security.Principal.Windows.xml

@@ -14,7 +14,7 @@ namespace DataAccessLayer
         //--------------------------------------------------------------------------------------------------------------------------------------
        
         //Değeri verilen aidat miktarını aktif üyelere ekleme
-        public static void AidatBelirle(string tc, DateTime tarih, decimal miktar)
+        public static void DALAidatBelirle(string tc, DateTime tarih, decimal miktar)
         {
             string query = "INSERT INTO UyeAidat (Tc, AidatTarih, AidatMiktar, SonOdemeTarihi) VALUES (@Tc, @AidatTarih, @AidatMiktar, @SonOdemeTarihi)";
 
@@ -30,23 +30,5 @@ namespace DataAccessLayer
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------
-
-        //Değeri verilen aidat miktarını aktif üyelere ekleme
-        public static void TumAylarAidatBelirle(string miktar, string tarih)
-        {
-            string query = "INSERT INTO Aidat (Tarih, Aidat) VALUES (@Tarih,@Aidat)";
-
-            using (OleDbCommand command = new OleDbCommand(query, Baglanti.dbc))
-            {
-                command.Parameters.AddWithValue("@Aidat", miktar);
-                command.Parameters.AddWithValue("Tarih", tarih);
-
-                command.ExecuteNonQuery();
-            }
-        }
-
-        //--------------------------------------------------------------------------------------------------------------------------------------
-        
-
     }
 }

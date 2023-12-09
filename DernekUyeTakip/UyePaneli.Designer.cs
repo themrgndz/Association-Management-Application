@@ -43,9 +43,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.TbTc = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.TbAd.Location = new System.Drawing.Point(123, 82);
             this.TbAd.Name = "TbAd";
             this.TbAd.ReadOnly = true;
-            this.TbAd.Size = new System.Drawing.Size(182, 26);
+            this.TbAd.Size = new System.Drawing.Size(295, 26);
             this.TbAd.TabIndex = 0;
             // 
             // TbSoyad
@@ -65,7 +65,7 @@
             this.TbSoyad.Location = new System.Drawing.Point(123, 133);
             this.TbSoyad.Name = "TbSoyad";
             this.TbSoyad.ReadOnly = true;
-            this.TbSoyad.Size = new System.Drawing.Size(182, 26);
+            this.TbSoyad.Size = new System.Drawing.Size(295, 26);
             this.TbSoyad.TabIndex = 1;
             // 
             // TbYas
@@ -74,7 +74,7 @@
             this.TbYas.Location = new System.Drawing.Point(123, 184);
             this.TbYas.Name = "TbYas";
             this.TbYas.ReadOnly = true;
-            this.TbYas.Size = new System.Drawing.Size(182, 26);
+            this.TbYas.Size = new System.Drawing.Size(295, 26);
             this.TbYas.TabIndex = 2;
             // 
             // TbSehir
@@ -83,7 +83,7 @@
             this.TbSehir.Location = new System.Drawing.Point(123, 235);
             this.TbSehir.Name = "TbSehir";
             this.TbSehir.ReadOnly = true;
-            this.TbSehir.Size = new System.Drawing.Size(182, 26);
+            this.TbSehir.Size = new System.Drawing.Size(295, 26);
             this.TbSehir.TabIndex = 3;
             // 
             // TbKanGrubu
@@ -92,7 +92,7 @@
             this.TbKanGrubu.Location = new System.Drawing.Point(123, 286);
             this.TbKanGrubu.Name = "TbKanGrubu";
             this.TbKanGrubu.ReadOnly = true;
-            this.TbKanGrubu.Size = new System.Drawing.Size(182, 26);
+            this.TbKanGrubu.Size = new System.Drawing.Size(295, 26);
             this.TbKanGrubu.TabIndex = 4;
             // 
             // TbEposta
@@ -101,7 +101,7 @@
             this.TbEposta.Location = new System.Drawing.Point(123, 337);
             this.TbEposta.Name = "TbEposta";
             this.TbEposta.ReadOnly = true;
-            this.TbEposta.Size = new System.Drawing.Size(182, 26);
+            this.TbEposta.Size = new System.Drawing.Size(295, 26);
             this.TbEposta.TabIndex = 7;
             // 
             // label1
@@ -210,9 +210,19 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(0, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 446);
+            this.groupBox1.Size = new System.Drawing.Size(457, 453);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(45, 387);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(373, 47);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Güncelleme Talebi";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // TbTc
             // 
@@ -220,7 +230,7 @@
             this.TbTc.Location = new System.Drawing.Point(123, 31);
             this.TbTc.Name = "TbTc";
             this.TbTc.ReadOnly = true;
-            this.TbTc.Size = new System.Drawing.Size(182, 26);
+            this.TbTc.Size = new System.Drawing.Size(295, 26);
             this.TbTc.TabIndex = 20;
             // 
             // label12
@@ -233,17 +243,6 @@
             this.label12.Size = new System.Drawing.Size(37, 24);
             this.label12.TabIndex = 21;
             this.label12.Text = "Tc:";
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.Location = new System.Drawing.Point(3, 396);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(326, 47);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Güncelle";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // UyePaneli
             // 

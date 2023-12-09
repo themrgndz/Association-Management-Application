@@ -23,12 +23,13 @@ namespace DernekUyeTakip
 
             if (uyeler != null && uyeler.Count > 0)
             {
+                TbTc.Text = uyeler[0].Tc.ToString();
                 TbAd.Text = uyeler[0].Ad;
                 TbSoyad.Text = uyeler[0].Soyad;
                 TbYas.Text = uyeler[0].Yas.ToString();
                 TbSehir.Text = uyeler[0].Sehir;
                 TbKanGrubu.Text = uyeler[0].KanGrubu;
-                TbEposta.Text = uyeler[0].Aktif_Pasif ? "Aktif" : "Pasif";
+                TbEposta.Text = uyeler[0].Eposta;
             }
             else
             {
@@ -48,7 +49,11 @@ namespace DernekUyeTakip
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-
+            DialogResult cevap = MessageBox.Show("Güncelleme talebi göndermek istediğinize emin misiniz?","Güncelleme talebi",MessageBoxButtons.OKCancel);
+            if (cevap == DialogResult.OK)
+            {
+                MessageBox.Show("Yöneticiye talebiniz iletildi...","Güncelleme talebi");
+            }
         }
     }
 }

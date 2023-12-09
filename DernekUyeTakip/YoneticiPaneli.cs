@@ -143,8 +143,7 @@ namespace DernekUyeTakip
 
         //---------------------------------------------------------------------------------
 
-        //DataGridView üzerinde tıklanılan üyenin bilgilerini textboxlara aktarır
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Seçili satırın indeksi
             int selectedRow = e.RowIndex;
@@ -219,5 +218,11 @@ namespace DernekUyeTakip
             aidat.Show();
         }
 
+        
     }
 }
+
+
+
+
+
