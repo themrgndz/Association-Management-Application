@@ -11,16 +11,25 @@ namespace LogicLayer
         {
             DALAidat.DALAidatBelirle(tc,tarih,miktar);
         }
+        
         //--------------------------------------------------------------------
+        
+        //Her ay için farklı aidat
         public static string LLAidatBelirle(int[] yeniMiktarlar, string CbYil)
         {
             
             return DALAidat.DALAidatBelirle(yeniMiktarlar, CbYil);
         }
+
+        //--------------------------------------------------------------------
+
+        //Bütün aylar için aynı aidat
         public static string LLAidatBelirle(int yeniMiktar, string CbYil)
         {
 
             return DALAidat.DALAidatBelirle(yeniMiktar, CbYil);
         }
+        
+        //--------------------------------------------------------------------
     }
 }

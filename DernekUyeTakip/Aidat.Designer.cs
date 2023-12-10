@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aidat));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.CbYil = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TbMail = new System.Windows.Forms.RichTextBox();
             this.BtnEpostaGonder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RbBelirliAylar = new System.Windows.Forms.RadioButton();
@@ -77,12 +78,19 @@
             this.TabBorclular = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.CbYil2 = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.TsmKalin = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsmİtalik = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmAltiCizili = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             this.PnlAylar.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -426,8 +434,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.toolStrip1);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.TbMail);
             this.groupBox2.Controls.Add(this.BtnEpostaGonder);
             this.groupBox2.Location = new System.Drawing.Point(359, 229);
             this.groupBox2.Name = "groupBox2";
@@ -446,13 +455,13 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Bilgilendirme E postası Gönderme";
             // 
-            // richTextBox1
+            // TbMail
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(40, 102);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(455, 159);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.TbMail.Location = new System.Drawing.Point(40, 102);
+            this.TbMail.Name = "TbMail";
+            this.TbMail.Size = new System.Drawing.Size(455, 159);
+            this.TbMail.TabIndex = 7;
+            this.TbMail.Text = resources.GetString("TbMail.Text");
             // 
             // BtnEpostaGonder
             // 
@@ -463,6 +472,7 @@
             this.BtnEpostaGonder.TabIndex = 17;
             this.BtnEpostaGonder.Text = "E posta Gönder";
             this.BtnEpostaGonder.UseVisualStyleBackColor = true;
+            this.BtnEpostaGonder.Click += new System.EventHandler(this.BtnEpostaGonder_Click);
             // 
             // groupBox1
             // 
@@ -605,6 +615,55 @@
             this.CbYil2.Size = new System.Drawing.Size(149, 21);
             this.CbYil2.TabIndex = 21;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(528, 25);
+            this.toolStrip1.TabIndex = 19;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmKalin,
+            this.Tsmİtalik,
+            this.TsmAltiCizili});
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
+            this.toolStripLabel1.Text = "Düzen";
+            // 
+            // TsmKalin
+            // 
+            this.TsmKalin.Name = "TsmKalin";
+            this.TsmKalin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.TsmKalin.Size = new System.Drawing.Size(180, 22);
+            this.TsmKalin.Text = "Kalın";
+            this.TsmKalin.Click += new System.EventHandler(this.TsmKalin_Click);
+            // 
+            // Tsmİtalik
+            // 
+            this.Tsmİtalik.Name = "Tsmİtalik";
+            this.Tsmİtalik.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.Tsmİtalik.Size = new System.Drawing.Size(180, 22);
+            this.Tsmİtalik.Text = "İtalik";
+            this.Tsmİtalik.Click += new System.EventHandler(this.Tsmİtalik_Click);
+            // 
+            // TsmAltiCizili
+            // 
+            this.TsmAltiCizili.Name = "TsmAltiCizili";
+            this.TsmAltiCizili.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.TsmAltiCizili.Size = new System.Drawing.Size(180, 22);
+            this.TsmAltiCizili.Text = "Altı Çizili";
+            this.TsmAltiCizili.Click += new System.EventHandler(this.TsmAltiCizili_Click);
+            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,6 +690,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -646,7 +707,7 @@
         private System.Windows.Forms.TextBox TbAidatMiktari;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox TbMail;
         private System.Windows.Forms.Button BtnAidatBelirle;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
@@ -685,5 +746,11 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox CbYil2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripLabel1;
+        private System.Windows.Forms.ToolStripMenuItem TsmKalin;
+        private System.Windows.Forms.ToolStripMenuItem Tsmİtalik;
+        private System.Windows.Forms.ToolStripMenuItem TsmAltiCizili;
     }
 }

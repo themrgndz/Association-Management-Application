@@ -11,8 +11,6 @@ namespace DataAccessLayer
 {
     public class DALAidat
     {
-        //--------------------------------------------------------------------------------------------------------------------------------------
-       
         //Değeri verilen aidat miktarını aktif üyelere ekleme
         public static void DALAidatBelirle(string tc, DateTime tarih, decimal miktar)
         {
@@ -28,8 +26,9 @@ namespace DataAccessLayer
                 command.ExecuteNonQuery();
             }
         }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
+        
+        //Her ay için farklı aidat
         public static string DALAidatBelirle(int[] yeniMiktarlar, string CbYil)
         {
             try
@@ -56,7 +55,9 @@ namespace DataAccessLayer
             }
 
         }
+        //--------------------------------------------------------------------------------------------------------------------------------------
 
+        //Bütün aylar için aynı aidat
         public static string DALAidatBelirle(int yeniMiktar, string CbYil)
         {
             try
@@ -77,5 +78,6 @@ namespace DataAccessLayer
             }
 
         }
+        //--------------------------------------------------------------------------------------------------------------------------------------
     }
 }

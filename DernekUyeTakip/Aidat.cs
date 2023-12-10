@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,14 +21,20 @@ namespace DernekUyeTakip
 {
     public partial class Aidat : Form
     {
+        //---------------------------------------------------------------------------------
         public Aidat()
         {
             InitializeComponent();
+
+            //RichTextBox'u kısayollar ile düzenlemek için.
+            TsmKalin.ShortcutKeys = Keys.Control | Keys.K; // Ctrl + K
+            Tsmİtalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
+            TsmAltiCizili.ShortcutKeys = Keys.Control | Keys.U; // Ctrl + U
         }
 
         //---------------------------------------------------------------------------------
 
-        //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler
+        //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler.
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
             if (RbBelirliAylar.Checked)
@@ -70,6 +78,9 @@ namespace DernekUyeTakip
             Application.Exit();
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Radio butonların seçimini kontrol eder.
         private void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
         {
             if (RbTumAylar.Checked)
@@ -89,6 +100,9 @@ namespace DernekUyeTakip
             }
         }
 
+        //---------------------------------------------------------------------------------
+
+        //Yıl seçimine bağlı olarak textboxları ayların aidat değerine göre doldurur.
         private void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -156,5 +170,67 @@ namespace DernekUyeTakip
                 MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
             }
         }
+        
+        //---------------------------------------------------------------------------------
+       
+        private void TsmKalin_Click(object sender, EventArgs e)
+        {
+            FontOzellik(FontStyle.Bold);
+        }
+
+        private void Tsmİtalik_Click(object sender, EventArgs e)
+        {
+            FontOzellik(FontStyle.Italic);
+        }
+
+        private void TsmAltiCizili_Click(object sender, EventArgs e)
+        {
+            FontOzellik(FontStyle.Underline);
+        }
+
+        private void FontOzellik(FontStyle style)
+        {
+            int selectionStart = TbMail.SelectionStart;
+            int selectionLength = TbMail.SelectionLength;
+
+            Font currentFont = TbMail.SelectionFont;
+            FontStyle newStyle = currentFont.Style ^ style;
+
+            Font newFont = new Font(currentFont.FontFamily, currentFont.Size, newStyle);
+
+            TbMail.SelectionFont = newFont;
+
+            TbMail.Select(selectionStart, selectionLength);
+            TbMail.Focus();
+        }
+
+        //---------------------------------------------------------------------------------
+
+        private void BtnEpostaGonder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("KaynakEposta");
+                mail.To.Add("HedefEposta");
+                mail.Subject = "Subject";
+                mail.Body = TbMail.Text;
+
+                smtpServer.Port = 587;
+                smtpServer.Credentials = new NetworkCredential("KaynakEposta", "Şifre");
+                smtpServer.EnableSsl = true;
+
+                smtpServer.Send(mail);
+
+                MessageBox.Show("E-posta başarıyla gönderildi!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("E-posta gönderirken bir hata oluştu: " + ex.Message);
+            }
+        }
+        //---------------------------------------------------------------------------------
     }
 }
