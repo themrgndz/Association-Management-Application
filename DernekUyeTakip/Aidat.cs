@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using LogicLayer;
@@ -208,28 +199,7 @@ namespace DernekUyeTakip
 
         private void BtnEpostaGonder_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MailMessage mail = new MailMessage();
-                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("KaynakEposta");
-                mail.To.Add("HedefEposta");
-                mail.Subject = "Subject";
-                mail.Body = TbMail.Text;
-
-                smtpServer.Port = 587;
-                smtpServer.Credentials = new NetworkCredential("KaynakEposta", "Şifre");
-                smtpServer.EnableSsl = true;
-
-                smtpServer.Send(mail);
-
-                MessageBox.Show("E-posta başarıyla gönderildi!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("E-posta gönderirken bir hata oluştu: " + ex.Message);
-            }
+            MessageBox.Show(LogicAidat.LLEpostaGonder(TbMail.Text),"Mail Gönerim İşleminiz");
         }
         //---------------------------------------------------------------------------------
     }

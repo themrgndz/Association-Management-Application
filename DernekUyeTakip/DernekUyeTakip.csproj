@@ -109,12 +109,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UyeDetay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UyeDetay.Designer.cs">
-      <DependentUpon>UyeDetay.cs</DependentUpon>
-    </Compile>
     <Compile Include="UyeGirisPaneli.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,9 +149,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UyeDetay.resx">
-      <DependentUpon>UyeDetay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UyeGirisPaneli.resx">
       <DependentUpon>UyeGirisPaneli.cs</DependentUpon>
     </EmbeddedResource>

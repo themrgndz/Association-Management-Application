@@ -208,7 +208,6 @@ C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTak
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.csproj.SuggestedBindingRedirects.cache
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.Giris.resources
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.Properties.Resources.resources
-C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.UyeDetay.resources
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.UyeGirisPaneli.resources
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.UyePaneli.resources
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\obj\x64\Debug\DernekUyeTakip.YoneticiGirisPaneli.resources

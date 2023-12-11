@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +29,7 @@ namespace DataAccessLayer
             }
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
-        
+
         //Her ay için farklı aidat
         public static string DALAidatBelirle(int[] yeniMiktarlar, string CbYil)
         {
@@ -79,5 +81,32 @@ namespace DataAccessLayer
 
         }
         //--------------------------------------------------------------------------------------------------------------------------------------
+
+        //E posta gonder
+        public static string DALEpostaGonder(string metin)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("KaynakEposta");
+                mail.To.Add("HedefEposta");
+                mail.Subject = "Subject";
+                mail.Body = metin;
+
+                smtpServer.Port = 587;
+                smtpServer.Credentials = new NetworkCredential("KaynakEposta", "Şifre");
+                smtpServer.EnableSsl = true;
+
+                smtpServer.Send(mail);
+
+                return "E-posta başarıyla gönderildi!";
+            }
+            catch (Exception ex)
+            {
+                return "E-posta gönderirken bir hata oluştu: " + ex.Message;
+            }
+        }
     }
 }

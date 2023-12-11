@@ -382,6 +382,6 @@ namespace DataAccessLayer
                 return dogrulandi;
             }
         }
-        
+
     }
 }

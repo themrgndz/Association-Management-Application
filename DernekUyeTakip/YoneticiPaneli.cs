@@ -52,6 +52,16 @@ namespace DernekUyeTakip
 
             LogicUye.LLUyeEkle(ent);
             BtnListele_Click(sender, e);
+
+            TbTc.Text = "";
+            TbAd.Text = "";
+            TbSoyad.Text = "";
+            TbYas.Text = "";
+            CbSehir.Text = "";
+            TbSifre.Text = "";
+            CbKanGrubu.Text = "";
+            TbEposta.Text = "";
+            CbAktifPasif.Checked = false;
         }
 
         //---------------------------------------------------------------------------------
@@ -143,6 +153,7 @@ namespace DernekUyeTakip
 
         //---------------------------------------------------------------------------------
 
+        //DataGridView'deki hücrelere tıklandığında o hücrelerdeki üyeyi panele yansıtıyor
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Seçili satırın indeksi
@@ -218,7 +229,10 @@ namespace DernekUyeTakip
             aidat.Show();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

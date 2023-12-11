@@ -31,5 +31,11 @@ namespace LogicLayer
         }
         
         //--------------------------------------------------------------------
+
+        //E posta gönder
+        public static string LLEpostaGonder(string metin)
+        {
+            return DALAidat.DALEpostaGonder(metin);
+        }
     }
 }

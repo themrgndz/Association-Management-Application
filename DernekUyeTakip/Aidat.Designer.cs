@@ -63,10 +63,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CbYil = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.TsmKalin = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsmİtalik = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmAltiCizili = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.TbMail = new System.Windows.Forms.RichTextBox();
             this.BtnEpostaGonder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CbYil2 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.RbBelirliAylar = new System.Windows.Forms.RadioButton();
             this.RbTumAylar = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,21 +83,20 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.TabBorclular = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.CbYil2 = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.TsmKalin = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tsmİtalik = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmAltiCizili = new System.Windows.Forms.ToolStripMenuItem();
+            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             this.PnlAylar.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.TabAidatGelirleri.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,6 +123,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.TabAidatBelirle);
+            this.tabControl1.Controls.Add(this.TabAidatGelirleri);
             this.tabControl1.Controls.Add(this.TabBorclular);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 65);
@@ -444,6 +451,50 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(528, 25);
+            this.toolStrip1.TabIndex = 19;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmKalin,
+            this.Tsmİtalik,
+            this.TsmAltiCizili});
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
+            this.toolStripLabel1.Text = "Düzen";
+            // 
+            // TsmKalin
+            // 
+            this.TsmKalin.Name = "TsmKalin";
+            this.TsmKalin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.TsmKalin.Size = new System.Drawing.Size(162, 22);
+            this.TsmKalin.Text = "Kalın";
+            this.TsmKalin.Click += new System.EventHandler(this.TsmKalin_Click);
+            // 
+            // Tsmİtalik
+            // 
+            this.Tsmİtalik.Name = "Tsmİtalik";
+            this.Tsmİtalik.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.Tsmİtalik.Size = new System.Drawing.Size(162, 22);
+            this.Tsmİtalik.Text = "İtalik";
+            this.Tsmİtalik.Click += new System.EventHandler(this.Tsmİtalik_Click);
+            // 
+            // TsmAltiCizili
+            // 
+            this.TsmAltiCizili.Name = "TsmAltiCizili";
+            this.TsmAltiCizili.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.TsmAltiCizili.Size = new System.Drawing.Size(162, 22);
+            this.TsmAltiCizili.Text = "Altı Çizili";
+            this.TsmAltiCizili.Click += new System.EventHandler(this.TsmAltiCizili_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -489,6 +540,34 @@
             this.groupBox1.Size = new System.Drawing.Size(534, 223);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // CbYil2
+            // 
+            this.CbYil2.FormattingEnabled = true;
+            this.CbYil2.Items.AddRange(new object[] {
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CbYil2.Location = new System.Drawing.Point(256, 59);
+            this.CbYil2.Name = "CbYil2";
+            this.CbYil2.Size = new System.Drawing.Size(149, 21);
+            this.CbYil2.TabIndex = 21;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.ForeColor = System.Drawing.SystemColors.Control;
+            this.label19.Location = new System.Drawing.Point(217, 56);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 24);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "Yıl:";
             // 
             // RbBelirliAylar
             // 
@@ -587,82 +666,46 @@
             this.TabBorclular.TabIndex = 1;
             this.TabBorclular.Text = "Borçlular";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(217, 56);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 24);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "Yıl:";
-            // 
-            // CbYil2
-            // 
-            this.CbYil2.FormattingEnabled = true;
-            this.CbYil2.Items.AddRange(new object[] {
-            "2023",
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
-            this.CbYil2.Location = new System.Drawing.Point(256, 59);
-            this.CbYil2.Name = "CbYil2";
-            this.CbYil2.Size = new System.Drawing.Size(149, 21);
-            this.CbYil2.TabIndex = 21;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // toolStrip1
+            // TabAidatGelirleri
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(528, 25);
-            this.toolStrip1.TabIndex = 19;
-            this.toolStrip1.Text = "toolStrip1";
+            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
+            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
+            this.TabAidatGelirleri.Controls.Add(this.dataGridView1);
+            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
+            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
+            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 586);
+            this.TabAidatGelirleri.TabIndex = 2;
+            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
             // 
-            // toolStripLabel1
+            // dataGridView1
             // 
-            this.toolStripLabel1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmKalin,
-            this.Tsmİtalik,
-            this.TsmAltiCizili});
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(53, 22);
-            this.toolStripLabel1.Text = "Düzen";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(325, 256);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(603, 322);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // TsmKalin
+            // groupBox3
             // 
-            this.TsmKalin.Name = "TsmKalin";
-            this.TsmKalin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
-            this.TsmKalin.Size = new System.Drawing.Size(180, 22);
-            this.TsmKalin.Text = "Kalın";
-            this.TsmKalin.Click += new System.EventHandler(this.TsmKalin_Click);
+            this.groupBox3.Location = new System.Drawing.Point(-9, -16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(328, 611);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
             // 
-            // Tsmİtalik
+            // groupBox4
             // 
-            this.Tsmİtalik.Name = "Tsmİtalik";
-            this.Tsmİtalik.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.Tsmİtalik.Size = new System.Drawing.Size(180, 22);
-            this.Tsmİtalik.Text = "İtalik";
-            this.Tsmİtalik.Click += new System.EventHandler(this.Tsmİtalik_Click);
-            // 
-            // TsmAltiCizili
-            // 
-            this.TsmAltiCizili.Name = "TsmAltiCizili";
-            this.TsmAltiCizili.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.TsmAltiCizili.Size = new System.Drawing.Size(180, 22);
-            this.TsmAltiCizili.Text = "Altı Çizili";
-            this.TsmAltiCizili.Click += new System.EventHandler(this.TsmAltiCizili_Click);
+            this.groupBox4.Location = new System.Drawing.Point(934, -22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(329, 612);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
             // 
             // Aidat
             // 
@@ -688,10 +731,12 @@
             this.PnlAylar.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.TabAidatGelirleri.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -752,5 +797,9 @@
         private System.Windows.Forms.ToolStripMenuItem TsmKalin;
         private System.Windows.Forms.ToolStripMenuItem Tsmİtalik;
         private System.Windows.Forms.ToolStripMenuItem TsmAltiCizili;
+        private System.Windows.Forms.TabPage TabAidatGelirleri;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
