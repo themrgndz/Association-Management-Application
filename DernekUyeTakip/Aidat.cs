@@ -163,6 +163,20 @@ namespace DernekUyeTakip
         {
             
         }
-        //---------------------------------------------------------------------------------
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Deneme_Click(object sender, EventArgs e)
+        {
+            DateTime bugun = DateTime.Today;
+            string ay = bugun.ToString("MMMM");
+            string yil = bugun.Year.ToString();
+
+            decimal aidatMiktari = LogicAidat.LLAidatMiktariAl(ay, yil);
+            MessageBox.Show(aidatMiktari.ToString());
+        }
     }
 }

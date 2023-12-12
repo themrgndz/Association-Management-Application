@@ -25,5 +25,9 @@ namespace LogicLayer
             return DALAidat.AidatBelirle(Aidatlar);
         }
 
+        public static Decimal LLAidatMiktariAl(string ay, string yil)
+        {
+            return DALAidat.AidatMiktariAl(ay,yil);
+        }
     }
 }

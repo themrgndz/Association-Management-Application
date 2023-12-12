@@ -157,5 +157,11 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        public static decimal AidatMiktariAl(string ay, string yil)
+        {
+            //Burada kaldın
+            DALDoldur(yil);
+        }
     }
 }

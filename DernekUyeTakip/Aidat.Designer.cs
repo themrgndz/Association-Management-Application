@@ -88,6 +88,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TabBorclular = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Deneme = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
@@ -518,6 +520,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Deneme);
             this.groupBox1.Controls.Add(this.CbYil2);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.RbBelirliAylar);
@@ -689,6 +692,20 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // Timer1
+            // 
+            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // Deneme
+            // 
+            this.Deneme.Location = new System.Drawing.Point(420, 176);
+            this.Deneme.Name = "Deneme";
+            this.Deneme.Size = new System.Drawing.Size(75, 23);
+            this.Deneme.TabIndex = 66;
+            this.Deneme.Text = "Deneme";
+            this.Deneme.UseVisualStyleBackColor = true;
+            this.Deneme.Click += new System.EventHandler(this.Deneme_Click);
+            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -783,5 +800,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Timer Timer1;
+        private System.Windows.Forms.Button Deneme;
     }
 }
