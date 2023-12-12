@@ -38,11 +38,46 @@ namespace DernekUyeTakip
         {
             if (RbTumAylar.Checked)
             {
-               
+                EntityAidat ent = new EntityAidat();
+
+                ent.Yil = short.Parse(CbYil2.Text);
+                ent.Ocak = decimal.Parse(TbAidatMiktari.Text);
+                ent.Subat = decimal.Parse(TbAidatMiktari.Text);
+                ent.Mart = decimal.Parse(TbAidatMiktari.Text);
+                ent.Nisan = decimal.Parse(TbAidatMiktari.Text);
+                ent.Mayis = decimal.Parse(TbAidatMiktari.Text);
+                ent.Haziran = decimal.Parse(TbAidatMiktari.Text);
+                ent.Temmuz = decimal.Parse(TbAidatMiktari.Text);
+                ent.Agustos = decimal.Parse(TbAidatMiktari.Text);
+                ent.Eylul = decimal.Parse(TbAidatMiktari.Text);
+                ent.Ekim = decimal.Parse(TbAidatMiktari.Text);
+                ent.Kasim = decimal.Parse(TbAidatMiktari.Text);
+                ent.Aralik = decimal.Parse(TbAidatMiktari.Text);
+
+                MessageBox.Show(LogicAidat.LLAidatBelirle(ent));
+                
             }
             else
             {
-                
+                EntityAidat ent = new EntityAidat();
+
+                ent.Yil = short.Parse(CbYil.Text);
+                ent.Ocak = decimal.Parse(TbOcak.Text);
+                ent.Subat = decimal.Parse(TbSubat.Text);
+                ent.Mart = decimal.Parse(TbMart.Text);
+                ent.Nisan = decimal.Parse(TbNisan.Text);
+                ent.Mayis = decimal.Parse(TbMayis.Text);
+                ent.Haziran = decimal.Parse(TbHaziran.Text);
+                ent.Temmuz = decimal.Parse(TbTemmuz.Text);
+                ent.Agustos = decimal.Parse(TbAgustos.Text);
+                ent.Eylul = decimal.Parse(TbEylul.Text);
+                ent.Ekim = decimal.Parse(TbEkim.Text);
+                ent.Kasim = decimal.Parse(TbKasim.Text);
+                ent.Aralik = decimal.Parse(TbAralik.Text);
+
+
+                MessageBox.Show(LogicAidat.LLAidatBelirle(ent));
+
             }
         }
         //---------------------------------------------------------------------------------

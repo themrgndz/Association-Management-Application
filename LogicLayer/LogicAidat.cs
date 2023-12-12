@@ -19,6 +19,11 @@ namespace LogicLayer
         {
             return DALAidat.DALDoldur(yil);
         }
+        
+        public static string LLAidatBelirle(EntityAidat Aidatlar)
+        {
+            return DALAidat.AidatBelirle(Aidatlar);
+        }
 
     }
 }

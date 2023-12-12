@@ -55,6 +55,10 @@ namespace DataAccessLayer
                 {
                     return null;
                 }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
             }
         }
 
@@ -101,6 +105,55 @@ namespace DataAccessLayer
                 catch
                 {
                     return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        //Girilen değerlere göre aidat değerlerini günceller.
+        public static string AidatBelirle(EntityAidat aidatlar)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("UPDATE Aidat SET Ocak = @P1, Subat = @P2, Mart = @P3, Nisan = @P4, Mayis = @P5, Haziran = @P6, Temmuz = @P7, Agustos = @P8, Eylul = @P9, Ekim = @P10, Kasim = @P11, Aralik = @P12 WHERE Yil = @P13", Baglanti.dbc))
+            {
+                try
+                {
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    cmd.Parameters.AddWithValue("@P1", aidatlar.Ocak);
+                    cmd.Parameters.AddWithValue("@P2", aidatlar.Subat);
+                    cmd.Parameters.AddWithValue("@P3", aidatlar.Mart);
+                    cmd.Parameters.AddWithValue("@P4", aidatlar.Nisan);
+                    cmd.Parameters.AddWithValue("@P5", aidatlar.Mayis);
+                    cmd.Parameters.AddWithValue("@P6", aidatlar.Haziran);
+                    cmd.Parameters.AddWithValue("@P7", aidatlar.Temmuz);
+                    cmd.Parameters.AddWithValue("@P8", aidatlar.Agustos);
+                    cmd.Parameters.AddWithValue("@P9", aidatlar.Eylul);
+                    cmd.Parameters.AddWithValue("@P10", aidatlar.Ekim);
+                    cmd.Parameters.AddWithValue("@P11", aidatlar.Kasim);
+                    cmd.Parameters.AddWithValue("@P12", aidatlar.Aralik);
+                    cmd.Parameters.AddWithValue("@P13", aidatlar.Yil);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        return "Güncelleme işlemi başarılı";
+                    }
+                    else
+                    {
+                        return "Değişiklik yapılmamıştır.";
+                    }
+                }
+                catch (Exception e)
+                {
+                    return "Hata: " + e.Message;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
                 }
             }
         }
