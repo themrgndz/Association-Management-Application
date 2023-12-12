@@ -82,12 +82,12 @@
             this.TbAidatMiktari = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TabBorclular = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
@@ -424,15 +424,6 @@
             // CbYil
             // 
             this.CbYil.FormattingEnabled = true;
-            this.CbYil.Items.AddRange(new object[] {
-            "2023",
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
             this.CbYil.Location = new System.Drawing.Point(130, 29);
             this.CbYil.Name = "CbYil";
             this.CbYil.Size = new System.Drawing.Size(121, 21);
@@ -544,15 +535,6 @@
             // CbYil2
             // 
             this.CbYil2.FormattingEnabled = true;
-            this.CbYil2.Items.AddRange(new object[] {
-            "2023",
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
             this.CbYil2.Location = new System.Drawing.Point(256, 59);
             this.CbYil2.Name = "CbYil2";
             this.CbYil2.Size = new System.Drawing.Size(149, 21);
@@ -656,6 +638,42 @@
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
+            // TabAidatGelirleri
+            // 
+            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
+            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
+            this.TabAidatGelirleri.Controls.Add(this.dataGridView1);
+            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
+            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
+            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 586);
+            this.TabAidatGelirleri.TabIndex = 2;
+            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(934, -22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(329, 612);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(-9, -16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(328, 611);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(325, 256);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(603, 322);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // TabBorclular
             // 
             this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
@@ -671,42 +689,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // TabAidatGelirleri
-            // 
-            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
-            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
-            this.TabAidatGelirleri.Controls.Add(this.dataGridView1);
-            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
-            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
-            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 586);
-            this.TabAidatGelirleri.TabIndex = 2;
-            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(325, 256);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(603, 322);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(-9, -16);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(328, 611);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(934, -22);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(329, 612);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,7 +703,7 @@
             this.MinimizeBox = false;
             this.Name = "Aidat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Deneme";
+            this.Text = "A";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Aidat_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

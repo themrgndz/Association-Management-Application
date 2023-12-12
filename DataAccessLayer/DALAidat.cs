@@ -13,99 +13,95 @@ namespace DataAccessLayer
 {
     public class DALAidat
     {
-        //Değeri verilen aidat miktarını aktif üyelere ekleme
-        public static void DALAidatBelirle(string tc, DateTime tarih, decimal miktar)
+        //Bütün verileri çeker.
+        public static List<EntityAidat> DALDoldur()
         {
-            string query = "INSERT INTO UyeAidat (Tc, AidatTarih, AidatMiktar, SonOdemeTarihi) VALUES (@Tc, @AidatTarih, @AidatMiktar, @SonOdemeTarihi)";
-
-            using (OleDbCommand command = new OleDbCommand(query, Baglanti.dbc))
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Aidat", Baglanti.dbc))
             {
-                command.Parameters.AddWithValue("@Tc", tc);
-                command.Parameters.AddWithValue("@AidatTarih", tarih.ToString("dd.MM.yyyy"));
-                command.Parameters.AddWithValue("@AidatMiktar", miktar);
-                command.Parameters.AddWithValue("SonOdemeTarihi", tarih.AddMonths(1).ToString("dd.MM.yyyy"));
-
-                command.ExecuteNonQuery();
-            }
-        }
-        //--------------------------------------------------------------------------------------------------------------------------------------
-
-        //Her ay için farklı aidat
-        public static string DALAidatBelirle(int[] yeniMiktarlar, string CbYil)
-        {
-            try
-            {
-                using (OleDbCommand command = new OleDbCommand("UPDATE Aidat SET Miktar = @YeniMiktar WHERE Yil = @SecilenYil AND Ay = @SecilenAy", Baglanti.dbc))
+                List<EntityAidat> aidatlar = new List<EntityAidat>();
+                try
                 {
-                    // Ay için döngüyü başlatın
-                    for (short i = 0; i < 12; i++)
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
                     {
-                        // Yeni parametreleri ekleyin
-                        command.Parameters.Clear();
-                        command.Parameters.AddWithValue("@YeniMiktar", yeniMiktarlar[i]);
-                        command.Parameters.AddWithValue("@SecilenYil", CbYil);
-                        command.Parameters.AddWithValue("@SecilenAy", i + 1);
-
-                        command.ExecuteNonQuery();
+                        cmd.Connection.Open();
                     }
-                    return "Aidat miktarları güncellendi.";
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityAidat ent = new EntityAidat();
+                        ent.Yil = short.Parse(dr["Yil"].ToString());
+                        ent.Ocak = decimal.Parse(dr["Ocak"].ToString());
+                        ent.Subat = decimal.Parse(dr["Subat"].ToString());
+                        ent.Mart = decimal.Parse(dr["Mart"].ToString());
+                        ent.Nisan = decimal.Parse(dr["Nisan"].ToString());
+                        ent.Mayis = decimal.Parse(dr["Mayis"].ToString());
+                        ent.Haziran = decimal.Parse(dr["Haziran"].ToString());
+                        ent.Temmuz = decimal.Parse(dr["Temmuz"].ToString());
+                        ent.Agustos = decimal.Parse(dr["Agustos"].ToString());
+                        ent.Eylul = decimal.Parse(dr["Eylul"].ToString());
+                        ent.Ekim = decimal.Parse(dr["Ekim"].ToString());
+                        ent.Kasim = decimal.Parse(dr["Kasim"].ToString());
+                        ent.Aralik = decimal.Parse(dr["Aralik"].ToString());
+
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-        //--------------------------------------------------------------------------------------------------------------------------------------
-
-        //Bütün aylar için aynı aidat
-        public static string DALAidatBelirle(int yeniMiktar, string CbYil)
-        {
-            try
-            {
-                using (OleDbCommand command = new OleDbCommand("UPDATE Aidat SET Miktar = @YeniMiktar WHERE Yil = @SecilenYil", Baglanti.dbc))
+                catch
                 {
-                    // Yeni parametreleri ekleyin
-                    command.Parameters.AddWithValue("@YeniMiktar", yeniMiktar);
-                    command.Parameters.AddWithValue("@SecilenYil", CbYil);
-
-                    command.ExecuteNonQuery();
-                    return "Aidat miktarı güncellendi.";
+                    return null;
                 }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
         }
-        //--------------------------------------------------------------------------------------------------------------------------------------
 
-        //E posta gonder
-        public static string DALEpostaGonder(string metin)
+        //Verilen yıla göre tüm verileri çeker.
+        public static List<EntityAidat> DALDoldur(string yil)
         {
-            try
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Aidat WHERE Yil = @Yil", Baglanti.dbc))
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+                cmd.Parameters.AddWithValue("@Yil", yil);
 
-                mail.From = new MailAddress("KaynakEposta");
-                mail.To.Add("HedefEposta");
-                mail.Subject = "Subject";
-                mail.Body = metin;
+                List<EntityAidat> aidatlar = new List<EntityAidat>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
 
-                smtpServer.Port = 587;
-                smtpServer.Credentials = new NetworkCredential("KaynakEposta", "Şifre");
-                smtpServer.EnableSsl = true;
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityAidat ent = new EntityAidat();
+                        ent.Yil = short.Parse(dr["Yil"].ToString());
+                        ent.Ocak = decimal.Parse(dr["Ocak"].ToString());
+                        ent.Subat = decimal.Parse(dr["Subat"].ToString());
+                        ent.Mart = decimal.Parse(dr["Mart"].ToString());
+                        ent.Nisan = decimal.Parse(dr["Nisan"].ToString());
+                        ent.Mayis = decimal.Parse(dr["Mayis"].ToString());
+                        ent.Haziran = decimal.Parse(dr["Haziran"].ToString());
+                        ent.Temmuz = decimal.Parse(dr["Temmuz"].ToString());
+                        ent.Agustos = decimal.Parse(dr["Agustos"].ToString());
+                        ent.Eylul = decimal.Parse(dr["Eylul"].ToString());
+                        ent.Ekim = decimal.Parse(dr["Ekim"].ToString());
+                        ent.Kasim = decimal.Parse(dr["Kasim"].ToString());
+                        ent.Aralik = decimal.Parse(dr["Aralik"].ToString());
 
-                smtpServer.Send(mail);
-
-                return "E-posta başarıyla gönderildi!";
-            }
-            catch (Exception ex)
-            {
-                return "E-posta gönderirken bir hata oluştu: " + ex.Message;
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
+                }
+                catch
+                {
+                    return null;
+                }
             }
         }
     }

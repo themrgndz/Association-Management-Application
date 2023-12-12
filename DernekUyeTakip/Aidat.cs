@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
 using DataAccessLayer;
+using EntityLayer;
 using LogicLayer;
 using ZedGraph;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -21,56 +23,35 @@ namespace DernekUyeTakip
             TsmKalin.ShortcutKeys = Keys.Control | Keys.K; // Ctrl + K
             Tsmİtalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
             TsmAltiCizili.ShortcutKeys = Keys.Control | Keys.U; // Ctrl + U
+
+            //Combobox'lara veritabanındaki yılları ekliyor.
+            List<EntityAidat> aidatlar = new List<EntityAidat>();
+            aidatlar = LogicAidat.LLDoldur();
+            foreach (var i in aidatlar)
+            {
+                CbYil.Items.Add(i.Yil);
+                CbYil2.Items.Add(i.Yil);
+            }
         }
-
         //---------------------------------------------------------------------------------
-
-        //Belirtilen aidat miktarını veritanındaki aktif üyelere ekler.
         private void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
-            if (RbBelirliAylar.Checked)
+            if (RbTumAylar.Checked)
             {
-                try
-                {
-                    // Yeni miktarları al
-                    int[] yeniMiktarlar = {
-                    int.Parse(TbOcak.Text),
-                    int.Parse(TbSubat.Text),
-                    int.Parse(TbMart.Text),
-                    int.Parse(TbNisan.Text),
-                    int.Parse(TbMayis.Text),
-                    int.Parse(TbHaziran.Text),
-                    int.Parse(TbTemmuz.Text),
-                    int.Parse(TbAgustos.Text),
-                    int.Parse(TbEylul.Text),
-                    int.Parse(TbEkim.Text),
-                    int.Parse(TbKasim.Text),
-                    int.Parse(TbAralik.Text)
-                };
-                    MessageBox.Show(LogicAidat.LLAidatBelirle(yeniMiktarlar, CbYil.Text));
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
-                }
+               
             }
             else
             {
-                MessageBox.Show(LogicAidat.LLAidatBelirle(int.Parse(TbAidatMiktari.Text),CbYil2.Text));
+                
             }
         }
-
         //---------------------------------------------------------------------------------
-
-        //Form kapatıldığında uygulamayı da kapatır
+        //Form kapatıldığında uygulamayı da kapatır.
         private void Aidat_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
         //---------------------------------------------------------------------------------
-
         //Radio butonların seçimini kontrol eder.
         private void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
         {
@@ -80,6 +61,7 @@ namespace DernekUyeTakip
                 PnlAylar.Visible = false;
                 TbAidatMiktari.BackColor = Color.White;
                 CbYil2.Enabled = true;
+                
             }
             else
             {
@@ -90,95 +72,42 @@ namespace DernekUyeTakip
                 CbYil2.Enabled = false;
             }
         }
-
         //---------------------------------------------------------------------------------
-
         //Yıl seçimine bağlı olarak textboxları ayların aidat değerine göre doldurur.
         private void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            List<EntityAidat> aidatlar = new List<EntityAidat>();
+            aidatlar = LogicAidat.LLDoldur(CbYil.Text);
+            foreach (var i in aidatlar)
             {
-                OleDbCommand command = new OleDbCommand("SELECT Ay,Miktar FROM Aidat WHERE Yil = @SecilenYil", Baglanti.dbc);
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("@SecilenYil", CbYil.Text);
-                
-                if (command.Connection.State != ConnectionState.Open)
-                {
-                    command.Connection.Open();
-                }
-                using (OleDbDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        int ay = Convert.ToInt32(reader["Ay"])-1;
-                        decimal aidatMiktari = decimal.Parse(reader["Miktar"].ToString());
-
-                        // TextBox'lara değerleri atama işlemi
-                        switch (ay)
-                        {
-                            case 0:
-                                TbOcak.Text = aidatMiktari.ToString();
-                                break;
-                            case 1:
-                                TbSubat.Text = aidatMiktari.ToString();
-                                break;
-                            case 2:
-                                TbMart.Text = aidatMiktari.ToString();
-                                break;
-                            case 3:
-                                TbNisan.Text = aidatMiktari.ToString();
-                                break;
-                            case 4:
-                                TbMayis.Text = aidatMiktari.ToString();
-                                break;
-                            case 5:
-                                TbHaziran.Text = aidatMiktari.ToString();
-                                break;
-                            case 6:
-                                TbTemmuz.Text = aidatMiktari.ToString();
-                                break;
-                            case 7:
-                                TbAgustos.Text = aidatMiktari.ToString();
-                                break;
-                            case 8:
-                                TbEylul.Text = aidatMiktari.ToString();
-                                break;
-                            case 9:
-                                TbEkim.Text = aidatMiktari.ToString();
-                                break;
-                            case 10:
-                                TbKasim.Text = aidatMiktari.ToString();
-                                break;
-                            case 11:
-                                TbAralik.Text = aidatMiktari.ToString();
-                                break;
-                        }
-                    }
-                }
+                TbOcak.Text = i.Ocak.ToString();
+                TbSubat.Text = i.Subat.ToString();
+                TbMart.Text = i.Mart.ToString();
+                TbNisan.Text = i.Nisan.ToString();
+                TbMayis.Text = i.Mayis.ToString();
+                TbHaziran.Text = i.Haziran.ToString();
+                TbTemmuz.Text = i.Temmuz.ToString();
+                TbAgustos.Text = i.Agustos.ToString();
+                TbEylul.Text = i.Eylul.ToString();
+                TbEkim.Text = i.Ekim.ToString();
+                TbKasim.Text = i.Kasim.ToString();
+                TbAralik.Text = i.Aralik.ToString();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Yıllar yüklenirken hata oluştu: " + ex.Message);
-            }
+            aidatlar.Clear();
         }
-        
         //---------------------------------------------------------------------------------
-       
         private void TsmKalin_Click(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Bold);
         }
-
         private void Tsmİtalik_Click(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Italic);
         }
-
         private void TsmAltiCizili_Click(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Underline);
         }
-
         private void FontOzellik(FontStyle style)
         {
             int selectionStart = TbMail.SelectionStart;
@@ -194,12 +123,10 @@ namespace DernekUyeTakip
             TbMail.Select(selectionStart, selectionLength);
             TbMail.Focus();
         }
-
         //---------------------------------------------------------------------------------
-
         private void BtnEpostaGonder_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(LogicAidat.LLEpostaGonder(TbMail.Text),"Mail Gönerim İşleminiz");
+            
         }
         //---------------------------------------------------------------------------------
     }

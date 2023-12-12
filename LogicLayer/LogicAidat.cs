@@ -1,41 +1,24 @@
 ﻿using DataAccessLayer;
+using EntityLayer;
 using System;
+using System.Collections.Generic;
 using System.Data.OleDb;
 
 namespace LogicLayer
 {
     public class LogicAidat
     {
-        //--------------------------------------------------------------------
-        public static void LLAidatBelirle(string tc, DateTime tarih, decimal miktar)
+        //Aidat tablosuna ait tüm verileri çeker.
+        public static List<EntityAidat> LLDoldur()
         {
-            DALAidat.DALAidatBelirle(tc,tarih,miktar);
-        }
-        
-        //--------------------------------------------------------------------
-        
-        //Her ay için farklı aidat
-        public static string LLAidatBelirle(int[] yeniMiktarlar, string CbYil)
-        {
-            
-            return DALAidat.DALAidatBelirle(yeniMiktarlar, CbYil);
+            return DALAidat.DALDoldur();
         }
 
-        //--------------------------------------------------------------------
-
-        //Bütün aylar için aynı aidat
-        public static string LLAidatBelirle(int yeniMiktar, string CbYil)
+        //Verilen yıla göre Aidat tablosundaki verileri çeker.
+        public static List<EntityAidat> LLDoldur(string yil)
         {
-
-            return DALAidat.DALAidatBelirle(yeniMiktar, CbYil);
+            return DALAidat.DALDoldur(yil);
         }
-        
-        //--------------------------------------------------------------------
 
-        //E posta gönder
-        public static string LLEpostaGonder(string metin)
-        {
-            return DALAidat.DALEpostaGonder(metin);
-        }
     }
 }

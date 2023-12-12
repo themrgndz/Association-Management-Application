@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EntityLayer;
 
 namespace DataAccessLayer
@@ -140,6 +137,7 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.Eposta = dr["Eposta"].ToString();
+                        ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -195,7 +193,7 @@ namespace DataAccessLayer
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.Eposta = dr["Eposta"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
-                        ent.Aktif_Pasif = true;
+                        ent.Aktif_Pasif = bool.Parse(dr["AktifPasif"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         
                         uyeler.Add(ent);
@@ -246,7 +244,6 @@ namespace DataAccessLayer
                 }
             }
         }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
         //Tc'si girilen üyeyi siler
         public static bool UyeSil(string u)
@@ -271,7 +268,6 @@ namespace DataAccessLayer
                 }
             }
         }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
         //Tc'si girilen üyeyi günceller
         public static bool UyeGuncelle(EntityUye ent)
@@ -303,7 +299,6 @@ namespace DataAccessLayer
                 }
             }
         }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
         //Giriş yapmaya çalışan kişinin Tc ve şifresini yönetici tablosundan kontrol eder
         public static bool YoneticiDogrula(string tc, string sifre)
@@ -342,7 +337,6 @@ namespace DataAccessLayer
                 return dogrulandi;
             }
         }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
         //Giriş yapmaya çalışan kişinin Tc ve şifresini üye tablosundan kontrol eder
         public static bool UyeDogrula(string tc, string sifre)
