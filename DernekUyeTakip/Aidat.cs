@@ -15,13 +15,14 @@ namespace DernekUyeTakip
     public partial class Aidat : Form
     {
         //---------------------------------------------------------------------------------
+        //Aidatlar ile ilgili kodlar.
         public Aidat()
         {
             InitializeComponent();
 
             //RichTextBox'u kısayollar ile düzenlemek için.
             TsmKalin.ShortcutKeys = Keys.Control | Keys.K; // Ctrl + K
-            Tsmİtalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
+            TsmItalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
             TsmAltiCizili.ShortcutKeys = Keys.Control | Keys.U; // Ctrl + U
 
             //Combobox'lara veritabanındaki yılları ekliyor.
@@ -34,10 +35,12 @@ namespace DernekUyeTakip
             }
         }
         //---------------------------------------------------------------------------------
-        private void BtnAidatBelirle_Click(object sender, EventArgs e)
+        //Veritabanındaki Aidat değerlerini günceller.
+        public void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
             if (RbTumAylar.Checked)
             {
+                //Tüm aylar radio butonu etkinse bütün aylara aynı değeri giriyoruz.
                 EntityAidat ent = new EntityAidat();
 
                 ent.Yil = short.Parse(CbYil2.Text);
@@ -59,6 +62,7 @@ namespace DernekUyeTakip
             }
             else
             {
+                //Eğer belirli aylar radio butonu etkinse her ayın kendi değerini giriyoruz.
                 EntityAidat ent = new EntityAidat();
 
                 ent.Yil = short.Parse(CbYil.Text);
@@ -75,41 +79,46 @@ namespace DernekUyeTakip
                 ent.Kasim = decimal.Parse(TbKasim.Text);
                 ent.Aralik = decimal.Parse(TbAralik.Text);
 
-
                 MessageBox.Show(LogicAidat.LLAidatBelirle(ent));
 
             }
+            
+            //DataGridView'i güncelliyoruz.
+            List<EntityAidat> AidatList = LogicAidat.LLDoldur();
+            DgwAidatlar.DataSource = AidatList;
+
         }
         //---------------------------------------------------------------------------------
         //Form kapatıldığında uygulamayı da kapatır.
-        private void Aidat_FormClosed(object sender, FormClosedEventArgs e)
+        public void Aidat_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
         //---------------------------------------------------------------------------------
         //Radio butonların seçimini kontrol eder.
-        private void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
+        public void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
         {
             if (RbTumAylar.Checked)
             {
                 TbAidatMiktari.Enabled = true;
                 PnlAylar.Visible = false;
+                CbYil2.BackColor = Color.White;
                 TbAidatMiktari.BackColor = Color.White;
                 CbYil2.Enabled = true;
-                
             }
             else
             {
                 TbAidatMiktari.Enabled = false;
                 PnlAylar.Visible = true;
-                TbAidatMiktari.BackColor = Color.FromArgb(48,48,48);
+                CbYil2.BackColor = Color.FromArgb(48, 48, 48);
+                TbAidatMiktari.BackColor = Color.FromArgb(48, 48, 48);
                 TbAidatMiktari.Text = "";
                 CbYil2.Enabled = false;
             }
         }
         //---------------------------------------------------------------------------------
         //Yıl seçimine bağlı olarak textboxları ayların aidat değerine göre doldurur.
-        private void CbYil_SelectedIndexChanged(object sender, EventArgs e)
+        public void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<EntityAidat> aidatlar = new List<EntityAidat>();
             aidatlar = LogicAidat.LLDoldur(CbYil.Text);
@@ -131,19 +140,26 @@ namespace DernekUyeTakip
             aidatlar.Clear();
         }
         //---------------------------------------------------------------------------------
-        private void TsmKalin_Click(object sender, EventArgs e)
+        //Metin kutusundaki seçili yerleri kalın hale çevirir.
+        public void TsmKalin_Click_1(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Bold);
         }
-        private void Tsmİtalik_Click(object sender, EventArgs e)
+        //---------------------------------------------------------------------------------
+        //Metin kutusundaki seçili yerleri eğik hale çevirir.
+        public void TsmItalik_Click(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Italic);
         }
-        private void TsmAltiCizili_Click(object sender, EventArgs e)
+        //---------------------------------------------------------------------------------
+        //Metin kutusundaki seçili yerleri altı çizili hale çevirir.
+        public void TsmAltiCizili_Click_1(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Underline);
         }
-        private void FontOzellik(FontStyle style)
+        //---------------------------------------------------------------------------------
+        //Metindeki seçili yerin font ayalarını değiştirir.
+        public void FontOzellik(FontStyle style)
         {
             int selectionStart = TbMail.SelectionStart;
             int selectionLength = TbMail.SelectionLength;
@@ -159,24 +175,67 @@ namespace DernekUyeTakip
             TbMail.Focus();
         }
         //---------------------------------------------------------------------------------
-        private void BtnEpostaGonder_Click(object sender, EventArgs e)
+        //Butona basıldığında üyelere aidat ile ilgili mail atar.
+        public void BtnEposta_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        }
+        //---------------------------------------------------------------------------------
+        //Form yüklendiğinde DataGridView'i Aidat tablosuna göre doldurur.
+        public void Aidat_Load(object sender, EventArgs e)
         {
-            
+            List<EntityAidat> AidatList = LogicAidat.LLDoldur();
+            DgwAidatlar.DataSource = AidatList;
         }
-
-        private void Deneme_Click(object sender, EventArgs e)
+        //---------------------------------------------------------------------------------
+        //Aktif üyelerin aidatlarını günceller.
+        public void UyeAidatGuncelle_Click(object sender, EventArgs e)
         {
-            DateTime bugun = DateTime.Today;
-            string ay = bugun.ToString("MMMM");
-            string yil = bugun.Year.ToString();
+            try
+            {
+                //Ay ve yıl verisini alıyoruz.
+                DateTime bugun = DateTime.Today;
+                string ay = bugun.ToString("MMMM");
+                string yil = bugun.Year.ToString();
 
-            decimal aidatMiktari = LogicAidat.LLAidatMiktariAl(ay, yil);
-            MessageBox.Show(aidatMiktari.ToString());
+                //Bu ayki aidat miktarını alıyoruz.
+                decimal aidatMiktari = LogicAidat.LLAidatMiktariAl(ay, yil);
+
+                if (aidatMiktari > 0)
+                {
+                    //Tüm aktif üyeleri çekiyoruz.
+                    List<EntityUye> uyeler = DALUye.UyeListesi("AktifPasif", true);
+
+                    foreach (EntityUye uye in uyeler)
+                    {
+                        //Üyenin önceki aidatını ödeyip ödemediğini kontrol ediyoruz.
+                        LogicAidat.LLBorcKontrol(uye);
+                        //Her bir üyenin aidat kısmına bu ayki aidatı yazıyoruz.
+
+                    }
+
+                    // İşlem başarılıysa
+                    Console.WriteLine("Aidatlar başarıyla atandı.");
+                }
+                else
+                {
+                    Console.WriteLine("Bu ay için belirlenmiş bir aidat miktarı yok.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+            }
+
+            //MessageBox.Show("Aidat miktarı: " + aidatMiktari.ToString() + "₺","Aidat Güncellemesi");
+
+
+
+
+
+
+
         }
+        //---------------------------------------------------------------------------------
     }
 }

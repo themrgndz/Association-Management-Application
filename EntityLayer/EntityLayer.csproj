@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="EntityAidat.cs" />
     <Compile Include="EntityUye.cs" />
+    <Compile Include="EntityUyeAidat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

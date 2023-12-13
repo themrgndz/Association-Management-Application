@@ -228,11 +228,6 @@ namespace DernekUyeTakip
             Aidat aidat = new Aidat();
             aidat.Show();
         }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

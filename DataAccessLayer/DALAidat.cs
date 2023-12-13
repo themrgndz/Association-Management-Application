@@ -221,5 +221,43 @@ namespace DataAccessLayer
                 throw e;
             }
         }
+
+        public static int UyeAidatEkle(EntityUyeAidat u)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4)", Baglanti.dbc))
+            {
+                try
+                {
+
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+
+                    cmd.Parameters.AddWithValue("@P1", u.Tc);
+                    cmd.Parameters.AddWithValue("@P2", u.AidatMiktari);
+                    cmd.Parameters.AddWithValue("@P3", u.AidatTarihi);
+                    cmd.Parameters.AddWithValue("@P4", u.Odendi);
+
+                    return cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public static bool BorcKontrol(EntityUye uye)
+        {
+
+            return false;
+        }
+
+        public static bool BorcBelirle(string tc, string ay, string yil)
+        {
+
+            return false;
+        }
     }
 }

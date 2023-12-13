@@ -11,28 +11,18 @@ namespace EntityLayer
 
         //-----------------------------------------------------------------------------
         //Database kısmında oluşturduğumuz üye tablosunu Entity katmanında property'lere aktarıyoruz.
+        
         private string tc;
-
         private string ad;
-
         private string soyad;
-
         private int yas;
-
         private string sehir;
-
         private string sifre;
-
         private string kanGrubu;
-
         private string kayitTarihi;
-
         private string eposta;
-
         private bool aktif_Pasif;
-
         private short aidat;
-
         private short borc;
 
         

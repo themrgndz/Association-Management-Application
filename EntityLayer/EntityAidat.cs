@@ -8,6 +8,9 @@ namespace EntityLayer
 {
     public class EntityAidat
     {
+        //-----------------------------------------------------------------------------
+        //Database kısmında oluşturduğumuz Aidat tablosunu Entity katmanında property'lere aktarıyoruz.
+
         private short yil;
         private decimal ocak;
         private decimal subat;

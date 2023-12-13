@@ -66,7 +66,6 @@
             this.CbSehir2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.BtnAidatBelirle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -667,23 +666,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.BtnAidatBelirle);
             this.groupBox3.Location = new System.Drawing.Point(929, 360);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(331, 317);
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(127, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Deneme";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // BtnAidatBelirle
             // 
@@ -769,6 +757,5 @@
         private System.Windows.Forms.Button BtnAidatBelirle;
         private System.Windows.Forms.TextBox TbEposta;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
     }
 }
