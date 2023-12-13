@@ -160,8 +160,66 @@ namespace DataAccessLayer
 
         public static decimal AidatMiktariAl(string ay, string yil)
         {
-            //Burada kaldın
-            DALDoldur(yil);
+            try
+            {
+                List<EntityAidat> aidatlar = new List<EntityAidat>();
+
+                decimal deneme = -1;
+
+                aidatlar = DALDoldur(yil);
+
+                foreach (var item in aidatlar)
+                {
+                    switch (ay)
+                    {
+                        case "Ocak":
+                            deneme = item.Ocak;
+                            break;
+                        case "Şubat":
+                            deneme = item.Subat;
+                            break;
+                        case "Mart":
+                            deneme = item.Mart;
+                            break;
+                        case "Nisan":
+                            deneme = item.Nisan;
+                            break;
+                        case "Mayıs":
+                            deneme = item.Mayis;
+                            break;
+                        case "Haziran":
+                            deneme = item.Haziran;
+                            break;
+                        case "Temmuz":
+                            deneme = item.Temmuz;
+                            break;
+                        case "Ağustos":
+                            deneme = item.Agustos;
+                            break;
+                        case "Eylül":
+                            deneme = item.Eylul;
+                            break;
+                        case "Ekim":
+                            deneme = item.Ekim;
+                            break;
+                        case "Kasım":
+                            deneme = item.Kasim;
+                            break;
+                        case "Aralık":
+                            deneme = item.Aralik;
+                            break;
+                        default:
+                            break;
+                    }
+                    return deneme;
+                }
+
+                return deneme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
