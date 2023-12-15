@@ -8,7 +8,9 @@ using DataAccessLayer;
 using EntityLayer;
 using LogicLayer;
 using ZedGraph;
+using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Net;
 
 namespace DernekUyeTakip
 {
@@ -34,6 +36,9 @@ namespace DernekUyeTakip
                 CbYil.Items.Add(i.Yil);
                 CbYil2.Items.Add(i.Yil);
             }
+
+            //DataGridView'e UyeAidat listesini getirir.
+            DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
         }
         //---------------------------------------------------------------------------------
         
@@ -194,7 +199,23 @@ namespace DernekUyeTakip
         //Butona basıldığında üyelere aidat ile ilgili mail atar.
         public void BtnEposta_Click(object sender, EventArgs e)
         {
-
+            //E posta içeriği
+            string konu;
+            string mail = TbMail.Text;
+            switch (CbKonu.SelectedIndex)
+            {
+                case 0:
+                    konu = "Aylık aidat hatırlatması.";
+                    break;
+                case 1:
+                    konu = "Borç hatırlatması.";
+                    break;
+                default:
+                    konu = "";
+                    break;
+            }
+            // E-posta gönderme işlemi
+            MessageBox.Show(LogicAidat.LLMailGonder(konu,mail));
         }
         //---------------------------------------------------------------------------------
         
@@ -238,5 +259,48 @@ namespace DernekUyeTakip
             }
         }
         //---------------------------------------------------------------------------------
+
+        //Mail konusunun seçimine göre içerik metninin değişmesini sağlar.
+        private void CbKonu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (CbKonu.SelectedIndex)
+            {
+                case 0:
+                    TbMail.Text = "Değerli üyemiz,\r\n\r\nBu mesajla size bu dönemin aidatını hatırlatmak istiyoruz. Ödemelerinizi aylık süreçte yapmanız önemlidir.\r\n\r\nKatılımınız ve desteklerinizle derneğimiz, topluma daha fazla hizmet etme fırsatı bulacaktır. Sorularınız veya yardım ihtiyaçlarınız için bize her zaman ulaşabilirsiniz.\r\n\r\nTeşekkür ederiz...";
+                    break;
+                case 1:
+                    TbMail.Text = "Değerli üyemiz,\r\n\r\nBorcunuz bulunmaktadır. Ödemelerinizi aylık süreçte yapmanız önemlidir.\r\n\r\nKatılımınız ve desteklerinizle derneğimiz, topluma daha fazla hizmet etme fırsatı bulacaktır. \r\nSorularınız veya yardım ihtiyaçlarınız için bize her zaman ulaşabilirsiniz.\r\n\r\nTeşekkür ederiz...";
+                    break;
+                default:
+                    break;
+            }
+        }
+        //---------------------------------------------------------------------------------
+
+        //DgvAidat tablosunu istenilene göre doldurur
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (CbUyeAidat.SelectedIndex)
+            {
+                //Tüm Aidatlar
+                case 0:
+                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
+                    break;
+                //Ödenmiş Aidatlar
+                case 1:
+                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true);
+                    break;
+                 //Ödenmemiş Aidatlar
+                case 2:
+                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false);
+                    break;
+                default:
+                    MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!","Uyarı");
+                    break;
+            }
+        }
+        //---------------------------------------------------------------------------------
+
+
     }
 }

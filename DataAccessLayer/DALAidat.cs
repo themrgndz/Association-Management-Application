@@ -256,7 +256,7 @@ namespace DataAccessLayer
             List<EntityUye> Uyeler = DALUye.UyeListesi("AktifPasif",true);
             foreach (var i in Uyeler)
             {
-                using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4)", Baglanti.dbc))
+                using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4,@P5)", Baglanti.dbc))
                 {
                     try
                     {
@@ -270,6 +270,8 @@ namespace DataAccessLayer
                         cmd.Parameters.AddWithValue("@P2", aidatMiktari);
                         cmd.Parameters.AddWithValue("@P3", tarih);
                         cmd.Parameters.AddWithValue("@P4", false);
+                        cmd.Parameters.AddWithValue("@P5", "Odenmedi");
+
                         cmd.ExecuteNonQuery();
                     }
                     catch
@@ -283,6 +285,141 @@ namespace DataAccessLayer
                 }
             }
             return true;
+        }
+
+        //Butona tıklandığında Mail başlığı ve içeriğine göre aktif üyelere mail atar.
+        public static string MailGonder(string konu, string mail)
+        {
+            try
+            {
+                // Gönderen e-posta adresi ve uygulama şifresi
+                string GonderenMail = "dugorselprogramlama@gmail.com";
+                string GonderenSifre = "rkbn sgit zkox diwf";
+
+                // SMTP sunucu ayarları
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential(GonderenMail, GonderenSifre);
+                smtpClient.EnableSsl = true;
+
+                // Alıcı e-posta adresi
+                List<EntityUye> uyeler = DALUye.UyeListesi("AktifPasif",true);
+                List<string> mailler = new List<string>();
+                foreach (var uye in uyeler)
+                {
+                    mailler.Add(uye.Eposta);
+                }
+
+                foreach (var Alanmail in mailler)
+                {
+                    // Gönderen ve alıcı e-posta adresleri
+                    MailMessage mailMessage = new MailMessage();
+                    mailMessage.From = new MailAddress(GonderenMail);
+                    mailMessage.To.Add(Alanmail);
+
+                    // E-posta konu ve içeriği
+                    mailMessage.Subject = konu;
+                    mailMessage.Body = mail;
+
+                    // E-posta gönderme işlemi
+                    smtpClient.Send(mailMessage);
+
+                }
+                return "E-posta başarıyla gönderildi.";
+
+            }
+            catch (Exception ex)
+            {
+                return "E-posta başarıyla gönderildi. " + ex.Message;
+            }
+        }
+
+        //UyeAidat tablosundaki verileri çeker.
+        public static List<EntityUyeAidat> UyeAidatGetir()
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat", Baglanti.dbc))
+            {
+                List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUyeAidat ent = new EntityUyeAidat();
+
+                        ent.AidatId = dr["AidatId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                        ent.AidatTarihi = dr["AidatTarihi"].ToString();
+                        ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        //UyeAidat tablosundaki odenmiş/odenmemiş verileri çeker.
+        public static List<EntityUyeAidat> UyeAidatGetir(bool odendi)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Odendi = @P1", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1", odendi);
+
+                List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUyeAidat ent = new EntityUyeAidat();
+
+                        ent.AidatId = dr["AidatId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                        ent.AidatTarihi = dr["AidatTarihi"].ToString();
+                        ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
         }
     }
 }

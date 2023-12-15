@@ -21,26 +21,53 @@ namespace LogicLayer
             return DALAidat.DALDoldur(yil);
         }
 
+        //Aidat verilerini günceller
         public static string LLAidatBelirle(EntityAidat Aidatlar)
         {
             return DALAidat.AidatBelirle(Aidatlar);
         }
 
+        //Verilen tarihe göre aidat miktarı döndürür
         public static Decimal LLAidatMiktariAl(string ay, string yil)
         {
             return DALAidat.AidatMiktariAl(ay, yil);
         }
 
+        //Aidat miktarlarını veritabanına ekler
         public static void LLUyeAidatEkle(decimal aidatmiktari)
         {
             DALAidat.UyeAidatEkle(aidatmiktari);
         }
 
+        //Aktif üyelere o ayki aidat ücretini ekleyerek UyeAidat tablosuna işler
         public static bool LLAidatKayit(string tarih,decimal aidatMiktari)
         {
             return DALAidat.AidatKayit(tarih,aidatMiktari);
         }
+        
+        //Aktif üyelere aidat mail'i atar.
+        public static string LLMailGonder(string konu,string mail)
+        {
+            if (mail != "" && konu != "")
+            {
+                return DALAidat.MailGonder(konu,mail);
+            }
+            else
+            {
+                return "Lütfen mail içeriği ekleyin...";
+            }
+        }
 
+        //UyeAidat listesini getirir.
+        public static List<EntityUyeAidat> LLUyeAidatGetir()
+        {
+            return DALAidat.UyeAidatGetir();
+        }
 
+        //UyeAidat listeninden odenmiş/odenmemiş verileri çeker.
+        public static List<EntityUyeAidat> LLUyeAidatGetir(bool odendi)
+        {
+            return DALAidat.UyeAidatGetir(odendi);
+        }
     }
 }

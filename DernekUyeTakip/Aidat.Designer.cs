@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aidat));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabAidatBelirle = new System.Windows.Forms.TabPage();
+            this.DgwAidatlar = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.UyeAidatGuncelle = new System.Windows.Forms.Button();
             this.CbYil2 = new System.Windows.Forms.ComboBox();
@@ -42,83 +43,91 @@
             this.BtnAidatBelirle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TbAidatMiktari = new System.Windows.Forms.TextBox();
-            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PnlAylar = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TbAralik = new System.Windows.Forms.TextBox();
+            this.TbKasim = new System.Windows.Forms.TextBox();
+            this.TbEkim = new System.Windows.Forms.TextBox();
+            this.TbEylul = new System.Windows.Forms.TextBox();
+            this.TbAgustos = new System.Windows.Forms.TextBox();
+            this.TbTemmuz = new System.Windows.Forms.TextBox();
+            this.TbHaziran = new System.Windows.Forms.TextBox();
+            this.TbMayis = new System.Windows.Forms.TextBox();
+            this.TbNisan = new System.Windows.Forms.TextBox();
+            this.TbMart = new System.Windows.Forms.TextBox();
+            this.TbSubat = new System.Windows.Forms.TextBox();
+            this.TbOcak = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CbYil = new System.Windows.Forms.ComboBox();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.TabBorclular = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DgvAidat = new System.Windows.Forms.DataGridView();
+            this.TabEPosta = new System.Windows.Forms.TabPage();
+            this.splitter4 = new System.Windows.Forms.Splitter();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TbMail = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.TsmKalin = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmItalik = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmAltiCizili = new System.Windows.Forms.ToolStripMenuItem();
             this.label20 = new System.Windows.Forms.Label();
-            this.TbMail = new System.Windows.Forms.RichTextBox();
             this.BtnEposta = new System.Windows.Forms.Button();
-            this.splitter3 = new System.Windows.Forms.Splitter();
-            this.splitter4 = new System.Windows.Forms.Splitter();
-            this.DgwAidatlar = new System.Windows.Forms.DataGridView();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.splitter2 = new System.Windows.Forms.Splitter();
-            this.CbYil = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.TbOcak = new System.Windows.Forms.TextBox();
-            this.TbSubat = new System.Windows.Forms.TextBox();
-            this.TbMart = new System.Windows.Forms.TextBox();
-            this.TbNisan = new System.Windows.Forms.TextBox();
-            this.TbMayis = new System.Windows.Forms.TextBox();
-            this.TbHaziran = new System.Windows.Forms.TextBox();
-            this.TbTemmuz = new System.Windows.Forms.TextBox();
-            this.TbAgustos = new System.Windows.Forms.TextBox();
-            this.TbEylul = new System.Windows.Forms.TextBox();
-            this.TbEkim = new System.Windows.Forms.TextBox();
-            this.TbKasim = new System.Windows.Forms.TextBox();
-            this.TbAralik = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.PnlAylar = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CbKonu = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.CbUyeAidat = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.TabAidatGelirleri.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.PnlAylar.SuspendLayout();
+            this.TabAidatGelirleri.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).BeginInit();
+            this.TabEPosta.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.TabAidatBelirle);
-            this.tabControl1.Controls.Add(this.TabBorclular);
             this.tabControl1.Controls.Add(this.TabAidatGelirleri);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.TabBorclular);
+            this.tabControl1.Controls.Add(this.TabEPosta);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 65);
+            this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1260, 612);
+            this.tabControl1.Size = new System.Drawing.Size(1260, 636);
             this.tabControl1.TabIndex = 31;
             // 
             // TabAidatBelirle
@@ -132,9 +141,25 @@
             this.TabAidatBelirle.Location = new System.Drawing.Point(4, 22);
             this.TabAidatBelirle.Name = "TabAidatBelirle";
             this.TabAidatBelirle.Padding = new System.Windows.Forms.Padding(3);
-            this.TabAidatBelirle.Size = new System.Drawing.Size(1252, 586);
+            this.TabAidatBelirle.Size = new System.Drawing.Size(1252, 610);
             this.TabAidatBelirle.TabIndex = 0;
             this.TabAidatBelirle.Text = "Aidat Belirleme";
+            // 
+            // DgwAidatlar
+            // 
+            this.DgwAidatlar.AllowUserToAddRows = false;
+            this.DgwAidatlar.AllowUserToDeleteRows = false;
+            this.DgwAidatlar.AllowUserToOrderColumns = true;
+            this.DgwAidatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DgwAidatlar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgwAidatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgwAidatlar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DgwAidatlar.Location = new System.Drawing.Point(247, 281);
+            this.DgwAidatlar.Name = "DgwAidatlar";
+            this.DgwAidatlar.ReadOnly = true;
+            this.DgwAidatlar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgwAidatlar.Size = new System.Drawing.Size(758, 326);
+            this.DgwAidatlar.TabIndex = 27;
             // 
             // groupBox1
             // 
@@ -251,458 +276,6 @@
             this.TbAidatMiktari.Size = new System.Drawing.Size(148, 26);
             this.TbAidatMiktari.TabIndex = 1;
             // 
-            // TabAidatGelirleri
-            // 
-            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
-            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
-            this.TabAidatGelirleri.Controls.Add(this.dataGridView1);
-            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
-            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
-            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 586);
-            this.TabAidatGelirleri.TabIndex = 2;
-            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(934, -22);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(329, 612);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(-9, -16);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(328, 611);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(325, 256);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(603, 322);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // TabBorclular
-            // 
-            this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.TabBorclular.Location = new System.Drawing.Point(4, 22);
-            this.TabBorclular.Name = "TabBorclular";
-            this.TabBorclular.Padding = new System.Windows.Forms.Padding(3);
-            this.TabBorclular.Size = new System.Drawing.Size(1252, 586);
-            this.TabBorclular.TabIndex = 1;
-            this.TabBorclular.Text = "Borçlular";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.tabPage1.Controls.Add(this.splitter4);
-            this.tabPage1.Controls.Add(this.splitter3);
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1252, 586);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "EPosta";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.toolStrip2);
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.TbMail);
-            this.groupBox5.Controls.Add(this.BtnEposta);
-            this.groupBox5.Location = new System.Drawing.Point(359, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(534, 590);
-            this.groupBox5.TabIndex = 20;
-            this.groupBox5.TabStop = false;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 16);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(528, 25);
-            this.toolStrip2.TabIndex = 19;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmKalin,
-            this.TsmItalik,
-            this.TsmAltiCizili});
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(53, 22);
-            this.toolStripDropDownButton1.Text = "Düzen";
-            // 
-            // TsmKalin
-            // 
-            this.TsmKalin.Name = "TsmKalin";
-            this.TsmKalin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
-            this.TsmKalin.Size = new System.Drawing.Size(180, 22);
-            this.TsmKalin.Text = "Kalın";
-            this.TsmKalin.Click += new System.EventHandler(this.TsmKalin_Click_1);
-            // 
-            // TsmItalik
-            // 
-            this.TsmItalik.Name = "TsmItalik";
-            this.TsmItalik.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.TsmItalik.Size = new System.Drawing.Size(180, 22);
-            this.TsmItalik.Text = "İtalik";
-            this.TsmItalik.Click += new System.EventHandler(this.TsmItalik_Click);
-            // 
-            // TsmAltiCizili
-            // 
-            this.TsmAltiCizili.Name = "TsmAltiCizili";
-            this.TsmAltiCizili.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.TsmAltiCizili.Size = new System.Drawing.Size(180, 22);
-            this.TsmAltiCizili.Text = "Altı Çizili";
-            this.TsmAltiCizili.Click += new System.EventHandler(this.TsmAltiCizili_Click_1);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Control;
-            this.label20.Location = new System.Drawing.Point(71, 102);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(392, 29);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Bilgilendirme Postası Gönderme";
-            // 
-            // TbMail
-            // 
-            this.TbMail.Location = new System.Drawing.Point(35, 193);
-            this.TbMail.Name = "TbMail";
-            this.TbMail.Size = new System.Drawing.Size(464, 232);
-            this.TbMail.TabIndex = 7;
-            this.TbMail.Text = resources.GetString("TbMail.Text");
-            // 
-            // BtnEposta
-            // 
-            this.BtnEposta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEposta.Location = new System.Drawing.Point(132, 483);
-            this.BtnEposta.Name = "BtnEposta";
-            this.BtnEposta.Size = new System.Drawing.Size(270, 37);
-            this.BtnEposta.TabIndex = 17;
-            this.BtnEposta.Text = "E posta Gönder";
-            this.BtnEposta.UseVisualStyleBackColor = true;
-            this.BtnEposta.Click += new System.EventHandler(this.BtnEposta_Click);
-            // 
-            // splitter3
-            // 
-            this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.splitter3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.splitter3.Location = new System.Drawing.Point(0, 0);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(350, 586);
-            this.splitter3.TabIndex = 21;
-            this.splitter3.TabStop = false;
-            // 
-            // splitter4
-            // 
-            this.splitter4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.splitter4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.splitter4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter4.Location = new System.Drawing.Point(902, 0);
-            this.splitter4.Name = "splitter4";
-            this.splitter4.Size = new System.Drawing.Size(350, 586);
-            this.splitter4.TabIndex = 22;
-            this.splitter4.TabStop = false;
-            // 
-            // DgwAidatlar
-            // 
-            this.DgwAidatlar.AllowUserToAddRows = false;
-            this.DgwAidatlar.AllowUserToDeleteRows = false;
-            this.DgwAidatlar.AllowUserToOrderColumns = true;
-            this.DgwAidatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DgwAidatlar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DgwAidatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgwAidatlar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DgwAidatlar.Location = new System.Drawing.Point(247, 257);
-            this.DgwAidatlar.Name = "DgwAidatlar";
-            this.DgwAidatlar.ReadOnly = true;
-            this.DgwAidatlar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgwAidatlar.Size = new System.Drawing.Size(758, 326);
-            this.DgwAidatlar.TabIndex = 27;
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(1005, 3);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(244, 580);
-            this.splitter1.TabIndex = 4;
-            this.splitter1.TabStop = false;
-            // 
-            // splitter2
-            // 
-            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.splitter2.Location = new System.Drawing.Point(3, 3);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(244, 580);
-            this.splitter2.TabIndex = 5;
-            this.splitter2.TabStop = false;
-            // 
-            // CbYil
-            // 
-            this.CbYil.FormattingEnabled = true;
-            this.CbYil.Location = new System.Drawing.Point(99, 29);
-            this.CbYil.Name = "CbYil";
-            this.CbYil.Size = new System.Drawing.Size(121, 21);
-            this.CbYil.TabIndex = 0;
-            this.CbYil.SelectedIndexChanged += new System.EventHandler(this.CbYil_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(50, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 16);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Yıl:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(32, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Ocak:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(28, 122);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 16);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Subat:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(38, 156);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 16);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Mart:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(28, 190);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 16);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Nisan:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(27, 224);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 16);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Mayis:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(15, 258);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 16);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Haziran:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(10, 292);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 16);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Temmuz:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(12, 326);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 16);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Agustos:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.ForeColor = System.Drawing.SystemColors.Control;
-            this.label14.Location = new System.Drawing.Point(34, 360);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 16);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Eylul:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.ForeColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(34, 394);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 16);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Ekim:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(26, 428);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 16);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Kasim:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(32, 462);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 16);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "Aralik";
-            // 
-            // TbOcak
-            // 
-            this.TbOcak.Location = new System.Drawing.Point(99, 84);
-            this.TbOcak.Name = "TbOcak";
-            this.TbOcak.Size = new System.Drawing.Size(121, 20);
-            this.TbOcak.TabIndex = 14;
-            // 
-            // TbSubat
-            // 
-            this.TbSubat.Location = new System.Drawing.Point(99, 118);
-            this.TbSubat.Name = "TbSubat";
-            this.TbSubat.Size = new System.Drawing.Size(121, 20);
-            this.TbSubat.TabIndex = 15;
-            // 
-            // TbMart
-            // 
-            this.TbMart.Location = new System.Drawing.Point(99, 152);
-            this.TbMart.Name = "TbMart";
-            this.TbMart.Size = new System.Drawing.Size(121, 20);
-            this.TbMart.TabIndex = 16;
-            // 
-            // TbNisan
-            // 
-            this.TbNisan.Location = new System.Drawing.Point(99, 186);
-            this.TbNisan.Name = "TbNisan";
-            this.TbNisan.Size = new System.Drawing.Size(121, 20);
-            this.TbNisan.TabIndex = 17;
-            // 
-            // TbMayis
-            // 
-            this.TbMayis.Location = new System.Drawing.Point(99, 220);
-            this.TbMayis.Name = "TbMayis";
-            this.TbMayis.Size = new System.Drawing.Size(121, 20);
-            this.TbMayis.TabIndex = 18;
-            // 
-            // TbHaziran
-            // 
-            this.TbHaziran.Location = new System.Drawing.Point(99, 254);
-            this.TbHaziran.Name = "TbHaziran";
-            this.TbHaziran.Size = new System.Drawing.Size(121, 20);
-            this.TbHaziran.TabIndex = 19;
-            // 
-            // TbTemmuz
-            // 
-            this.TbTemmuz.Location = new System.Drawing.Point(99, 288);
-            this.TbTemmuz.Name = "TbTemmuz";
-            this.TbTemmuz.Size = new System.Drawing.Size(121, 20);
-            this.TbTemmuz.TabIndex = 20;
-            // 
-            // TbAgustos
-            // 
-            this.TbAgustos.Location = new System.Drawing.Point(99, 322);
-            this.TbAgustos.Name = "TbAgustos";
-            this.TbAgustos.Size = new System.Drawing.Size(121, 20);
-            this.TbAgustos.TabIndex = 21;
-            // 
-            // TbEylul
-            // 
-            this.TbEylul.Location = new System.Drawing.Point(99, 356);
-            this.TbEylul.Name = "TbEylul";
-            this.TbEylul.Size = new System.Drawing.Size(121, 20);
-            this.TbEylul.TabIndex = 22;
-            // 
-            // TbEkim
-            // 
-            this.TbEkim.Location = new System.Drawing.Point(99, 390);
-            this.TbEkim.Name = "TbEkim";
-            this.TbEkim.Size = new System.Drawing.Size(121, 20);
-            this.TbEkim.TabIndex = 23;
-            // 
-            // TbKasim
-            // 
-            this.TbKasim.Location = new System.Drawing.Point(99, 424);
-            this.TbKasim.Name = "TbKasim";
-            this.TbKasim.Size = new System.Drawing.Size(121, 20);
-            this.TbKasim.TabIndex = 24;
-            // 
-            // TbAralik
-            // 
-            this.TbAralik.Location = new System.Drawing.Point(99, 458);
-            this.TbAralik.Name = "TbAralik";
-            this.TbAralik.Size = new System.Drawing.Size(121, 20);
-            this.TbAralik.TabIndex = 25;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(-18, 59);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(277, 13);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "---------------------------------------------------------------------------------" +
-    "---------";
-            // 
             // PnlAylar
             // 
             this.PnlAylar.Controls.Add(this.label18);
@@ -738,14 +311,470 @@
             this.PnlAylar.TabIndex = 20;
             this.PnlAylar.Visible = false;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.SystemColors.Control;
+            this.label18.Location = new System.Drawing.Point(-18, 59);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(277, 13);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "---------------------------------------------------------------------------------" +
+    "---------";
+            // 
+            // TbAralik
+            // 
+            this.TbAralik.Location = new System.Drawing.Point(99, 458);
+            this.TbAralik.Name = "TbAralik";
+            this.TbAralik.Size = new System.Drawing.Size(121, 20);
+            this.TbAralik.TabIndex = 25;
+            // 
+            // TbKasim
+            // 
+            this.TbKasim.Location = new System.Drawing.Point(99, 424);
+            this.TbKasim.Name = "TbKasim";
+            this.TbKasim.Size = new System.Drawing.Size(121, 20);
+            this.TbKasim.TabIndex = 24;
+            // 
+            // TbEkim
+            // 
+            this.TbEkim.Location = new System.Drawing.Point(99, 390);
+            this.TbEkim.Name = "TbEkim";
+            this.TbEkim.Size = new System.Drawing.Size(121, 20);
+            this.TbEkim.TabIndex = 23;
+            // 
+            // TbEylul
+            // 
+            this.TbEylul.Location = new System.Drawing.Point(99, 356);
+            this.TbEylul.Name = "TbEylul";
+            this.TbEylul.Size = new System.Drawing.Size(121, 20);
+            this.TbEylul.TabIndex = 22;
+            // 
+            // TbAgustos
+            // 
+            this.TbAgustos.Location = new System.Drawing.Point(99, 322);
+            this.TbAgustos.Name = "TbAgustos";
+            this.TbAgustos.Size = new System.Drawing.Size(121, 20);
+            this.TbAgustos.TabIndex = 21;
+            // 
+            // TbTemmuz
+            // 
+            this.TbTemmuz.Location = new System.Drawing.Point(99, 288);
+            this.TbTemmuz.Name = "TbTemmuz";
+            this.TbTemmuz.Size = new System.Drawing.Size(121, 20);
+            this.TbTemmuz.TabIndex = 20;
+            // 
+            // TbHaziran
+            // 
+            this.TbHaziran.Location = new System.Drawing.Point(99, 254);
+            this.TbHaziran.Name = "TbHaziran";
+            this.TbHaziran.Size = new System.Drawing.Size(121, 20);
+            this.TbHaziran.TabIndex = 19;
+            // 
+            // TbMayis
+            // 
+            this.TbMayis.Location = new System.Drawing.Point(99, 220);
+            this.TbMayis.Name = "TbMayis";
+            this.TbMayis.Size = new System.Drawing.Size(121, 20);
+            this.TbMayis.TabIndex = 18;
+            // 
+            // TbNisan
+            // 
+            this.TbNisan.Location = new System.Drawing.Point(99, 186);
+            this.TbNisan.Name = "TbNisan";
+            this.TbNisan.Size = new System.Drawing.Size(121, 20);
+            this.TbNisan.TabIndex = 17;
+            // 
+            // TbMart
+            // 
+            this.TbMart.Location = new System.Drawing.Point(99, 152);
+            this.TbMart.Name = "TbMart";
+            this.TbMart.Size = new System.Drawing.Size(121, 20);
+            this.TbMart.TabIndex = 16;
+            // 
+            // TbSubat
+            // 
+            this.TbSubat.Location = new System.Drawing.Point(99, 118);
+            this.TbSubat.Name = "TbSubat";
+            this.TbSubat.Size = new System.Drawing.Size(121, 20);
+            this.TbSubat.TabIndex = 15;
+            // 
+            // TbOcak
+            // 
+            this.TbOcak.Location = new System.Drawing.Point(99, 84);
+            this.TbOcak.Name = "TbOcak";
+            this.TbOcak.Size = new System.Drawing.Size(121, 20);
+            this.TbOcak.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.ForeColor = System.Drawing.SystemColors.Control;
+            this.label17.Location = new System.Drawing.Point(32, 462);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 16);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "Aralik";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.ForeColor = System.Drawing.SystemColors.Control;
+            this.label16.Location = new System.Drawing.Point(26, 428);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 16);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Kasim:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Control;
+            this.label15.Location = new System.Drawing.Point(34, 394);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 16);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Ekim:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
+            this.label14.Location = new System.Drawing.Point(34, 360);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 16);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Eylul:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.ForeColor = System.Drawing.SystemColors.Control;
+            this.label13.Location = new System.Drawing.Point(12, 326);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 16);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Agustos:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Control;
+            this.label12.Location = new System.Drawing.Point(10, 292);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 16);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Temmuz:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(15, 258);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 16);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Haziran:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
+            this.label10.Location = new System.Drawing.Point(27, 224);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 16);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Mayis:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(28, 190);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 16);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Nisan:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(38, 156);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 16);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Mart:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(28, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 16);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Subat:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(32, 88);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Ocak:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(50, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Yıl:";
+            // 
+            // CbYil
+            // 
+            this.CbYil.FormattingEnabled = true;
+            this.CbYil.Location = new System.Drawing.Point(99, 29);
+            this.CbYil.Name = "CbYil";
+            this.CbYil.Size = new System.Drawing.Size(121, 21);
+            this.CbYil.TabIndex = 0;
+            this.CbYil.SelectedIndexChanged += new System.EventHandler(this.CbYil_SelectedIndexChanged);
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.splitter2.Location = new System.Drawing.Point(3, 3);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(244, 604);
+            this.splitter2.TabIndex = 5;
+            this.splitter2.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter1.Location = new System.Drawing.Point(1005, 3);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(244, 604);
+            this.splitter1.TabIndex = 4;
+            this.splitter1.TabStop = false;
+            // 
+            // TabBorclular
+            // 
+            this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabBorclular.Location = new System.Drawing.Point(4, 22);
+            this.TabBorclular.Name = "TabBorclular";
+            this.TabBorclular.Padding = new System.Windows.Forms.Padding(3);
+            this.TabBorclular.Size = new System.Drawing.Size(1252, 610);
+            this.TabBorclular.TabIndex = 1;
+            this.TabBorclular.Text = "Borçlular";
+            // 
+            // TabAidatGelirleri
+            // 
+            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabAidatGelirleri.Controls.Add(this.groupBox7);
+            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
+            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
+            this.TabAidatGelirleri.Controls.Add(this.DgvAidat);
+            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
+            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
+            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 610);
+            this.TabAidatGelirleri.TabIndex = 2;
+            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox3.Location = new System.Drawing.Point(-9, -16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(77, 630);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // DgvAidat
+            // 
+            this.DgvAidat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvAidat.Location = new System.Drawing.Point(74, 123);
+            this.DgvAidat.Name = "DgvAidat";
+            this.DgvAidat.Size = new System.Drawing.Size(543, 479);
+            this.DgvAidat.TabIndex = 0;
+            // 
+            // TabEPosta
+            // 
+            this.TabEPosta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabEPosta.Controls.Add(this.splitter4);
+            this.TabEPosta.Controls.Add(this.splitter3);
+            this.TabEPosta.Controls.Add(this.groupBox5);
+            this.TabEPosta.Location = new System.Drawing.Point(4, 22);
+            this.TabEPosta.Name = "TabEPosta";
+            this.TabEPosta.Size = new System.Drawing.Size(1252, 610);
+            this.TabEPosta.TabIndex = 3;
+            this.TabEPosta.Text = "E Posta";
+            // 
+            // splitter4
+            // 
+            this.splitter4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.splitter4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.splitter4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter4.Location = new System.Drawing.Point(902, 0);
+            this.splitter4.Name = "splitter4";
+            this.splitter4.Size = new System.Drawing.Size(350, 610);
+            this.splitter4.TabIndex = 22;
+            this.splitter4.TabStop = false;
+            // 
+            // splitter3
+            // 
+            this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.splitter3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.splitter3.Location = new System.Drawing.Point(0, 0);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(350, 610);
+            this.splitter3.TabIndex = 21;
+            this.splitter3.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.groupBox2);
+            this.groupBox5.Controls.Add(this.toolStrip2);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.BtnEposta);
+            this.groupBox5.Location = new System.Drawing.Point(359, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(534, 614);
+            this.groupBox5.TabIndex = 20;
+            this.groupBox5.TabStop = false;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.TbMail);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox6.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox6.Location = new System.Drawing.Point(22, 180);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(491, 344);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "İçerik";
+            // 
+            // TbMail
+            // 
+            this.TbMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbMail.Location = new System.Drawing.Point(19, 34);
+            this.TbMail.Name = "TbMail";
+            this.TbMail.Size = new System.Drawing.Size(452, 289);
+            this.TbMail.TabIndex = 7;
+            this.TbMail.Text = resources.GetString("TbMail.Text");
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.CbKonu);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Location = new System.Drawing.Point(22, 106);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(491, 68);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Konu";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(528, 25);
+            this.toolStrip2.TabIndex = 19;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmKalin,
+            this.TsmItalik,
+            this.TsmAltiCizili});
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(53, 22);
+            this.toolStripDropDownButton1.Text = "Düzen";
+            // 
+            // TsmKalin
+            // 
+            this.TsmKalin.Name = "TsmKalin";
+            this.TsmKalin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.TsmKalin.Size = new System.Drawing.Size(162, 22);
+            this.TsmKalin.Text = "Kalın";
+            this.TsmKalin.Click += new System.EventHandler(this.TsmKalin_Click_1);
+            // 
+            // TsmItalik
+            // 
+            this.TsmItalik.Name = "TsmItalik";
+            this.TsmItalik.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.TsmItalik.Size = new System.Drawing.Size(162, 22);
+            this.TsmItalik.Text = "İtalik";
+            this.TsmItalik.Click += new System.EventHandler(this.TsmItalik_Click);
+            // 
+            // TsmAltiCizili
+            // 
+            this.TsmAltiCizili.Name = "TsmAltiCizili";
+            this.TsmAltiCizili.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.TsmAltiCizili.Size = new System.Drawing.Size(162, 22);
+            this.TsmAltiCizili.Text = "Altı Çizili";
+            this.TsmAltiCizili.Click += new System.EventHandler(this.TsmAltiCizili_Click_1);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label20.ForeColor = System.Drawing.SystemColors.Control;
+            this.label20.Location = new System.Drawing.Point(71, 61);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(392, 29);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Bilgilendirme Postası Gönderme";
+            // 
+            // BtnEposta
+            // 
+            this.BtnEposta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEposta.Location = new System.Drawing.Point(133, 534);
+            this.BtnEposta.Name = "BtnEposta";
+            this.BtnEposta.Size = new System.Drawing.Size(270, 37);
+            this.BtnEposta.TabIndex = 17;
+            this.BtnEposta.Text = "E posta Gönder";
+            this.BtnEposta.UseVisualStyleBackColor = true;
+            this.BtnEposta.Click += new System.EventHandler(this.BtnEposta_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(536, 14);
+            this.label8.Location = new System.Drawing.Point(551, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(188, 37);
+            this.label8.Size = new System.Drawing.Size(158, 31);
             this.label8.TabIndex = 30;
             this.label8.Text = "Aidat Paneli";
             // 
@@ -756,8 +785,64 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1260, 65);
+            this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox4.Location = new System.Drawing.Point(1175, -59);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(81, 673);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            // 
+            // CbKonu
+            // 
+            this.CbKonu.FormattingEnabled = true;
+            this.CbKonu.Items.AddRange(new object[] {
+            "Aylık aidat hatırlatması.",
+            "Borç hatırlatması."});
+            this.CbKonu.Location = new System.Drawing.Point(19, 25);
+            this.CbKonu.Name = "CbKonu";
+            this.CbKonu.Size = new System.Drawing.Size(452, 28);
+            this.CbKonu.TabIndex = 21;
+            this.CbKonu.SelectedIndexChanged += new System.EventHandler(this.CbKonu_SelectedIndexChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.CbUyeAidat);
+            this.groupBox7.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox7.Location = new System.Drawing.Point(74, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(543, 114);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Aidat Tablosu";
+            // 
+            // CbUyeAidat
+            // 
+            this.CbUyeAidat.FormattingEnabled = true;
+            this.CbUyeAidat.Items.AddRange(new object[] {
+            "Tüm liste",
+            "Ödenmişler",
+            "Ödenmemişler"});
+            this.CbUyeAidat.Location = new System.Drawing.Point(185, 47);
+            this.CbUyeAidat.Name = "CbUyeAidat";
+            this.CbUyeAidat.Size = new System.Drawing.Size(288, 21);
+            this.CbUyeAidat.TabIndex = 3;
+            this.CbUyeAidat.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(69, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Aidat Tablosu:";
             // 
             // Aidat
             // 
@@ -778,20 +863,24 @@
             this.Load += new System.EventHandler(this.Aidat_Load);
             this.tabControl1.ResumeLayout(false);
             this.TabAidatBelirle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.TabAidatGelirleri.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).EndInit();
             this.PnlAylar.ResumeLayout(false);
             this.PnlAylar.PerformLayout();
+            this.TabAidatGelirleri.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).EndInit();
+            this.TabEPosta.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -812,11 +901,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TabPage TabAidatGelirleri;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView DgvAidat;
         private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Button UyeAidatGuncelle;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage TabEPosta;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
@@ -861,5 +949,12 @@
         private System.Windows.Forms.ComboBox CbYil;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox CbKonu;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CbUyeAidat;
     }
 }
