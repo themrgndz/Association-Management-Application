@@ -158,6 +158,7 @@ namespace DataAccessLayer
             }
         }
 
+        //Bulunan aya göre aidat miktarı çek.
         public static decimal AidatMiktariAl(string ay, string yil)
         {
             try
@@ -222,42 +223,66 @@ namespace DataAccessLayer
             }
         }
 
-        public static int UyeAidatEkle(EntityUyeAidat u)
+        //Aktif üyelere o ayki aidat değerini girer.
+        public static void UyeAidatEkle(decimal aidatMiktari)
         {
-            using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4)", Baglanti.dbc))
+            if (aidatMiktari > 0)
             {
-                try
+                using (OleDbCommand cmd = new OleDbCommand("UPDATE Uye SET Aidat = @P1 WHERE AktifPasif = @P2", Baglanti.dbc))
                 {
-
-                    if (cmd.Connection.State != ConnectionState.Open)
+                    try
                     {
-                        cmd.Connection.Open();
+
+                        if (cmd.Connection.State != ConnectionState.Open)
+                        {
+                            cmd.Connection.Open();
+                        }
+
+                        cmd.Parameters.AddWithValue("@P1",aidatMiktari);
+                        cmd.Parameters.AddWithValue("@P2",true);
+                        cmd.ExecuteNonQuery();
                     }
-
-                    cmd.Parameters.AddWithValue("@P1", u.Tc);
-                    cmd.Parameters.AddWithValue("@P2", u.AidatMiktari);
-                    cmd.Parameters.AddWithValue("@P3", u.AidatTarihi);
-                    cmd.Parameters.AddWithValue("@P4", u.Odendi);
-
-                    return cmd.ExecuteNonQuery();
-                }
-                catch
-                {
-                    return 0;
+                    catch(Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
             }
         }
 
-        public static bool BorcKontrol(EntityUye uye)
+        //UyeAidat tablosuna aidat kayıtlarını ekler.
+        public static bool AidatKayit(string tarih, decimal aidatMiktari)
         {
+            List<EntityUye> Uyeler = DALUye.UyeListesi("AktifPasif",true);
+            foreach (var i in Uyeler)
+            {
+                using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4)", Baglanti.dbc))
+                {
+                    try
+                    {
 
-            return false;
-        }
+                        if (cmd.Connection.State != ConnectionState.Open)
+                        {
+                            cmd.Connection.Open();
+                        }
 
-        public static bool BorcBelirle(string tc, string ay, string yil)
-        {
-
-            return false;
+                        cmd.Parameters.AddWithValue("@P1", i.Tc);
+                        cmd.Parameters.AddWithValue("@P2", aidatMiktari);
+                        cmd.Parameters.AddWithValue("@P3", tarih);
+                        cmd.Parameters.AddWithValue("@P4", false);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                    finally
+                    {
+                        cmd.Connection.Close();
+                    }
+                }
+            }
+            return true;
         }
     }
 }

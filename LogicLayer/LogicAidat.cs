@@ -20,7 +20,7 @@ namespace LogicLayer
         {
             return DALAidat.DALDoldur(yil);
         }
-        
+
         public static string LLAidatBelirle(EntityAidat Aidatlar)
         {
             return DALAidat.AidatBelirle(Aidatlar);
@@ -28,17 +28,19 @@ namespace LogicLayer
 
         public static Decimal LLAidatMiktariAl(string ay, string yil)
         {
-            return DALAidat.AidatMiktariAl(ay,yil);
+            return DALAidat.AidatMiktariAl(ay, yil);
         }
 
-        public static bool LLBorcKontrol(EntityUye uye)
+        public static void LLUyeAidatEkle(decimal aidatmiktari)
         {
-            return DALAidat.BorcKontrol(uye);
+            DALAidat.UyeAidatEkle(aidatmiktari);
         }
 
-        public static bool LLBorcBelirle(string tc, string ay, string yil)
+        public static bool LLAidatKayit(string tarih,decimal aidatMiktari)
         {
-            return DALAidat.BorcBelirle(tc,ay,yil);
+            return DALAidat.AidatKayit(tarih,aidatMiktari);
         }
+
+
     }
 }
