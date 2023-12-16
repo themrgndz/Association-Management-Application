@@ -58,16 +58,28 @@ namespace LogicLayer
             }
         }
 
-        //UyeAidat listesini getirir.
+        //UyeAidat tablosundaki tüm verileri çeker.
         public static List<EntityUyeAidat> LLUyeAidatGetir()
         {
             return DALAidat.UyeAidatGetir();
         }
+       
+        //Verilen Tc'ye göre UyeAidat tablosundaki tüm verileri çeker.
+        public static List<EntityUyeAidat> LLUyeAidatGetir(string Tc)
+        {
+            return DALAidat.UyeAidatGetir(Tc);
+        }
 
-        //UyeAidat listeninden odenmiş/odenmemiş verileri çeker.
+        //UyeAidat tablosundaki odenmiş/odenmemiş verileri çeker.
         public static List<EntityUyeAidat> LLUyeAidatGetir(bool odendi)
         {
             return DALAidat.UyeAidatGetir(odendi);
+        }
+
+        ////Verilen Tc ve Odeme durumuna göre UyeAidat tablosundaki tüm verileri çeker.
+        public static List<EntityUyeAidat> LLUyeAidatGetir(bool odendi,string Tc)
+        {
+            return DALAidat.UyeAidatGetir(odendi, Tc);
         }
     }
 }

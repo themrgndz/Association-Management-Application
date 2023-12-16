@@ -73,10 +73,15 @@
             this.CbYil = new System.Windows.Forms.ComboBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.TabBorclular = new System.Windows.Forms.TabPage();
-            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.TabAidatOdemeleri = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CbUyeAidat = new System.Windows.Forms.ComboBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DgvAidat = new System.Windows.Forms.DataGridView();
+            this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.TabBorclular = new System.Windows.Forms.TabPage();
             this.TabEPosta = new System.Windows.Forms.TabPage();
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.splitter3 = new System.Windows.Forms.Splitter();
@@ -84,6 +89,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.TbMail = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CbKonu = new System.Windows.Forms.ComboBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.TsmKalin = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,17 +101,15 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CbKonu = new System.Windows.Forms.ComboBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.CbUyeAidat = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.CTcFiltrele = new System.Windows.Forms.CheckBox();
+            this.TbAidatTc = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.PnlAylar.SuspendLayout();
-            this.TabAidatGelirleri.SuspendLayout();
+            this.TabAidatOdemeleri.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).BeginInit();
             this.TabEPosta.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -113,12 +117,12 @@
             this.groupBox2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.TabAidatBelirle);
+            this.tabControl1.Controls.Add(this.TabAidatOdemeleri);
             this.tabControl1.Controls.Add(this.TabAidatGelirleri);
             this.tabControl1.Controls.Add(this.TabBorclular);
             this.tabControl1.Controls.Add(this.TabEPosta);
@@ -577,28 +581,65 @@
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
-            // TabBorclular
+            // TabAidatOdemeleri
             // 
-            this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.TabBorclular.Location = new System.Drawing.Point(4, 22);
-            this.TabBorclular.Name = "TabBorclular";
-            this.TabBorclular.Padding = new System.Windows.Forms.Padding(3);
-            this.TabBorclular.Size = new System.Drawing.Size(1252, 610);
-            this.TabBorclular.TabIndex = 1;
-            this.TabBorclular.Text = "Borçlular";
+            this.TabAidatOdemeleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabAidatOdemeleri.Controls.Add(this.groupBox7);
+            this.TabAidatOdemeleri.Controls.Add(this.groupBox4);
+            this.TabAidatOdemeleri.Controls.Add(this.groupBox3);
+            this.TabAidatOdemeleri.Controls.Add(this.DgvAidat);
+            this.TabAidatOdemeleri.Location = new System.Drawing.Point(4, 22);
+            this.TabAidatOdemeleri.Name = "TabAidatOdemeleri";
+            this.TabAidatOdemeleri.Size = new System.Drawing.Size(1252, 610);
+            this.TabAidatOdemeleri.TabIndex = 2;
+            this.TabAidatOdemeleri.Text = "Aidat Ödemeleri";
             // 
-            // TabAidatGelirleri
+            // groupBox7
             // 
-            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.TabAidatGelirleri.Controls.Add(this.groupBox7);
-            this.TabAidatGelirleri.Controls.Add(this.groupBox4);
-            this.TabAidatGelirleri.Controls.Add(this.groupBox3);
-            this.TabAidatGelirleri.Controls.Add(this.DgvAidat);
-            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
-            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
-            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 610);
-            this.TabAidatGelirleri.TabIndex = 2;
-            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
+            this.groupBox7.Controls.Add(this.TbAidatTc);
+            this.groupBox7.Controls.Add(this.CTcFiltrele);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.CbUyeAidat);
+            this.groupBox7.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox7.Location = new System.Drawing.Point(74, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(631, 129);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Aidat Tablosu";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(77, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Tablo İçeriği:";
+            // 
+            // CbUyeAidat
+            // 
+            this.CbUyeAidat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbUyeAidat.FormattingEnabled = true;
+            this.CbUyeAidat.Items.AddRange(new object[] {
+            "Tüm liste",
+            "Ödenmişler",
+            "Ödenmemişler"});
+            this.CbUyeAidat.Location = new System.Drawing.Point(181, 33);
+            this.CbUyeAidat.Name = "CbUyeAidat";
+            this.CbUyeAidat.Size = new System.Drawing.Size(399, 28);
+            this.CbUyeAidat.TabIndex = 3;
+            this.CbUyeAidat.SelectedIndexChanged += new System.EventHandler(this.CbAidatTablosu_SelectedIndexChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox4.Location = new System.Drawing.Point(1175, -59);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(81, 673);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
             // 
             // groupBox3
             // 
@@ -612,10 +653,29 @@
             // DgvAidat
             // 
             this.DgvAidat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvAidat.Location = new System.Drawing.Point(74, 123);
+            this.DgvAidat.Location = new System.Drawing.Point(74, 138);
             this.DgvAidat.Name = "DgvAidat";
-            this.DgvAidat.Size = new System.Drawing.Size(543, 479);
+            this.DgvAidat.Size = new System.Drawing.Size(1095, 464);
             this.DgvAidat.TabIndex = 0;
+            // 
+            // TabAidatGelirleri
+            // 
+            this.TabAidatGelirleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabAidatGelirleri.Location = new System.Drawing.Point(4, 22);
+            this.TabAidatGelirleri.Name = "TabAidatGelirleri";
+            this.TabAidatGelirleri.Size = new System.Drawing.Size(1252, 610);
+            this.TabAidatGelirleri.TabIndex = 4;
+            this.TabAidatGelirleri.Text = "Aidat Gelirleri";
+            // 
+            // TabBorclular
+            // 
+            this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabBorclular.Location = new System.Drawing.Point(4, 22);
+            this.TabBorclular.Name = "TabBorclular";
+            this.TabBorclular.Padding = new System.Windows.Forms.Padding(3);
+            this.TabBorclular.Size = new System.Drawing.Size(1252, 610);
+            this.TabBorclular.TabIndex = 1;
+            this.TabBorclular.Text = "Borçlular";
             // 
             // TabEPosta
             // 
@@ -695,6 +755,18 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Konu";
+            // 
+            // CbKonu
+            // 
+            this.CbKonu.FormattingEnabled = true;
+            this.CbKonu.Items.AddRange(new object[] {
+            "Aylık aidat hatırlatması.",
+            "Borç hatırlatması."});
+            this.CbKonu.Location = new System.Drawing.Point(19, 25);
+            this.CbKonu.Name = "CbKonu";
+            this.CbKonu.Size = new System.Drawing.Size(452, 28);
+            this.CbKonu.TabIndex = 21;
+            this.CbKonu.SelectedIndexChanged += new System.EventHandler(this.CbKonu_SelectedIndexChanged);
             // 
             // toolStrip2
             // 
@@ -788,61 +860,27 @@
             this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
             // 
-            // groupBox4
+            // CTcFiltrele
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox4.Location = new System.Drawing.Point(1175, -59);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(81, 673);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
+            this.CTcFiltrele.AutoSize = true;
+            this.CTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CTcFiltrele.Location = new System.Drawing.Point(43, 69);
+            this.CTcFiltrele.Name = "CTcFiltrele";
+            this.CTcFiltrele.Size = new System.Drawing.Size(132, 24);
+            this.CTcFiltrele.TabIndex = 5;
+            this.CTcFiltrele.Text = "Tc no ile filtrele";
+            this.CTcFiltrele.UseVisualStyleBackColor = true;
+            this.CTcFiltrele.CheckedChanged += new System.EventHandler(this.CTcFiltrele_CheckedChanged);
             // 
-            // CbKonu
+            // TbAidatTc
             // 
-            this.CbKonu.FormattingEnabled = true;
-            this.CbKonu.Items.AddRange(new object[] {
-            "Aylık aidat hatırlatması.",
-            "Borç hatırlatması."});
-            this.CbKonu.Location = new System.Drawing.Point(19, 25);
-            this.CbKonu.Name = "CbKonu";
-            this.CbKonu.Size = new System.Drawing.Size(452, 28);
-            this.CbKonu.TabIndex = 21;
-            this.CbKonu.SelectedIndexChanged += new System.EventHandler(this.CbKonu_SelectedIndexChanged);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Controls.Add(this.CbUyeAidat);
-            this.groupBox7.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox7.Location = new System.Drawing.Point(74, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(543, 114);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Aidat Tablosu";
-            // 
-            // CbUyeAidat
-            // 
-            this.CbUyeAidat.FormattingEnabled = true;
-            this.CbUyeAidat.Items.AddRange(new object[] {
-            "Tüm liste",
-            "Ödenmişler",
-            "Ödenmemişler"});
-            this.CbUyeAidat.Location = new System.Drawing.Point(185, 47);
-            this.CbUyeAidat.Name = "CbUyeAidat";
-            this.CbUyeAidat.Size = new System.Drawing.Size(288, 21);
-            this.CbUyeAidat.TabIndex = 3;
-            this.CbUyeAidat.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(69, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Aidat Tablosu:";
+            this.TbAidatTc.Enabled = false;
+            this.TbAidatTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbAidatTc.Location = new System.Drawing.Point(181, 67);
+            this.TbAidatTc.Name = "TbAidatTc";
+            this.TbAidatTc.Size = new System.Drawing.Size(399, 26);
+            this.TbAidatTc.TabIndex = 6;
+            this.TbAidatTc.TextChanged += new System.EventHandler(this.TbAidatTc_TextChanged);
             // 
             // Aidat
             // 
@@ -868,7 +906,9 @@
             this.groupBox1.PerformLayout();
             this.PnlAylar.ResumeLayout(false);
             this.PnlAylar.PerformLayout();
-            this.TabAidatGelirleri.ResumeLayout(false);
+            this.TabAidatOdemeleri.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).EndInit();
             this.TabEPosta.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -879,8 +919,6 @@
             this.toolStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -899,7 +937,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox CbYil2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TabPage TabAidatGelirleri;
+        private System.Windows.Forms.TabPage TabAidatOdemeleri;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView DgvAidat;
         private System.Windows.Forms.Timer Timer1;
@@ -956,5 +994,8 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CbUyeAidat;
+        private System.Windows.Forms.TabPage TabAidatGelirleri;
+        private System.Windows.Forms.CheckBox CTcFiltrele;
+        private System.Windows.Forms.TextBox TbAidatTc;
     }
 }

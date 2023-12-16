@@ -17,7 +17,7 @@ namespace DernekUyeTakip
     public partial class Aidat : Form
     {
         //---------------------------------------------------------------------------------
-        
+
         //Aidatlar ile ilgili kodlar.
         public Aidat()
         {
@@ -41,7 +41,7 @@ namespace DernekUyeTakip
             DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
         }
         //---------------------------------------------------------------------------------
-        
+
         //Veritabanındaki Aidat değerlerini günceller.
         public void BtnAidatBelirle_Click(object sender, EventArgs e)
         {
@@ -98,18 +98,18 @@ namespace DernekUyeTakip
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lütfen doğru işlem yapın. Hata: " + ex.Message,"Hata!");
+                MessageBox.Show("Lütfen doğru işlem yapın. Hata: " + ex.Message, "Hata!");
             }
         }
         //---------------------------------------------------------------------------------
-        
+
         //Form kapatıldığında uygulamayı da kapatır.
         public void Aidat_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
         //---------------------------------------------------------------------------------
-        
+
         //Radio butonların seçimini kontrol eder.
         public void RbBelirliAylar_CheckedChanged(object sender, EventArgs e)
         {
@@ -132,7 +132,7 @@ namespace DernekUyeTakip
             }
         }
         //---------------------------------------------------------------------------------
-        
+
         //Yıl seçimine bağlı olarak textboxları ayların aidat değerine göre doldurur.
         public void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,28 +156,28 @@ namespace DernekUyeTakip
             aidatlar.Clear();
         }
         //---------------------------------------------------------------------------------
-        
+
         //Metin kutusundaki seçili yerleri kalın hale çevirir.
         public void TsmKalin_Click_1(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Bold);
         }
         //---------------------------------------------------------------------------------
-        
+
         //Metin kutusundaki seçili yerleri eğik hale çevirir.
         public void TsmItalik_Click(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Italic);
         }
         //---------------------------------------------------------------------------------
-        
+
         //Metin kutusundaki seçili yerleri altı çizili hale çevirir.
         public void TsmAltiCizili_Click_1(object sender, EventArgs e)
         {
             FontOzellik(FontStyle.Underline);
         }
         //---------------------------------------------------------------------------------
-        
+
         //Metindeki seçili yerin font ayalarını değiştirir.
         public void FontOzellik(FontStyle style)
         {
@@ -195,7 +195,7 @@ namespace DernekUyeTakip
             TbMail.Focus();
         }
         //---------------------------------------------------------------------------------
-        
+
         //Butona basıldığında üyelere aidat ile ilgili mail atar.
         public void BtnEposta_Click(object sender, EventArgs e)
         {
@@ -215,10 +215,10 @@ namespace DernekUyeTakip
                     break;
             }
             // E-posta gönderme işlemi
-            MessageBox.Show(LogicAidat.LLMailGonder(konu,mail));
+            MessageBox.Show(LogicAidat.LLMailGonder(konu, mail));
         }
         //---------------------------------------------------------------------------------
-        
+
         //Form yüklendiğinde DataGridView'i Aidat tablosuna göre doldurur.
         public void Aidat_Load(object sender, EventArgs e)
         {
@@ -226,7 +226,7 @@ namespace DernekUyeTakip
             DgwAidatlar.DataSource = AidatList;
         }
         //---------------------------------------------------------------------------------
-        
+
         //Aktif üyelerin aidatlarını günceller.
         public void UyeAidatGuncelle_Click(object sender, EventArgs e)
         {
@@ -245,7 +245,7 @@ namespace DernekUyeTakip
 
                 if (LogicAidat.LLAidatKayit(DateTime.Now.ToString("d"), aidatMiktari))
                 {
-                    MessageBox.Show("Başarılı","Veritabanı kaydı");
+                    MessageBox.Show("Başarılı", "Veritabanı kaydı");
                 }
                 else
                 {
@@ -277,30 +277,113 @@ namespace DernekUyeTakip
         }
         //---------------------------------------------------------------------------------
 
-        //DgvAidat tablosunu istenilene göre doldurur
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //UyeAidat tablosunu isterlere göre DataGridView'e aktarır.
+        private void CbAidatTablosu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (CbUyeAidat.SelectedIndex)
+            if (!CTcFiltrele.Checked)
             {
-                //Tüm Aidatlar
-                case 0:
-                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
-                    break;
-                //Ödenmiş Aidatlar
-                case 1:
-                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true);
-                    break;
-                 //Ödenmemiş Aidatlar
-                case 2:
-                    DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false);
-                    break;
-                default:
-                    MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!","Uyarı");
-                    break;
+                switch (CbUyeAidat.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+            else
+            {
+                switch (CbUyeAidat.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(TbAidatTc.Text);
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true, TbAidatTc.Text);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false, TbAidatTc.Text);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
             }
         }
         //---------------------------------------------------------------------------------
 
+        //Tc'ye göre filtrele
+        private void CTcFiltrele_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CTcFiltrele.Checked)
+            {
+                TbAidatTc.Enabled = true;
+            }
+            else
+            {
+                TbAidatTc.Enabled = false;
+                TbAidatTc.Text = "";
 
+            }
+        }
+
+        private void TbAidatTc_TextChanged(object sender, EventArgs e)
+        {
+            if (!CTcFiltrele.Checked)
+            {
+                switch (CbUyeAidat.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+            else
+            {
+                switch (CbUyeAidat.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(TbAidatTc.Text);
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(true, TbAidatTc.Text);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir(false, TbAidatTc.Text);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+        }
     }
 }

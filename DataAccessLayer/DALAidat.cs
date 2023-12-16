@@ -334,11 +334,55 @@ namespace DataAccessLayer
             }
         }
 
-        //UyeAidat tablosundaki verileri çeker.
+        //UyeAidat tablosundaki tüm verileri çeker.
         public static List<EntityUyeAidat> UyeAidatGetir()
         {
             using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat", Baglanti.dbc))
             {
+                List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUyeAidat ent = new EntityUyeAidat();
+
+                        ent.AidatId = dr["AidatId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                        ent.AidatTarihi = dr["AidatTarihi"].ToString();
+                        ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        //Verilen Tc'ye göre UyeAidat tablosundaki tüm verileri çeker.
+        public static List<EntityUyeAidat> UyeAidatGetir(string Tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Tc LIKE @P1", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1",Tc + "%");
                 List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
                 try
                 {
@@ -383,6 +427,52 @@ namespace DataAccessLayer
             using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Odendi = @P1", Baglanti.dbc))
             {
                 cmd.Parameters.AddWithValue("@P1", odendi);
+
+                List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityUyeAidat ent = new EntityUyeAidat();
+
+                        ent.AidatId = dr["AidatId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                        ent.AidatTarihi = dr["AidatTarihi"].ToString();
+                        ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                        aidatlar.Add(ent);
+                    }
+                    dr.Close();
+                    return aidatlar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        //Verilen Tc ve Odeme durumuna göre UyeAidat tablosundaki tüm verileri çeker.
+        public static List<EntityUyeAidat> UyeAidatGetir(bool odendi, string Tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Odendi = @P1 AND Tc LIKE @P2", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1", odendi);
+                cmd.Parameters.AddWithValue("@P2", Tc + "%"); 
 
                 List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
                 try
