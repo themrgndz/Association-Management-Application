@@ -81,5 +81,15 @@ namespace LogicLayer
         {
             return DALAidat.UyeAidatGetir(odendi, Tc);
         }
+
+        public static List<EntityBorc> LLUyeBorcGetir()
+        {
+            return DALAidat.UyeBorcGetir();
+        }
+
+        public static List<EntityBorc> LLUyeBorcGetir(string tc)
+        {
+            return DALAidat.UyeBorcGetir(tc);
+        }
     }
 }

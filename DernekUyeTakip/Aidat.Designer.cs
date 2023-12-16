@@ -603,7 +603,7 @@
             this.groupBox7.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox7.Location = new System.Drawing.Point(74, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(631, 129);
+            this.groupBox7.Size = new System.Drawing.Size(1095, 129);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Aidat Tablosu";
@@ -612,7 +612,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(77, 41);
+            this.label3.Location = new System.Drawing.Point(313, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 20);
             this.label3.TabIndex = 4;
@@ -626,7 +626,7 @@
             "Tüm liste",
             "Ödenmişler",
             "Ödenmemişler"});
-            this.CbUyeAidat.Location = new System.Drawing.Point(181, 33);
+            this.CbUyeAidat.Location = new System.Drawing.Point(417, 34);
             this.CbUyeAidat.Name = "CbUyeAidat";
             this.CbUyeAidat.Size = new System.Drawing.Size(399, 28);
             this.CbUyeAidat.TabIndex = 3;
@@ -864,7 +864,7 @@
             // 
             this.CTcFiltrele.AutoSize = true;
             this.CTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CTcFiltrele.Location = new System.Drawing.Point(43, 69);
+            this.CTcFiltrele.Location = new System.Drawing.Point(279, 70);
             this.CTcFiltrele.Name = "CTcFiltrele";
             this.CTcFiltrele.Size = new System.Drawing.Size(132, 24);
             this.CTcFiltrele.TabIndex = 5;
@@ -876,7 +876,7 @@
             // 
             this.TbAidatTc.Enabled = false;
             this.TbAidatTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbAidatTc.Location = new System.Drawing.Point(181, 67);
+            this.TbAidatTc.Location = new System.Drawing.Point(417, 68);
             this.TbAidatTc.Name = "TbAidatTc";
             this.TbAidatTc.Size = new System.Drawing.Size(399, 26);
             this.TbAidatTc.TabIndex = 6;

@@ -325,7 +325,7 @@ namespace DernekUyeTakip
         }
         //---------------------------------------------------------------------------------
 
-        //Tc'ye göre filtrele
+        //Checkbox'un durumuna göre değişiklikler yapar.
         private void CTcFiltrele_CheckedChanged(object sender, EventArgs e)
         {
             if (CTcFiltrele.Checked)
@@ -339,7 +339,9 @@ namespace DernekUyeTakip
 
             }
         }
-
+        //---------------------------------------------------------------------------------
+        
+        //DataGridView'i Tc'ye göre filtrele
         private void TbAidatTc_TextChanged(object sender, EventArgs e)
         {
             if (!CTcFiltrele.Checked)
@@ -385,5 +387,6 @@ namespace DernekUyeTakip
                 }
             }
         }
+        //---------------------------------------------------------------------------------
     }
 }

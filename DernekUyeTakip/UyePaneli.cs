@@ -15,10 +15,27 @@ namespace DernekUyeTakip
 {
     public partial class UyePaneli : Form
     {
+        private void UyePaneli_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         public UyePaneli(string tc)
         {
             InitializeComponent();
+            
+            UyeDoldur(tc);
 
+            UyeAidatDoldur(tc);
+
+            UyeBorcDoldur(tc);
+        
+        }
+        public void UyeAidatDoldur(string tc)
+        {
+            DGVAidat.DataSource = LogicAidat.LLUyeAidatGetir(tc);
+        }
+        public void UyeDoldur(string tc)
+        {
             List<EntityUye> uyeler = LogicUye.LLUyeListesi(tc);
 
             if (uyeler != null && uyeler.Count > 0)
@@ -33,27 +50,22 @@ namespace DernekUyeTakip
             }
             else
             {
-                // Veri bulunamadıysa veya hata oluştuysa uyarı mesajı yazdırabilirsiniz
-                MessageBox.Show("Veri bulunamadı veya bir hata oluştu.");
+                Application.Exit();
             }
         }
-        private void UyePaneli_Load(object sender, EventArgs e)
+        public void UyeBorcDoldur(string tc)
         {
-            
+            DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(tc);
         }
-        private void UyePaneli_FormClosed(object sender, FormClosedEventArgs e)
+        private void BtnAidatOde_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+        }
+        private void BtnBorcOde_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void BtnGuncelle_Click(object sender, EventArgs e)
-        {
-            DialogResult cevap = MessageBox.Show("Güncelleme talebi göndermek istediğinize emin misiniz?","Güncelleme talebi",MessageBoxButtons.OKCancel);
-            if (cevap == DialogResult.OK)
-            {
-                MessageBox.Show("Yöneticiye talebiniz iletildi...","Güncelleme talebi");
-            }
-        }
+       
     }
 }

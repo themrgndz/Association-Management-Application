@@ -511,5 +511,93 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        //Borc tablosundaki verileri çeker.
+        public static List<EntityBorc> UyeBorcGetir()
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc", Baglanti.dbc))
+            {
+                List<EntityBorc> borclar = new List<EntityBorc>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityBorc ent = new EntityBorc();
+
+                        ent.BorcId = dr["BorcId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
+                        ent.BorcTarihi = dr["BorcId"].ToString();
+                        ent.Odendi = bool.Parse(dr["BorcId"].ToString());
+                        ent.OdemeTarihi = dr["BorcId"].ToString();
+
+                        borclar.Add(ent);
+                    }
+                    dr.Close();
+                    return borclar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        //Verilen tc'ye göre borc tablosundaki verileri çeker.
+        public static List<EntityBorc> UyeBorcGetir(string tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc WHERE Tc = @P1", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1", tc);
+             
+                List<EntityBorc> borclar = new List<EntityBorc>();
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+                        EntityBorc ent = new EntityBorc();
+
+                        ent.BorcId = dr["BorcId"].ToString();
+                        ent.Tc = dr["Tc"].ToString();
+                        ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
+                        ent.BorcTarihi = dr["BorcTarihi"].ToString();
+                        ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                        borclar.Add(ent);
+                    }
+                    dr.Close();
+                    return borclar;
+                }
+                catch
+                {
+                    return null;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
     }
 }
