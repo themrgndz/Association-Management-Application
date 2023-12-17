@@ -14,7 +14,7 @@ namespace DataAccessLayer
     public class DALAidat
     {
         //Bütün verileri çeker.
-        public static List<EntityAidat> DALDoldur()
+        public static List<EntityAidat> DALAyAidatDoldur()
         {
             using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Aidat", Baglanti.dbc))
             {
@@ -63,7 +63,7 @@ namespace DataAccessLayer
         }
 
         //Verilen yıla göre tüm verileri çeker.
-        public static List<EntityAidat> DALDoldur(string yil)
+        public static List<EntityAidat> DALAyAidatDoldur(string yil)
         {
             using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Aidat WHERE Yil = @Yil", Baglanti.dbc))
             {
@@ -167,7 +167,7 @@ namespace DataAccessLayer
 
                 decimal deneme = -1;
 
-                aidatlar = DALDoldur(yil);
+                aidatlar = DALAyAidatDoldur(yil);
 
                 foreach (var item in aidatlar)
                 {
@@ -555,24 +555,21 @@ namespace DataAccessLayer
             }
         }
 
-        //Verilen tc'ye göre borc tablosundaki verileri çeker.
+        //Verilen tc'ye göre veritabanından borçları çeker.
         public static List<EntityBorc> UyeBorcGetir(string tc)
         {
-            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc WHERE Tc = @P1", Baglanti.dbc))
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc WHERE Tc = @P1",Baglanti.dbc))
             {
-                cmd.Parameters.AddWithValue("@P1", tc);
-             
+                cmd.Parameters.AddWithValue("@P1",tc);
                 List<EntityBorc> borclar = new List<EntityBorc>();
                 try
                 {
-                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    //Eğer veritabanı bağlantısı açık değilse bağlantıyı aç.
                     if (cmd.Connection.State != ConnectionState.Open)
                     {
                         cmd.Connection.Open();
                     }
                     OleDbDataReader dr = cmd.ExecuteReader();
-
-                    //Veritabanından bütün verileri çekiyoruz.
                     while (dr.Read())
                     {
                         EntityBorc ent = new EntityBorc();
@@ -589,13 +586,154 @@ namespace DataAccessLayer
                     dr.Close();
                     return borclar;
                 }
-                catch
+                catch (Exception)
                 {
-                    return null;
+
+                    throw;
                 }
                 finally
                 {
                     cmd.Connection.Close();
+                }
+            }
+        }
+
+        //Aidat kontrolü yapılan üyenin UyeAidat tablosundaki verilerini siler.
+        public static void UyeAidatSil(List<EntityUyeAidat> aidatlar)
+        {
+            using (OleDbTransaction transaction = Baglanti.dbc.BeginTransaction())
+            {
+                using (OleDbCommand cmd = new OleDbCommand("DELETE FROM UyeAidat WHERE AidatId = @AidatId", Baglanti.dbc, transaction))
+                {
+                    try
+                    {
+                        if (cmd.Connection.State != ConnectionState.Open)
+                        {
+                            cmd.Connection.Open();
+                        }
+
+                        foreach (var i in aidatlar)
+                        {
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@AidatId", i.AidatId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit(); // Hata olmadığında işlemi onaylar.
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hata durumunda geri alır.
+                        transaction.Rollback();
+                        throw new Exception("Transaction işlemi sırasında bir hata oluştu.", ex);
+                    }
+                }
+            }
+        }
+
+        //Aidat kontrolü yapılan üyenin ödenmemiş aidatını Borç tablosuna ekler.
+        public static void BorcEkle(List<EntityUyeAidat> aidatlar)
+        {
+            foreach (var i in aidatlar)
+            {
+                using (OleDbCommand KontrolCmd = new OleDbCommand("SELECT COUNT(*) FROM Borc WHERE Tc = @P1", Baglanti.dbc))
+                {
+                    try
+                    {
+                        if (KontrolCmd.Connection.State != ConnectionState.Open)
+                        {
+                            KontrolCmd.Connection.Open();
+                        }
+
+                        KontrolCmd.Parameters.AddWithValue("@P1", i.Tc);
+
+                        int VeritabanindaKacTane = (int)KontrolCmd.ExecuteScalar();
+
+                        if (VeritabanindaKacTane > 0)
+                        {
+                            // Eğer aynı Tc'ye sahip kayıt varsa, güncelleme yap
+                            using (OleDbCommand GuncelleCmd = new OleDbCommand("UPDATE Borc SET BorcMiktari = BorcMiktari + @P1, BorcTarihi = @P2 WHERE Tc = @P3", Baglanti.dbc))
+                            {
+                                GuncelleCmd.Parameters.AddWithValue("@P2", i.AidatMiktari);
+                                GuncelleCmd.Parameters.AddWithValue("@P1", DateTime.Now.ToString("d"));
+                                GuncelleCmd.Parameters.AddWithValue("@P3", i.Tc);
+
+                                GuncelleCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // Eğer aynı Tc'ye sahip kayıt yoksa, yeni kayıt ekle
+                            using (OleDbCommand insertCmd = new OleDbCommand("INSERT INTO Borc(Tc,BorcMiktari,BorcTarihi,Odendi,OdemeTarihi) VALUES (@P1,@P2,@P3,@P4,@P5)", Baglanti.dbc))
+                            {
+                                DateTime dt = DateTime.Now;
+
+                                insertCmd.Parameters.AddWithValue("@P1", i.Tc);
+                                insertCmd.Parameters.AddWithValue("@P2", i.AidatMiktari);
+                                insertCmd.Parameters.AddWithValue("@P3", dt.ToString("d"));
+                                insertCmd.Parameters.AddWithValue("@P4", false);
+                                insertCmd.Parameters.AddWithValue("@P5", "0");
+
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
+        //Aidatları ödemeyen kişilerin borçlarını günceller ve aidat kaydını siler.
+        public static void OdenmemisAidatKontrol(bool odeme)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Odendi = @P1", Baglanti.dbc))
+            {
+                try
+                {
+                    cmd.Parameters.AddWithValue("@P1", odeme);
+                    List<EntityUyeAidat> aidatlar = new List<EntityUyeAidat>();
+
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+
+                    using (OleDbDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            EntityUyeAidat ent = new EntityUyeAidat();
+
+                            ent.AidatId = dr["AidatId"].ToString();
+                            ent.Tc = dr["Tc"].ToString();
+                            ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                            ent.AidatTarihi = dr["AidatTarihi"].ToString();
+                            ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                            ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+
+                            aidatlar.Add(ent);
+
+                            // Aidatları borç tablosuna ekler.
+                            BorcEkle(aidatlar);
+
+                            // Borç tablosuna aktarılan UyeAidat verilerini siler.
+                            UyeAidatSil(aidatlar);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
                 }
             }
         }

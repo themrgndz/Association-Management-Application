@@ -22,23 +22,50 @@ namespace DernekUyeTakip
         public Aidat()
         {
             InitializeComponent();
+            RichTextBox();
+            VeriDoldur();
+            DgvDoldur();
+            BorcKontrol();
+        }
+        //---------------------------------------------------------------------------------
 
-            //RichTextBox'u kısayollar ile düzenlemek için.
-            TsmKalin.ShortcutKeys = Keys.Control | Keys.K; // Ctrl + K
-            TsmItalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
-            TsmAltiCizili.ShortcutKeys = Keys.Control | Keys.U; // Ctrl + U
+        //Her ay sonu borç kontrolü yapar
+        public void BorcKontrol()
+        {
+            DateTime now = DateTime.Now;
 
-            //Combobox'lara veritabanındaki yılları ekliyor.
+            int Gunumuz = now.Day;
+            int AyinSonGunu = DateTime.DaysInMonth(now.Year, now.Month);
+            LogicAidat.LLOdenmemisAidatKontrol(AyinSonGunu.ToString(), Gunumuz.ToString());
+        }
+        //---------------------------------------------------------------------------------
+
+        //DataGridView'e UyeAidat listesini getirir.
+        public void DgvDoldur()
+        {
+            DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
+        }
+        //---------------------------------------------------------------------------------
+
+        //Combobox'lara veritabanındaki yılları ekliyor.
+        public void VeriDoldur()
+        {
             List<EntityAidat> aidatlar = new List<EntityAidat>();
-            aidatlar = LogicAidat.LLDoldur();
+            aidatlar = LogicAidat.LLAyAidatDoldur();
             foreach (var i in aidatlar)
             {
                 CbYil.Items.Add(i.Yil);
                 CbYil2.Items.Add(i.Yil);
             }
+        }
+        //---------------------------------------------------------------------------------
 
-            //DataGridView'e UyeAidat listesini getirir.
-            DgvAidat.DataSource = LogicAidat.LLUyeAidatGetir();
+        //RichTextBox'u kısayollar ile düzenlemek için.
+        public void RichTextBox()
+        {
+            TsmKalin.ShortcutKeys = Keys.Control | Keys.K; // Ctrl + K
+            TsmItalik.ShortcutKeys = Keys.Control | Keys.I; // Ctrl + I
+            TsmAltiCizili.ShortcutKeys = Keys.Control | Keys.U; // Ctrl + U
         }
         //---------------------------------------------------------------------------------
 
@@ -93,7 +120,7 @@ namespace DernekUyeTakip
                 }
 
                 //DataGridView'i güncelliyoruz.
-                List<EntityAidat> AidatList = LogicAidat.LLDoldur();
+                List<EntityAidat> AidatList = LogicAidat.LLAyAidatDoldur();
                 DgwAidatlar.DataSource = AidatList;
             }
             catch (Exception ex)
@@ -137,7 +164,7 @@ namespace DernekUyeTakip
         public void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<EntityAidat> aidatlar = new List<EntityAidat>();
-            aidatlar = LogicAidat.LLDoldur(CbYil.Text);
+            aidatlar = LogicAidat.LLAyAidatDoldur(CbYil.Text);
             foreach (var i in aidatlar)
             {
                 TbOcak.Text = i.Ocak.ToString();
@@ -222,7 +249,7 @@ namespace DernekUyeTakip
         //Form yüklendiğinde DataGridView'i Aidat tablosuna göre doldurur.
         public void Aidat_Load(object sender, EventArgs e)
         {
-            List<EntityAidat> AidatList = LogicAidat.LLDoldur();
+            List<EntityAidat> AidatList = LogicAidat.LLAyAidatDoldur();
             DgwAidatlar.DataSource = AidatList;
         }
         //---------------------------------------------------------------------------------

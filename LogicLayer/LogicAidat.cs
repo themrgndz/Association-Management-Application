@@ -10,15 +10,15 @@ namespace LogicLayer
     public class LogicAidat
     {
         //Aidat tablosuna ait tüm verileri çeker.
-        public static List<EntityAidat> LLDoldur()
+        public static List<EntityAidat> LLAyAidatDoldur()
         {
-            return DALAidat.DALDoldur();
+            return DALAidat.DALAyAidatDoldur();
         }
 
         //Verilen yıla göre Aidat tablosundaki verileri çeker.
-        public static List<EntityAidat> LLDoldur(string yil)
+        public static List<EntityAidat> LLAyAidatDoldur(string yil)
         {
-            return DALAidat.DALDoldur(yil);
+            return DALAidat.DALAyAidatDoldur(yil);
         }
 
         //Aidat verilerini günceller
@@ -50,7 +50,7 @@ namespace LogicLayer
         {
             if (mail != "" && konu != "")
             {
-                return DALAidat.MailGonder(konu,mail);
+                return DALAidat.MailGonder(konu, mail);
             }
             else
             {
@@ -82,14 +82,32 @@ namespace LogicLayer
             return DALAidat.UyeAidatGetir(odendi, Tc);
         }
 
+        //Tüm Borc tablosunu çeker.
         public static List<EntityBorc> LLUyeBorcGetir()
         {
             return DALAidat.UyeBorcGetir();
         }
 
+        //Verilen tc'ye göre veritabanından borçları çeker.
         public static List<EntityBorc> LLUyeBorcGetir(string tc)
         {
-            return DALAidat.UyeBorcGetir(tc);
+            if (tc != "")
+            {
+                return DALAidat.UyeBorcGetir(tc);
+            }
+            else
+            {
+                //Boş döndürür.
+                return null;
+            }
+        }
+
+        public static void LLOdenmemisAidatKontrol(string ayinsongunu, string gunumuz)
+        {
+            if (ayinsongunu == gunumuz)
+            {
+                DALAidat.OdenmemisAidatKontrol(false);
+            }
         }
     }
 }

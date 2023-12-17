@@ -264,7 +264,6 @@
             this.BtnAidatOde.TabIndex = 19;
             this.BtnAidatOde.Text = "Seçili Aidatı Öde";
             this.BtnAidatOde.UseVisualStyleBackColor = true;
-            this.BtnAidatOde.Click += new System.EventHandler(this.BtnAidatOde_Click);
             // 
             // groupBox2
             // 
@@ -316,7 +315,6 @@
             this.BtnBorcOde.TabIndex = 21;
             this.BtnBorcOde.Text = "Seçili Borcu Öde";
             this.BtnBorcOde.UseVisualStyleBackColor = true;
-            this.BtnBorcOde.Click += new System.EventHandler(this.BtnBorcOde_Click);
             // 
             // groupBox3
             // 

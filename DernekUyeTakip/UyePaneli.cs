@@ -15,10 +15,14 @@ namespace DernekUyeTakip
 {
     public partial class UyePaneli : Form
     {
+        //Form kapatıldığında uygulamayı kapatır.
         private void UyePaneli_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        //-------------------------------------------------------------------------
+
+        //Uye paneli genel işlemler.
         public UyePaneli(string tc)
         {
             InitializeComponent();
@@ -30,10 +34,16 @@ namespace DernekUyeTakip
             UyeBorcDoldur(tc);
         
         }
+        //-------------------------------------------------------------------------
+
+        //Verilen tc'ye göre DataGridView'i doldurur.
         public void UyeAidatDoldur(string tc)
         {
             DGVAidat.DataSource = LogicAidat.LLUyeAidatGetir(tc);
         }
+        //-------------------------------------------------------------------------
+
+        //Verilen tc'ye göre TextBox'ları doldurur.
         public void UyeDoldur(string tc)
         {
             List<EntityUye> uyeler = LogicUye.LLUyeListesi(tc);
@@ -53,19 +63,27 @@ namespace DernekUyeTakip
                 Application.Exit();
             }
         }
+        //-------------------------------------------------------------------------
+
+        //Verilen tc'ye göre DataGridView'i doldurur.
         public void UyeBorcDoldur(string tc)
         {
             DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(tc);
         }
+        //-------------------------------------------------------------------------
+
+        //Combobox'ta seçili değere göre aidat öder.
         private void BtnAidatOde_Click(object sender, EventArgs e)
         {
 
         }
+        //-------------------------------------------------------------------------
+
+        //Combobox'ta seçili değere göre borç öder.
         private void BtnBorcOde_Click(object sender, EventArgs e)
         {
 
         }
-
-       
+        //-------------------------------------------------------------------------
     }
 }
