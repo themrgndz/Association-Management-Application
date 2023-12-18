@@ -111,6 +111,7 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
@@ -716,6 +717,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.button1);
             this.groupBox8.Controls.Add(this.TbBorc);
             this.groupBox8.Controls.Add(this.CbTcFiltrele);
             this.groupBox8.Controls.Add(this.label21);
@@ -732,7 +734,7 @@
             // 
             this.TbBorc.Enabled = false;
             this.TbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbBorc.Location = new System.Drawing.Point(417, 68);
+            this.TbBorc.Location = new System.Drawing.Point(243, 70);
             this.TbBorc.Name = "TbBorc";
             this.TbBorc.Size = new System.Drawing.Size(399, 26);
             this.TbBorc.TabIndex = 6;
@@ -742,7 +744,7 @@
             // 
             this.CbTcFiltrele.AutoSize = true;
             this.CbTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CbTcFiltrele.Location = new System.Drawing.Point(279, 70);
+            this.CbTcFiltrele.Location = new System.Drawing.Point(105, 72);
             this.CbTcFiltrele.Name = "CbTcFiltrele";
             this.CbTcFiltrele.Size = new System.Drawing.Size(132, 24);
             this.CbTcFiltrele.TabIndex = 5;
@@ -754,7 +756,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(313, 42);
+            this.label21.Location = new System.Drawing.Point(139, 44);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(98, 20);
             this.label21.TabIndex = 4;
@@ -768,7 +770,7 @@
             "Tüm liste",
             "Ödenmişler",
             "Ödenmemişler"});
-            this.CbBorc.Location = new System.Drawing.Point(417, 34);
+            this.CbBorc.Location = new System.Drawing.Point(243, 36);
             this.CbBorc.Name = "CbBorc";
             this.CbBorc.Size = new System.Drawing.Size(399, 28);
             this.CbBorc.TabIndex = 3;
@@ -983,6 +985,16 @@
             this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(667, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(243, 60);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Pdf Olarak Kaydet";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1110,5 +1122,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridView DGVBorc;
+        private System.Windows.Forms.Button button1;
     }
 }
