@@ -34,8 +34,6 @@ namespace DataAccessLayer
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
-                        ent.Aidat = short.Parse(dr["Aidat"].ToString());
-                        ent.Borc = short.Parse(dr["Borc"].ToString());
                         ent.Eposta = dr["Eposta"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -87,8 +85,6 @@ namespace DataAccessLayer
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         ent.Eposta = dr["Eposta"].ToString();
-                        ent.Aidat = short.Parse(dr["Aidat"].ToString());
-                        ent.Borc = short.Parse(dr["Borc"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
                         {
@@ -141,8 +137,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.Eposta = dr["Eposta"].ToString();
-                        ent.Aidat = short.Parse(dr["Aidat"].ToString());
-                        ent.Borc = short.Parse(dr["Borc"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         if (bool.Parse(dr["AktifPasif"].ToString()) == true)
@@ -198,8 +192,6 @@ namespace DataAccessLayer
                         ent.Sehir = dr["Sehir"].ToString();
                         ent.Sifre = dr["Sifre"].ToString();
                         ent.Eposta = dr["Eposta"].ToString();
-                        ent.Aidat = short.Parse(dr["Aidat"].ToString());
-                        ent.Borc = short.Parse(dr["Borc"].ToString());
                         ent.KanGrubu = dr["KanGrubu"].ToString();
                         ent.Aktif_Pasif = bool.Parse(dr["AktifPasif"].ToString());
                         ent.KayitTarihi = dr["KayitTarihi"].ToString();

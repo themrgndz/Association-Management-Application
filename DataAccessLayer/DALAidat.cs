@@ -8,6 +8,11 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using PdfSharpCore;
+using PdfSharpCore.Drawing;
+using PdfSharpCore.Pdf;
+using PdfDocument = PdfSharpCore.Pdf.PdfDocument;
+using PdfPage = PdfSharpCore.Pdf.PdfPage;
 
 namespace DataAccessLayer
 {
@@ -256,7 +261,7 @@ namespace DataAccessLayer
             List<EntityUye> Uyeler = DALUye.UyeListesi("AktifPasif",true);
             foreach (var i in Uyeler)
             {
-                using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi) VALUES (@P1,@P2,@P3,@P4,@P5)", Baglanti.dbc))
+                using (OleDbCommand cmd = new OleDbCommand("INSERT INTO UyeAidat(Tc,AidatMiktari,AidatTarihi,Odendi,EPosta) VALUES (@P1,@P2,@P3,@P4,@P5,@P6)", Baglanti.dbc))
                 {
                     try
                     {
@@ -271,6 +276,7 @@ namespace DataAccessLayer
                         cmd.Parameters.AddWithValue("@P3", tarih);
                         cmd.Parameters.AddWithValue("@P4", false);
                         cmd.Parameters.AddWithValue("@P5", "Odenmedi");
+                        cmd.Parameters.AddWithValue("@P6", i.Eposta);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -288,7 +294,7 @@ namespace DataAccessLayer
         }
 
         //Butona tıklandığında Mail başlığı ve içeriğine göre aktif üyelere mail atar.
-        public static string MailGonder(string konu, string mail)
+        public static string AidatMailGonder(string konu, string mail)
         {
             try
             {
@@ -303,11 +309,58 @@ namespace DataAccessLayer
                 smtpClient.EnableSsl = true;
 
                 // Alıcı e-posta adresi
-                List<EntityUye> uyeler = DALUye.UyeListesi("AktifPasif",true);
+                List<EntityBorc> borclar = DALAidat.UyeBorcGetir();
                 List<string> mailler = new List<string>();
-                foreach (var uye in uyeler)
+                foreach (var borc in borclar)
                 {
-                    mailler.Add(uye.Eposta);
+                    mailler.Add(borc.EPosta);
+                }
+
+                foreach (var Alanmail in mailler)
+                {
+                    // Gönderen ve alıcı e-posta adresleri
+                    MailMessage mailMessage = new MailMessage();
+                    mailMessage.From = new MailAddress(GonderenMail);
+                    mailMessage.To.Add(Alanmail);
+
+                    // E-posta konu ve içeriği
+                    mailMessage.Subject = konu;
+                    mailMessage.Body = mail;
+
+                    // E-posta gönderme işlemi
+                    smtpClient.Send(mailMessage);
+
+                }
+                return "E-posta başarıyla gönderildi.";
+
+            }
+            catch (Exception ex)
+            {
+                return "E-posta başarıyla gönderildi. " + ex.Message;
+            }
+        }
+        
+        //Butona tıklandığında Mail başlığı ve içeriğine göre aktif üyelere mail atar.
+        public static string BorcMailGonder(string konu, string mail)
+        {
+            try
+            {
+                // Gönderen e-posta adresi ve uygulama şifresi
+                string GonderenMail = "dugorselprogramlama@gmail.com";
+                string GonderenSifre = "rkbn sgit zkox diwf";
+
+                // SMTP sunucu ayarları
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential(GonderenMail, GonderenSifre);
+                smtpClient.EnableSsl = true;
+
+                // Alıcı e-posta adresi
+                List<EntityUyeAidat> aidatlar = DALAidat.UyeAidatGetir();
+                List<string> mailler = new List<string>();
+                foreach (var aidat in aidatlar)
+                {
+                    mailler.Add(aidat.EPosta);
                 }
 
                 foreach (var Alanmail in mailler)
@@ -360,6 +413,7 @@ namespace DataAccessLayer
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
                     }
@@ -404,6 +458,7 @@ namespace DataAccessLayer
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
                     }
@@ -449,6 +504,7 @@ namespace DataAccessLayer
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
                     }
@@ -495,6 +551,7 @@ namespace DataAccessLayer
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
                     }
@@ -538,6 +595,7 @@ namespace DataAccessLayer
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
                     }
@@ -580,6 +638,7 @@ namespace DataAccessLayer
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
                     }
@@ -622,6 +681,7 @@ namespace DataAccessLayer
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
                     }
@@ -668,6 +728,7 @@ namespace DataAccessLayer
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                         ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
                     }
@@ -751,7 +812,7 @@ namespace DataAccessLayer
                         else
                         {
                             // Eğer aynı Tc'ye sahip kayıt yoksa, yeni kayıt ekle
-                            using (OleDbCommand insertCmd = new OleDbCommand("INSERT INTO Borc(Tc,BorcMiktari,BorcTarihi,Odendi,OdemeTarihi) VALUES (@P1,@P2,@P3,@P4,@P5)", Baglanti.dbc))
+                            using (OleDbCommand insertCmd = new OleDbCommand("INSERT INTO Borc(Tc,BorcMiktari,BorcTarihi,Odendi,OdemeTarihi, EPosta) VALUES (@P1,@P2,@P3,@P4,@P5,@P6)", Baglanti.dbc))
                             {
                                 DateTime dt = DateTime.Now;
 
@@ -760,7 +821,7 @@ namespace DataAccessLayer
                                 insertCmd.Parameters.AddWithValue("@P3", dt.ToString("d"));
                                 insertCmd.Parameters.AddWithValue("@P4", false);
                                 insertCmd.Parameters.AddWithValue("@P5", "0");
-
+                                insertCmd.Parameters.AddWithValue("@P6", i.EPosta);
                                 insertCmd.ExecuteNonQuery();
                             }
                         }
@@ -800,6 +861,7 @@ namespace DataAccessLayer
                             ent.AidatTarihi = dr["AidatTarihi"].ToString();
                             ent.Odendi = bool.Parse(dr["Odendi"].ToString());
                             ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                            ent.EPosta = dr["EPosta"].ToString();
 
                             aidatlar.Add(ent);
 
@@ -822,6 +884,48 @@ namespace DataAccessLayer
                         cmd.Connection.Close();
                     }
                 }
+            }
+        }
+
+        public static void PdfOlustur(List<EntityBorc> borcListesi, string pdfDosyaYolu)
+        {
+            try
+            {
+                using (PdfDocument document = new PdfDocument())
+                {
+                    PdfPage page = document.AddPage();
+                    XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                    // Font ve diğer özellikleri belirle
+                    XFont fontTitle = new XFont("Arial", 18, XFontStyle.Bold);
+                    XFont fontHeader = new XFont("Arial", 12, XFontStyle.Bold);
+                    XFont fontData = new XFont("Arial", 12, XFontStyle.Regular);
+
+                    // Başlık
+                    gfx.DrawString("Borç Raporu", fontTitle, XBrushes.Black, new XRect(30, 20, page.Width, page.Height), XStringFormats.TopLeft);
+
+                    // Tablo başlıkları
+                    gfx.DrawString("TC", fontHeader, XBrushes.Black, new XRect(30, 60, page.Width, page.Height), XStringFormats.TopLeft);
+                    gfx.DrawString("Borç Miktarı", fontHeader, XBrushes.Black, new XRect(150, 60, page.Width, page.Height), XStringFormats.TopLeft);
+                    gfx.DrawString("Borç Tarihi", fontHeader, XBrushes.Black, new XRect(300, 60, page.Width, page.Height), XStringFormats.TopLeft);
+
+                    // Verileri tablo şeklinde ekle
+                    int yPosition = 80;
+                    foreach (var borc in borcListesi)
+                    {
+                        gfx.DrawString(borc.Tc, fontData, XBrushes.Black, new XRect(30, yPosition, page.Width, page.Height), XStringFormats.TopLeft);
+                        gfx.DrawString(borc.BorcMiktari.ToString(), fontData, XBrushes.Black, new XRect(150, yPosition, page.Width, page.Height), XStringFormats.TopLeft);
+                        gfx.DrawString(borc.BorcTarihi, fontData, XBrushes.Black, new XRect(300, yPosition, page.Width, page.Height), XStringFormats.TopLeft);
+                        yPosition += 20; // Yeni satıra geç
+                    }
+
+                    // PDF dosyasını kaydet
+                    document.Save(pdfDosyaYolu);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

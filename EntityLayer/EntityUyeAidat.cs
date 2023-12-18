@@ -17,6 +17,7 @@ namespace EntityLayer
         private string aidatTarihi;
         private bool odendi;
         private string odemeTarihi;
+        private string ePosta;
 
         public string AidatId { get => aidatId; set => aidatId = value; }
 
@@ -29,5 +30,7 @@ namespace EntityLayer
         public bool Odendi { get => odendi; set => odendi = value; }
 
         public string OdemeTarihi { get => odemeTarihi; set => odemeTarihi = value; }
+
+        public string EPosta { get => ePosta; set => ePosta = value; }
     }
 }

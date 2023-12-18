@@ -85,6 +85,7 @@
             this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
             this.TabBorclular = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.BtnPdf = new System.Windows.Forms.Button();
             this.TbBorc = new System.Windows.Forms.TextBox();
             this.CbTcFiltrele = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -111,7 +112,6 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
@@ -717,7 +717,7 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.BtnPdf);
             this.groupBox8.Controls.Add(this.TbBorc);
             this.groupBox8.Controls.Add(this.CbTcFiltrele);
             this.groupBox8.Controls.Add(this.label21);
@@ -729,6 +729,17 @@
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Aidat Tablosu";
+            // 
+            // BtnPdf
+            // 
+            this.BtnPdf.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnPdf.Location = new System.Drawing.Point(667, 36);
+            this.BtnPdf.Name = "BtnPdf";
+            this.BtnPdf.Size = new System.Drawing.Size(243, 60);
+            this.BtnPdf.TabIndex = 7;
+            this.BtnPdf.Text = "Pdf Olarak Kaydet";
+            this.BtnPdf.UseVisualStyleBackColor = true;
+            this.BtnPdf.Click += new System.EventHandler(this.BtnPdf_Click);
             // 
             // TbBorc
             // 
@@ -985,16 +996,6 @@
             this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
             // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(667, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 60);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Pdf Olarak Kaydet";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1122,6 +1123,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridView DGVBorc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnPdf;
     }
 }

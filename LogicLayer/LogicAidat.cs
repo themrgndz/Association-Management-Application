@@ -46,11 +46,21 @@ namespace LogicLayer
         }
         
         //Aktif üyelere aidat mail'i atar.
-        public static string LLMailGonder(string konu,string mail)
+        public static string LLMailGonder(string konu,string mail, short secim)
         {
             if (mail != "" && konu != "")
             {
-                return DALAidat.MailGonder(konu, mail);
+                switch (secim)
+                {
+                    case 0:
+                        return DALAidat.AidatMailGonder(konu, mail);
+
+                    case 1:
+                        return DALAidat.BorcMailGonder(konu, mail);
+
+                    default:
+                        return "";
+                }
             }
             else
             {
@@ -124,10 +134,15 @@ namespace LogicLayer
         //Odenmemiş aidatları kontrol edip borç tablosuna transferi ve geride kalan bilgilerin silinmesini gerçekleştirir.
         public static void LLOdenmemisAidatKontrol(string ayinsongunu, string gunumuz)
         {
-            if (ayinsongunu == gunumuz)
+            if (ayinsongunu != gunumuz)
             {
                 DALAidat.OdenmemisAidatKontrol(false);
             }
+        }
+
+        public static void LLPdfOlustur(List<EntityBorc> borclistesi,string yol)
+        {
+            DALAidat.PdfOlustur(borclistesi, yol);
         }
     }
 }

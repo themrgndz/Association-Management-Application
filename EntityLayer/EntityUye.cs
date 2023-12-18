@@ -22,10 +22,6 @@ namespace EntityLayer
         private string kayitTarihi;
         private string eposta;
         private bool aktif_Pasif;
-        private short aidat;
-        private short borc;
-
-        
 
         //-----------------------------------------------------------------------------
         public string Tc { get => tc; set => tc = value; }
@@ -38,9 +34,6 @@ namespace EntityLayer
         public string KayitTarihi { get => kayitTarihi; set => kayitTarihi = value; }
         public string Eposta { get => eposta; set => eposta = value; }
         public bool Aktif_Pasif { get => aktif_Pasif; set => aktif_Pasif = value; }
-        public short Aidat { get => aidat; set => aidat = value; }
-        public short Borc { get => borc; set => borc = value; }
-
 
         //-----------------------------------------------------------------------------
 

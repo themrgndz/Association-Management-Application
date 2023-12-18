@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
 using DataAccessLayer;
 using EntityLayer;
 using LogicLayer;
-using ZedGraph;
-using System.Net.Mail;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using System.Net;
+
 
 namespace DernekUyeTakip
 {
@@ -50,8 +45,7 @@ namespace DernekUyeTakip
         //Combobox'lara veritabanındaki yılları ekliyor.
         public void VeriDoldur()
         {
-            List<EntityAidat> aidatlar = new List<EntityAidat>();
-            aidatlar = LogicAidat.LLAyAidatDoldur();
+            List<EntityAidat> aidatlar = LogicAidat.LLAyAidatDoldur();
             foreach (var i in aidatlar)
             {
                 CbYil.Items.Add(i.Yil);
@@ -163,8 +157,7 @@ namespace DernekUyeTakip
         //Yıl seçimine bağlı olarak textboxları ayların aidat değerine göre doldurur.
         public void CbYil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<EntityAidat> aidatlar = new List<EntityAidat>();
-            aidatlar = LogicAidat.LLAyAidatDoldur(CbYil.Text);
+            List<EntityAidat> aidatlar = LogicAidat.LLAyAidatDoldur(CbYil.Text);
             foreach (var i in aidatlar)
             {
                 TbOcak.Text = i.Ocak.ToString();
@@ -233,16 +226,18 @@ namespace DernekUyeTakip
             {
                 case 0:
                     konu = "Aylık aidat hatırlatması.";
+                    MessageBox.Show(LogicAidat.LLMailGonder(konu, mail,0));
                     break;
                 case 1:
                     konu = "Borç hatırlatması.";
+                    MessageBox.Show(LogicAidat.LLMailGonder(konu, mail, 1));
                     break;
                 default:
                     konu = "";
                     break;
             }
             // E-posta gönderme işlemi
-            MessageBox.Show(LogicAidat.LLMailGonder(konu, mail));
+           // MessageBox.Show(LogicAidat.LLMailGonder(konu, mail));
         }
         //---------------------------------------------------------------------------------
 
@@ -289,7 +284,7 @@ namespace DernekUyeTakip
         //---------------------------------------------------------------------------------
 
         //Mail konusunun seçimine göre içerik metninin değişmesini sağlar.
-        private void CbKonu_SelectedIndexChanged(object sender, EventArgs e)
+        public void CbKonu_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (CbKonu.SelectedIndex)
             {
@@ -306,7 +301,7 @@ namespace DernekUyeTakip
         //---------------------------------------------------------------------------------
 
         //UyeAidat tablosunu isterlere göre DataGridView'e aktarır.
-        private void CbAidatTablosu_SelectedIndexChanged(object sender, EventArgs e)
+        public void CbAidatTablosu_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!CTcFiltrele.Checked)
             {
@@ -354,7 +349,7 @@ namespace DernekUyeTakip
         //---------------------------------------------------------------------------------
 
         //Checkbox'un durumuna göre değişiklikler yapar.
-        private void CTcFiltrele_CheckedChanged(object sender, EventArgs e)
+        public void CTcFiltrele_CheckedChanged(object sender, EventArgs e)
         {
             if (CTcFiltrele.Checked)
             {
@@ -367,9 +362,9 @@ namespace DernekUyeTakip
             }
         }
         //---------------------------------------------------------------------------------
-        
+
         //DataGridView'i Tc'ye göre filtrele
-        private void TbAidatTc_TextChanged(object sender, EventArgs e)
+        public void TbAidatTc_TextChanged(object sender, EventArgs e)
         {
             if (!CTcFiltrele.Checked)
             {
@@ -421,9 +416,10 @@ namespace DernekUyeTakip
         {
             DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir();
         }
+        //---------------------------------------------------------------------------------
 
         //Combobox'ta seçilen veriye göre borç listelemesi yapar.
-        private void CbBorc_SelectedIndexChanged(object sender, EventArgs e)
+        public void CbBorc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!CTcFiltrele.Checked)
             {
@@ -468,8 +464,10 @@ namespace DernekUyeTakip
                 }
             }
         }
+        //---------------------------------------------------------------------------------
 
-        private void CbTcFiltrele_CheckedChanged(object sender, EventArgs e)
+        //Borc sekmesindeki checkbox'ın durumuna göre filtreleme ön hazırlığı yapıyor.
+        public void CbTcFiltrele_CheckedChanged(object sender, EventArgs e)
         {
             if (CbTcFiltrele.Checked)
             {
@@ -481,8 +479,10 @@ namespace DernekUyeTakip
                 TbBorc.Text = "";
             }
         }
+        //---------------------------------------------------------------------------------
 
-        private void TbBorc_TextChanged(object sender, EventArgs e)
+        //Borc sekmesindeki checkbox'ın durumuna göre tc numarasını filtreliyor.
+        public void TbBorc_TextChanged(object sender, EventArgs e)
         {
             if (!CbTcFiltrele.Checked)
             {
@@ -527,6 +527,31 @@ namespace DernekUyeTakip
                 }
             }
         }
-        //
+        //---------------------------------------------------------------------------------
+
+        //Butona basılınca Borçluları pdf halinde kaydeder.
+        private void BtnPdf_Click(object sender, EventArgs e)
+        {
+            // DALAidat sınıfından veriyi al
+            List<EntityBorc> borcListesi = DALAidat.UyeBorcGetir();
+
+            // SaveFileDialog oluştur
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Dosyaları|*.pdf";
+            saveFileDialog.Title = "PDF Dosyasını Kaydet";
+
+            // Kullanıcı kaydetmeyi seçerse devam et
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Seçilen dosya adını al
+                string pdfDosyaYolu = saveFileDialog.FileName;
+
+                // PDF oluştur ve kaydet
+                LogicAidat.LLPdfOlustur(borcListesi,pdfDosyaYolu);
+            }
+        }
+        //---------------------------------------------------------------------------------
+
+        
     }
 }
