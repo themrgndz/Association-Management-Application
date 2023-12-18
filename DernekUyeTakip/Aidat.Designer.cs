@@ -75,6 +75,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.TabAidatOdemeleri = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.TbAidatTc = new System.Windows.Forms.TextBox();
+            this.CTcFiltrele = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CbUyeAidat = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -82,6 +84,14 @@
             this.DgvAidat = new System.Windows.Forms.DataGridView();
             this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
             this.TabBorclular = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.TbBorc = new System.Windows.Forms.TextBox();
+            this.CbTcFiltrele = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.CbBorc = new System.Windows.Forms.ComboBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.DGVBorc = new System.Windows.Forms.DataGridView();
             this.TabEPosta = new System.Windows.Forms.TabPage();
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.splitter3 = new System.Windows.Forms.Splitter();
@@ -101,8 +111,6 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CTcFiltrele = new System.Windows.Forms.CheckBox();
-            this.TbAidatTc = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
@@ -111,6 +119,9 @@
             this.TabAidatOdemeleri.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).BeginInit();
+            this.TabBorclular.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBorc)).BeginInit();
             this.TabEPosta.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -608,6 +619,28 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Aidat Tablosu";
             // 
+            // TbAidatTc
+            // 
+            this.TbAidatTc.Enabled = false;
+            this.TbAidatTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbAidatTc.Location = new System.Drawing.Point(417, 68);
+            this.TbAidatTc.Name = "TbAidatTc";
+            this.TbAidatTc.Size = new System.Drawing.Size(399, 26);
+            this.TbAidatTc.TabIndex = 6;
+            this.TbAidatTc.TextChanged += new System.EventHandler(this.TbAidatTc_TextChanged);
+            // 
+            // CTcFiltrele
+            // 
+            this.CTcFiltrele.AutoSize = true;
+            this.CTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CTcFiltrele.Location = new System.Drawing.Point(279, 70);
+            this.CTcFiltrele.Name = "CTcFiltrele";
+            this.CTcFiltrele.Size = new System.Drawing.Size(132, 24);
+            this.CTcFiltrele.TabIndex = 5;
+            this.CTcFiltrele.Text = "Tc no ile filtrele";
+            this.CTcFiltrele.UseVisualStyleBackColor = true;
+            this.CTcFiltrele.CheckedChanged += new System.EventHandler(this.CTcFiltrele_CheckedChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -670,12 +703,102 @@
             // TabBorclular
             // 
             this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabBorclular.Controls.Add(this.groupBox8);
+            this.TabBorclular.Controls.Add(this.groupBox9);
+            this.TabBorclular.Controls.Add(this.groupBox10);
+            this.TabBorclular.Controls.Add(this.DGVBorc);
             this.TabBorclular.Location = new System.Drawing.Point(4, 22);
             this.TabBorclular.Name = "TabBorclular";
             this.TabBorclular.Padding = new System.Windows.Forms.Padding(3);
             this.TabBorclular.Size = new System.Drawing.Size(1252, 610);
             this.TabBorclular.TabIndex = 1;
             this.TabBorclular.Text = "Borçlular";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.TbBorc);
+            this.groupBox8.Controls.Add(this.CbTcFiltrele);
+            this.groupBox8.Controls.Add(this.label21);
+            this.groupBox8.Controls.Add(this.CbBorc);
+            this.groupBox8.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox8.Location = new System.Drawing.Point(77, 10);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(1095, 129);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Aidat Tablosu";
+            // 
+            // TbBorc
+            // 
+            this.TbBorc.Enabled = false;
+            this.TbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TbBorc.Location = new System.Drawing.Point(417, 68);
+            this.TbBorc.Name = "TbBorc";
+            this.TbBorc.Size = new System.Drawing.Size(399, 26);
+            this.TbBorc.TabIndex = 6;
+            this.TbBorc.TextChanged += new System.EventHandler(this.TbBorc_TextChanged);
+            // 
+            // CbTcFiltrele
+            // 
+            this.CbTcFiltrele.AutoSize = true;
+            this.CbTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbTcFiltrele.Location = new System.Drawing.Point(279, 70);
+            this.CbTcFiltrele.Name = "CbTcFiltrele";
+            this.CbTcFiltrele.Size = new System.Drawing.Size(132, 24);
+            this.CbTcFiltrele.TabIndex = 5;
+            this.CbTcFiltrele.Text = "Tc no ile filtrele";
+            this.CbTcFiltrele.UseVisualStyleBackColor = true;
+            this.CbTcFiltrele.CheckedChanged += new System.EventHandler(this.CbTcFiltrele_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(313, 42);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(98, 20);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Tablo İçeriği:";
+            // 
+            // CbBorc
+            // 
+            this.CbBorc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbBorc.FormattingEnabled = true;
+            this.CbBorc.Items.AddRange(new object[] {
+            "Tüm liste",
+            "Ödenmişler",
+            "Ödenmemişler"});
+            this.CbBorc.Location = new System.Drawing.Point(417, 34);
+            this.CbBorc.Name = "CbBorc";
+            this.CbBorc.Size = new System.Drawing.Size(399, 28);
+            this.CbBorc.TabIndex = 3;
+            this.CbBorc.SelectedIndexChanged += new System.EventHandler(this.CbBorc_SelectedIndexChanged);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox9.Location = new System.Drawing.Point(1178, -52);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(81, 673);
+            this.groupBox9.TabIndex = 6;
+            this.groupBox9.TabStop = false;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox10.Location = new System.Drawing.Point(-6, -9);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(77, 630);
+            this.groupBox10.TabIndex = 5;
+            this.groupBox10.TabStop = false;
+            // 
+            // DGVBorc
+            // 
+            this.DGVBorc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVBorc.Location = new System.Drawing.Point(77, 145);
+            this.DGVBorc.Name = "DGVBorc";
+            this.DGVBorc.Size = new System.Drawing.Size(1095, 464);
+            this.DGVBorc.TabIndex = 4;
             // 
             // TabEPosta
             // 
@@ -860,28 +983,6 @@
             this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
             // 
-            // CTcFiltrele
-            // 
-            this.CTcFiltrele.AutoSize = true;
-            this.CTcFiltrele.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CTcFiltrele.Location = new System.Drawing.Point(279, 70);
-            this.CTcFiltrele.Name = "CTcFiltrele";
-            this.CTcFiltrele.Size = new System.Drawing.Size(132, 24);
-            this.CTcFiltrele.TabIndex = 5;
-            this.CTcFiltrele.Text = "Tc no ile filtrele";
-            this.CTcFiltrele.UseVisualStyleBackColor = true;
-            this.CTcFiltrele.CheckedChanged += new System.EventHandler(this.CTcFiltrele_CheckedChanged);
-            // 
-            // TbAidatTc
-            // 
-            this.TbAidatTc.Enabled = false;
-            this.TbAidatTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TbAidatTc.Location = new System.Drawing.Point(417, 68);
-            this.TbAidatTc.Name = "TbAidatTc";
-            this.TbAidatTc.Size = new System.Drawing.Size(399, 26);
-            this.TbAidatTc.TabIndex = 6;
-            this.TbAidatTc.TextChanged += new System.EventHandler(this.TbAidatTc_TextChanged);
-            // 
             // Aidat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -910,6 +1011,10 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).EndInit();
+            this.TabBorclular.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVBorc)).EndInit();
             this.TabEPosta.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -997,5 +1102,13 @@
         private System.Windows.Forms.TabPage TabAidatGelirleri;
         private System.Windows.Forms.CheckBox CTcFiltrele;
         private System.Windows.Forms.TextBox TbAidatTc;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox TbBorc;
+        private System.Windows.Forms.CheckBox CbTcFiltrele;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox CbBorc;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridView DGVBorc;
     }
 }

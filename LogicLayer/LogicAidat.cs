@@ -102,6 +102,26 @@ namespace LogicLayer
             }
         }
 
+        //Verilen bool ifadeye göre veritabanından borçları çeker.
+        public static List<EntityBorc> LLUyeBorcGetir(bool odendi)
+        {
+            return DALAidat.UyeBorcGetir(odendi);
+        }
+
+        //Verilen tc ve bool ifadeye göre veritabanından borçları çeker.
+        public static List<EntityBorc> LLUyeBorcGetir(bool odendi, string tc)
+        {
+            if (tc != "")
+            {
+                return DALAidat.UyeBorcGetir(odendi,tc);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //Odenmemiş aidatları kontrol edip borç tablosuna transferi ve geride kalan bilgilerin silinmesini gerçekleştirir.
         public static void LLOdenmemisAidatKontrol(string ayinsongunu, string gunumuz)
         {
             if (ayinsongunu == gunumuz)

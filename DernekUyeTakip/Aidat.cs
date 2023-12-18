@@ -251,6 +251,7 @@ namespace DernekUyeTakip
         {
             List<EntityAidat> AidatList = LogicAidat.LLAyAidatDoldur();
             DgwAidatlar.DataSource = AidatList;
+            BorcGetir();
         }
         //---------------------------------------------------------------------------------
 
@@ -363,7 +364,6 @@ namespace DernekUyeTakip
             {
                 TbAidatTc.Enabled = false;
                 TbAidatTc.Text = "";
-
             }
         }
         //---------------------------------------------------------------------------------
@@ -415,5 +415,118 @@ namespace DernekUyeTakip
             }
         }
         //---------------------------------------------------------------------------------
+
+        //DGVBorc'a borç verilerini getirir.
+        public void BorcGetir()
+        {
+            DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir();
+        }
+
+        //Combobox'ta seçilen veriye göre borç listelemesi yapar.
+        private void CbBorc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!CTcFiltrele.Checked)
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir();
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(true);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(false);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+            else
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(TbAidatTc.Text);
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(true, TbAidatTc.Text);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(false, TbAidatTc.Text);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+        }
+
+        private void CbTcFiltrele_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbTcFiltrele.Checked)
+            {
+                TbBorc.Enabled = true;
+            }
+            else
+            {
+                TbBorc.Enabled = false;
+                TbBorc.Text = "";
+            }
+        }
+
+        private void TbBorc_TextChanged(object sender, EventArgs e)
+        {
+            if (!CbTcFiltrele.Checked)
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir();
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(true);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(false);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+            else
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(TbBorc.Text);
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(true, TbBorc.Text);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        DGVBorc.DataSource = LogicAidat.LLUyeBorcGetir(false, TbBorc.Text);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+        }
+        //
     }
 }
