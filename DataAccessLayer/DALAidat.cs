@@ -13,6 +13,7 @@ using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
 using PdfDocument = PdfSharpCore.Pdf.PdfDocument;
 using PdfPage = PdfSharpCore.Pdf.PdfPage;
+using ZedGraph;
 
 namespace DataAccessLayer
 {

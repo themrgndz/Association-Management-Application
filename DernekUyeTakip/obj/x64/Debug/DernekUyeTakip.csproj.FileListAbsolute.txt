@@ -286,3 +286,4 @@ C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\ICSharpCode.
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\SixLabors.Fonts.xml
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\SixLabors.ImageSharp.xml
 C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\de\PdfSharpCore.resources.dll
+C:\Users\emrgn\OneDrive\Masaüstü\DTA\DernekUyeTakip\bin\x64\Debug\ZedGraph.Web.dll

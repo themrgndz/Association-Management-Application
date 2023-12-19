@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DataAccessLayer;
 using EntityLayer;
 using LogicLayer;
+using ZedGraph;
 
 
 namespace DernekUyeTakip
@@ -610,7 +611,167 @@ namespace DernekUyeTakip
         }
         //---------------------------------------------------------------------------------
 
+        //Seçilen duruma göre grafik hazırlama sürecini kontrol eder.
+        public void CbGrafik_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (CbGrafik.SelectedIndex)
+            {
+                case 0:
+                    CbAylar.Visible = false;
+                    CbAylar.Enabled = false;
+                    break;
+                case 1:
+                    CbAylar.Visible = true;
+                    CbAylar.Enabled = true;
+                    break;
+                default:
+                    MessageBox.Show("Doğru şekilde veri seçin.","Hata");
+                    break;
+            }
+        }
+        //---------------------------------------------------------------------------------
 
+        //Seçilen duruma göre grafik hazırlama sürecini kontrol eder.
+        private void BtnGrafikCiz_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime simdikiTarih = DateTime.Now;
+                switch (CbGrafik.SelectedIndex)
+                {
+                    case 0:
 
+                        DateTime yilinIlkGunu = new DateTime(simdikiTarih.Year, 1, 1);
+                        DateTime yilinSonGunu = new DateTime(simdikiTarih.Year, 12, 31);
+
+                        GrafikVerileriHazirla(yilinIlkGunu.ToString("d"), yilinSonGunu.ToString("d"));
+
+                        break;
+                    case 1:
+                        switch (CbAylar.SelectedIndex)
+                        {
+                            case 0:
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 11:
+                                // Seçilen ayın ilk günü ve son gününü belirler.
+                                int secilenAy = CbAylar.SelectedIndex + 1;
+                                DateTime secilenAyinIlkGunu = new DateTime(simdikiTarih.Year, secilenAy, 1);
+                                DateTime secilenAyinSonGunu = new DateTime(simdikiTarih.Year, secilenAy, DateTime.DaysInMonth(simdikiTarih.Year, secilenAy));
+
+                                GrafikVerileriHazirla(secilenAyinIlkGunu.ToString("d"), secilenAyinSonGunu.ToString("d"));
+                                break;
+                            
+                            default:
+                                MessageBox.Show("Ay doğru seçilmedi.", "Hata");
+                                break;
+                        }
+                        
+                        break;
+                    default:
+                        MessageBox.Show("Veriler doğru seçilmedi.", "Hata");
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        //---------------------------------------------------------------------------------
+
+        //Gelir tablosunun ön hazırlığını yapar.
+        public string GrafikVerileriHazirla(string baslangic,string son)
+        {
+            List<int> veriler = new List<int>();
+            using (OleDbCommand cmd = new OleDbCommand("SELECT AidatMiktari FROM UyeAidat WHERE OdemeTarihi BETWEEN @BaslangicTarihi AND @BitisTarihi", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@BaslangicTarihi", baslangic);
+                cmd.Parameters.AddWithValue("@BitisTarihi", son);
+                try
+                {
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+
+                    using (OleDbDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            veriler.Add(int.Parse(dr["AidatMiktari"].ToString()));
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                }
+            }
+            if (CbGrafik.SelectedIndex == 0)
+            {
+                GrafikOlustur(veriler, "Yıllık");
+            }
+            else
+            {
+                GrafikOlustur(veriler, CbAylar.SelectedItem.ToString());
+            }
+
+            return "";
+        //---------------------------------------------------------------------------------
+        }
+        //---------------------------------------------------------------------------------
+
+        //Yıllık veya aylık olarak gelir tablosu çıkartır.
+        public void GrafikOlustur(List<int> gelirVerileri, string secilenAy)
+        {
+            // ZedGraphControl'un GraphPane özelliğini kullanarak grafikle ilgili işlemleri gerçekleştirebilirsiniz
+            GraphPane myPane = ZgAidat.GraphPane;
+            myPane.CurveList.Clear(); // Önceki grafikleri temizleyelim
+
+            // Grafik başlığı
+            myPane.Title.Text = $"Aidat Gelir Grafiği ({secilenAy})";
+
+            // Eksen etiketleri
+            myPane.XAxis.Title.Text = "Aylar";
+            myPane.YAxis.Title.Text = "Gelir Miktarı";
+
+            // Verileri grafiğe ekleyelim
+            PointPairList pointPairList = new PointPairList();
+            int toplamgelir = 0;
+            for (int i = 0; i < gelirVerileri.Count; i++)
+            {
+                toplamgelir += gelirVerileri[i];
+                pointPairList.Add(i + 1, toplamgelir); // X eksenine ayları, Y eksenine gelir miktarını ekleyelim
+            }
+
+            // Çizgi tipi ve renk
+            LineItem myCurve = myPane.AddCurve("Aidat Geliri", pointPairList, Color.Red, SymbolType.Circle);
+            myCurve.Line.Width = 2;
+
+            // Eksendeki ayları güncelleyelim
+            myPane.XAxis.Scale.TextLabels = new string[] { "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" };
+
+            // Grafik kontrolünü güncelleyelim
+            ZgAidat.AxisChange();
+            ZgAidat.Invalidate();
+        }
+        //---------------------------------------------------------------------------------
     }
 }
