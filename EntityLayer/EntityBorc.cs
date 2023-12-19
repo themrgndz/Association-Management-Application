@@ -13,7 +13,7 @@ namespace EntityLayer
         private int borcMiktari;
         private string borcTarihi;
         private bool odendi;
-        private string odemeTarihi;
+        private DateTime odemeTarihi;
         private string ePosta;
 
         public string BorcId { get => borcId; set => borcId = value; }
@@ -26,7 +26,7 @@ namespace EntityLayer
         
         public bool Odendi { get => odendi; set => odendi = value; }
         
-        public string OdemeTarihi { get => odemeTarihi; set => odemeTarihi = value; }
+        public DateTime OdemeTarihi { get => odemeTarihi; set => odemeTarihi = value; }
 
         public string EPosta { get => ePosta; set => ePosta = value; }
     }

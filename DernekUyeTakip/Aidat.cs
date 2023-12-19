@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using DataAccessLayer;
@@ -532,8 +534,50 @@ namespace DernekUyeTakip
         //Butona basılınca Borçluları pdf halinde kaydeder.
         private void BtnPdf_Click(object sender, EventArgs e)
         {
-            // DALAidat sınıfından veriyi al
-            List<EntityBorc> borcListesi = DALAidat.UyeBorcGetir();
+            // DALAidat sınıfından seçili özelliklere göre veri al
+            List<EntityBorc> borcListesi = new List<EntityBorc>();
+            if (!CbTcFiltrele.Checked)
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        borcListesi = LogicAidat.LLUyeBorcGetir();
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        borcListesi = LogicAidat.LLUyeBorcGetir(true);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        borcListesi = LogicAidat.LLUyeBorcGetir(false);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
+            else
+            {
+                switch (CbBorc.SelectedIndex)
+                {
+                    //Tüm Aidatlar
+                    case 0:
+                        borcListesi = LogicAidat.LLUyeBorcGetir(TbBorc.Text);
+                        break;
+                    //Ödenmiş Aidatlar
+                    case 1:
+                        borcListesi = LogicAidat.LLUyeBorcGetir(true, TbBorc.Text);
+                        break;
+                    //Ödenmemiş Aidatlar
+                    case 2:
+                        borcListesi = LogicAidat.LLUyeBorcGetir(false, TbBorc.Text);
+                        break;
+                    default:
+                        MessageBox.Show("İşlem başarısız: Lütfen bir şey seçin!", "Uyarı");
+                        break;
+                }
+            }
 
             // SaveFileDialog oluştur
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -552,6 +596,21 @@ namespace DernekUyeTakip
         }
         //---------------------------------------------------------------------------------
 
-        
+        //Butona tıklandığında seçili tarihler aralığında ödenmiş/odenmemiş borçları getirir.
+        private void BtnBorcGetir_Click(object sender, EventArgs e)
+        {
+            DGVBorc.DataSource = LogicAidat.LLBorcGetir(DTPBorcBaslangic.Value, DTPBorcSon.Value, RbBorcOdemis.Checked);
+        }
+        //---------------------------------------------------------------------------------
+
+        //Butona tıklandığında seçili tarihler aralığında ödenmiş/ödenmemiş aidatları getirir.
+        private void BtnAidatGetir_Click(object sender, EventArgs e)
+        {
+            DgvAidat.DataSource = LogicAidat.LLAidatGetir(DTPAidatBaslangic.Value, DTPAidatSon.Value, RbAidatOdemis.Checked);
+        }
+        //---------------------------------------------------------------------------------
+
+
+
     }
 }

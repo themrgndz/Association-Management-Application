@@ -140,9 +140,37 @@ namespace LogicLayer
             }
         }
 
+        //Verilen verilere göre pdf oluşturur.
         public static void LLPdfOlustur(List<EntityBorc> borclistesi,string yol)
         {
             DALAidat.PdfOlustur(borclistesi, yol);
+        }
+
+        //Seçili tarihlere göre ödenmiş aidatları getirir.
+        public static List<EntityUyeAidat> LLAidatGetir(DateTime baslangic, DateTime bitis, bool odeme)
+        {
+            if (odeme)
+            {
+                return DALAidat.AidatGetir(baslangic, bitis, true);
+            }
+            else
+            {
+                return DALAidat.AidatGetir(baslangic, bitis, false);
+            }
+        }
+
+        //Seçili tarihlere göre ödenmemiş aidatları getirir.
+        public static List<EntityBorc> LLBorcGetir(DateTime baslangic, DateTime bitis, bool odeme)
+        {
+            if (odeme)
+            {
+                return DALAidat.BorcGetir(baslangic, bitis, true);
+            }
+            else
+            {
+
+                return DALAidat.BorcGetir(baslangic, bitis, false);
+            }
         }
     }
 }

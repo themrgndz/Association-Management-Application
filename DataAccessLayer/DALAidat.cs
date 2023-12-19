@@ -412,7 +412,7 @@ namespace DataAccessLayer
                         ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
@@ -457,7 +457,7 @@ namespace DataAccessLayer
                         ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
@@ -503,7 +503,7 @@ namespace DataAccessLayer
                         ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
@@ -550,7 +550,7 @@ namespace DataAccessLayer
                         ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
                         ent.AidatTarihi = dr["AidatTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         aidatlar.Add(ent);
@@ -594,7 +594,7 @@ namespace DataAccessLayer
                         ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
@@ -637,7 +637,7 @@ namespace DataAccessLayer
                         ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
@@ -680,7 +680,7 @@ namespace DataAccessLayer
                         ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
@@ -727,7 +727,7 @@ namespace DataAccessLayer
                         ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
                         ent.BorcTarihi = dr["BorcTarihi"].ToString();
                         ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                        ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                        ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                         ent.EPosta = dr["EPosta"].ToString();
 
                         borclar.Add(ent);
@@ -860,7 +860,7 @@ namespace DataAccessLayer
                             ent.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
                             ent.AidatTarihi = dr["AidatTarihi"].ToString();
                             ent.Odendi = bool.Parse(dr["Odendi"].ToString());
-                            ent.OdemeTarihi = dr["OdemeTarihi"].ToString();
+                            ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
                             ent.EPosta = dr["EPosta"].ToString();
 
                             aidatlar.Add(ent);
@@ -887,6 +887,7 @@ namespace DataAccessLayer
             }
         }
 
+        //Verilen verilere göre pdf oluşturur.
         public static void PdfOlustur(List<EntityBorc> borcListesi, string pdfDosyaYolu)
         {
             try
@@ -927,6 +928,111 @@ namespace DataAccessLayer
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        //Seçili tarihler arası ödenmiş olan aidatları DataGridView'e aktarır.
+        public static List<EntityUyeAidat> AidatGetir(DateTime baslangicTarihi, DateTime bitisTarihi, bool odeme)
+        {
+            List<EntityUyeAidat> Aidatlar = new List<EntityUyeAidat>();
+
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat WHERE Odendi = @Odendi AND OdemeTarihi BETWEEN @BaslangicTarihi AND @BitisTarihi", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@Odendi", odeme);
+                cmd.Parameters.AddWithValue("@BaslangicTarihi", baslangicTarihi.ToString("d"));
+                cmd.Parameters.AddWithValue("@BitisTarihi", bitisTarihi.ToString("d"));
+
+                try
+                {
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+
+                    using (OleDbDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            EntityUyeAidat aidat = new EntityUyeAidat();
+                            if (bool.Parse(dr["Odendi"].ToString()) == odeme)
+                            {
+                                aidat.AidatId = dr["AidatId"].ToString();
+                                aidat.Tc = dr["Tc"].ToString();
+                                aidat.AidatMiktari = int.Parse(dr["AidatMiktari"].ToString());
+                                aidat.AidatTarihi = dr["AidatTarihi"].ToString();
+                                aidat.Odendi = bool.Parse(dr["Odendi"].ToString());
+                                aidat.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
+                                aidat.EPosta = dr["EPosta"].ToString();
+
+                                Aidatlar.Add(aidat);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                }
+            }
+
+            return Aidatlar;
+        }
+
+        //Seçili tarihler arası ödenmiş olan borçları DataGridView'e aktarır.
+        public static List<EntityBorc> BorcGetir(DateTime baslangicTarihi, DateTime bitisTarihi, bool odeme)
+        {
+            List<EntityBorc> Borclar = new List<EntityBorc>();
+
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc WHERE Odendi = true AND OdemeTarihi BETWEEN @BaslangicTarihi AND @BitisTarihi", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@BaslangicTarihi", baslangicTarihi.ToString("d"));
+                cmd.Parameters.AddWithValue("@BitisTarihi", bitisTarihi.ToString("d"));
+
+                try
+                {
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+
+                    using (OleDbDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            EntityBorc ent = new EntityBorc();
+
+                            ent.BorcId = dr["BorcId"].ToString();
+                            ent.Tc = dr["Tc"].ToString();
+                            ent.BorcMiktari = int.Parse(dr["BorcMiktari"].ToString());
+                            ent.BorcTarihi = dr["BorcTarihi"].ToString();
+                            ent.Odendi = bool.Parse(dr["Odendi"].ToString());
+                            ent.OdemeTarihi = DateTime.Parse(dr["OdemeTarihi"].ToString());
+                            ent.EPosta = dr["EPosta"].ToString();
+
+                            Borclar.Add(ent);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                }
+            }
+
+            return Borclar;
         }
     }
 }
