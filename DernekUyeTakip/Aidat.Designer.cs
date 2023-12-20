@@ -91,6 +91,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DgvAidat = new System.Windows.Forms.DataGridView();
             this.TabAidatGelirleri = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.BtnGrafikCiz = new System.Windows.Forms.Button();
+            this.CbAylar = new System.Windows.Forms.ComboBox();
+            this.CbGrafik = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.ZgAidat = new ZedGraph.ZedGraphControl();
             this.TabBorclular = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -124,17 +131,13 @@
             this.TsmAltiCizili = new System.Windows.Forms.ToolStripMenuItem();
             this.label20 = new System.Windows.Forms.Label();
             this.BtnEposta = new System.Windows.Forms.Button();
+            this.TabSehirler = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.ZgcSehirler = new ZedGraph.ZedGraphControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ZgAidat = new ZedGraph.ZedGraphControl();
-            this.CbGrafik = new System.Windows.Forms.ComboBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.CbAylar = new System.Windows.Forms.ComboBox();
-            this.BtnGrafikCiz = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.TabAidatBelirle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgwAidatlar)).BeginInit();
@@ -145,6 +148,8 @@
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).BeginInit();
             this.TabAidatGelirleri.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.TabBorclular.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -154,9 +159,9 @@
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.TabSehirler.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -166,6 +171,7 @@
             this.tabControl1.Controls.Add(this.TabAidatGelirleri);
             this.tabControl1.Controls.Add(this.TabBorclular);
             this.tabControl1.Controls.Add(this.TabEPosta);
+            this.tabControl1.Controls.Add(this.TabSehirler);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Multiline = true;
@@ -816,6 +822,102 @@
             this.TabAidatGelirleri.TabIndex = 4;
             this.TabAidatGelirleri.Text = "Aidat Gelirleri";
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.BtnGrafikCiz);
+            this.groupBox14.Controls.Add(this.CbAylar);
+            this.groupBox14.Controls.Add(this.CbGrafik);
+            this.groupBox14.Controls.Add(this.label26);
+            this.groupBox14.Location = new System.Drawing.Point(11, 15);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(1230, 141);
+            this.groupBox14.TabIndex = 4;
+            this.groupBox14.TabStop = false;
+            // 
+            // BtnGrafikCiz
+            // 
+            this.BtnGrafikCiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGrafikCiz.Location = new System.Drawing.Point(542, 90);
+            this.BtnGrafikCiz.Name = "BtnGrafikCiz";
+            this.BtnGrafikCiz.Size = new System.Drawing.Size(152, 28);
+            this.BtnGrafikCiz.TabIndex = 5;
+            this.BtnGrafikCiz.Text = "Grafik Çiz";
+            this.BtnGrafikCiz.UseVisualStyleBackColor = true;
+            this.BtnGrafikCiz.Click += new System.EventHandler(this.BtnGrafikCiz_Click);
+            // 
+            // CbAylar
+            // 
+            this.CbAylar.Enabled = false;
+            this.CbAylar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbAylar.FormattingEnabled = true;
+            this.CbAylar.Items.AddRange(new object[] {
+            "Ocak",
+            "Subat",
+            "Mart",
+            "Nisan",
+            "Mayis",
+            "Haziran",
+            "Temmuz",
+            "Agustos",
+            "Eylul",
+            "Ekim",
+            "Kasim",
+            "Aralik"});
+            this.CbAylar.Location = new System.Drawing.Point(748, 56);
+            this.CbAylar.Name = "CbAylar";
+            this.CbAylar.Size = new System.Drawing.Size(264, 28);
+            this.CbAylar.TabIndex = 4;
+            this.CbAylar.Visible = false;
+            // 
+            // CbGrafik
+            // 
+            this.CbGrafik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbGrafik.FormattingEnabled = true;
+            this.CbGrafik.Items.AddRange(new object[] {
+            "Yıllık Gelir Verisi",
+            "Aylık Gelir Verisi"});
+            this.CbGrafik.Location = new System.Drawing.Point(428, 56);
+            this.CbGrafik.Name = "CbGrafik";
+            this.CbGrafik.Size = new System.Drawing.Size(314, 28);
+            this.CbGrafik.TabIndex = 1;
+            this.CbGrafik.SelectedIndexChanged += new System.EventHandler(this.CbGrafik_SelectedIndexChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label26.ForeColor = System.Drawing.SystemColors.Control;
+            this.label26.Location = new System.Drawing.Point(219, 59);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(203, 20);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "Grafikte ne görmek istersin:";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.ZgAidat);
+            this.groupBox13.Location = new System.Drawing.Point(8, 162);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(1236, 440);
+            this.groupBox13.TabIndex = 2;
+            this.groupBox13.TabStop = false;
+            // 
+            // ZgAidat
+            // 
+            this.ZgAidat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ZgAidat.Location = new System.Drawing.Point(3, 16);
+            this.ZgAidat.Name = "ZgAidat";
+            this.ZgAidat.ScrollGrace = 0D;
+            this.ZgAidat.ScrollMaxX = 0D;
+            this.ZgAidat.ScrollMaxY = 0D;
+            this.ZgAidat.ScrollMaxY2 = 0D;
+            this.ZgAidat.ScrollMinX = 0D;
+            this.ZgAidat.ScrollMinY = 0D;
+            this.ZgAidat.ScrollMinY2 = 0D;
+            this.ZgAidat.Size = new System.Drawing.Size(1230, 421);
+            this.ZgAidat.TabIndex = 0;
+            this.ZgAidat.UseExtendedPrintDialog = true;
+            // 
             // TabBorclular
             // 
             this.TabBorclular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
@@ -1170,6 +1272,41 @@
             this.BtnEposta.UseVisualStyleBackColor = true;
             this.BtnEposta.Click += new System.EventHandler(this.BtnEposta_Click);
             // 
+            // TabSehirler
+            // 
+            this.TabSehirler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.TabSehirler.Controls.Add(this.groupBox16);
+            this.TabSehirler.Location = new System.Drawing.Point(4, 22);
+            this.TabSehirler.Name = "TabSehirler";
+            this.TabSehirler.Size = new System.Drawing.Size(1252, 610);
+            this.TabSehirler.TabIndex = 5;
+            this.TabSehirler.Text = "Sehirler";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.ZgcSehirler);
+            this.groupBox16.Location = new System.Drawing.Point(8, 3);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(1233, 596);
+            this.groupBox16.TabIndex = 5;
+            this.groupBox16.TabStop = false;
+            // 
+            // ZgcSehirler
+            // 
+            this.ZgcSehirler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ZgcSehirler.Location = new System.Drawing.Point(3, 16);
+            this.ZgcSehirler.Name = "ZgcSehirler";
+            this.ZgcSehirler.ScrollGrace = 0D;
+            this.ZgcSehirler.ScrollMaxX = 0D;
+            this.ZgcSehirler.ScrollMaxY = 0D;
+            this.ZgcSehirler.ScrollMaxY2 = 0D;
+            this.ZgcSehirler.ScrollMinX = 0D;
+            this.ZgcSehirler.ScrollMinY = 0D;
+            this.ZgcSehirler.ScrollMinY2 = 0D;
+            this.ZgcSehirler.Size = new System.Drawing.Size(1227, 577);
+            this.ZgcSehirler.TabIndex = 0;
+            this.ZgcSehirler.UseExtendedPrintDialog = true;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -1195,102 +1332,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 41);
             this.panel1.TabIndex = 65;
-            // 
-            // ZgAidat
-            // 
-            this.ZgAidat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ZgAidat.Location = new System.Drawing.Point(3, 16);
-            this.ZgAidat.Name = "ZgAidat";
-            this.ZgAidat.ScrollGrace = 0D;
-            this.ZgAidat.ScrollMaxX = 0D;
-            this.ZgAidat.ScrollMaxY = 0D;
-            this.ZgAidat.ScrollMaxY2 = 0D;
-            this.ZgAidat.ScrollMinX = 0D;
-            this.ZgAidat.ScrollMinY = 0D;
-            this.ZgAidat.ScrollMinY2 = 0D;
-            this.ZgAidat.Size = new System.Drawing.Size(1230, 421);
-            this.ZgAidat.TabIndex = 0;
-            this.ZgAidat.UseExtendedPrintDialog = true;
-            // 
-            // CbGrafik
-            // 
-            this.CbGrafik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CbGrafik.FormattingEnabled = true;
-            this.CbGrafik.Items.AddRange(new object[] {
-            "Yıllık Gelir Verisi",
-            "Aylık Gelir Verisi"});
-            this.CbGrafik.Location = new System.Drawing.Point(428, 56);
-            this.CbGrafik.Name = "CbGrafik";
-            this.CbGrafik.Size = new System.Drawing.Size(314, 28);
-            this.CbGrafik.TabIndex = 1;
-            this.CbGrafik.SelectedIndexChanged += new System.EventHandler(this.CbGrafik_SelectedIndexChanged);
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.ZgAidat);
-            this.groupBox13.Location = new System.Drawing.Point(8, 162);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1236, 440);
-            this.groupBox13.TabIndex = 2;
-            this.groupBox13.TabStop = false;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.ForeColor = System.Drawing.SystemColors.Control;
-            this.label26.Location = new System.Drawing.Point(219, 59);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(203, 20);
-            this.label26.TabIndex = 3;
-            this.label26.Text = "Grafikte ne görmek istersin:";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.BtnGrafikCiz);
-            this.groupBox14.Controls.Add(this.CbAylar);
-            this.groupBox14.Controls.Add(this.CbGrafik);
-            this.groupBox14.Controls.Add(this.label26);
-            this.groupBox14.Location = new System.Drawing.Point(11, 15);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(1230, 141);
-            this.groupBox14.TabIndex = 4;
-            this.groupBox14.TabStop = false;
-            // 
-            // CbAylar
-            // 
-            this.CbAylar.Enabled = false;
-            this.CbAylar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CbAylar.FormattingEnabled = true;
-            this.CbAylar.Items.AddRange(new object[] {
-            "Ocak",
-            "Subat",
-            "Mart",
-            "Nisan",
-            "Mayis",
-            "Haziran",
-            "Temmuz",
-            "Agustos",
-            "Eylul",
-            "Ekim",
-            "Kasim",
-            "Aralik"});
-            this.CbAylar.Location = new System.Drawing.Point(748, 56);
-            this.CbAylar.Name = "CbAylar";
-            this.CbAylar.Size = new System.Drawing.Size(264, 28);
-            this.CbAylar.TabIndex = 4;
-            this.CbAylar.Visible = false;
-            // 
-            // BtnGrafikCiz
-            // 
-            this.BtnGrafikCiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGrafikCiz.Location = new System.Drawing.Point(542, 90);
-            this.BtnGrafikCiz.Name = "BtnGrafikCiz";
-            this.BtnGrafikCiz.Size = new System.Drawing.Size(152, 28);
-            this.BtnGrafikCiz.TabIndex = 5;
-            this.BtnGrafikCiz.Text = "Grafik Çiz";
-            this.BtnGrafikCiz.UseVisualStyleBackColor = true;
-            this.BtnGrafikCiz.Click += new System.EventHandler(this.BtnGrafikCiz_Click);
             // 
             // Aidat
             // 
@@ -1323,6 +1364,9 @@
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAidat)).EndInit();
             this.TabAidatGelirleri.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
             this.TabBorclular.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -1336,11 +1380,10 @@
             this.groupBox2.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.TabSehirler.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1451,5 +1494,8 @@
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.ComboBox CbAylar;
         private System.Windows.Forms.Button BtnGrafikCiz;
+        private System.Windows.Forms.TabPage TabSehirler;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private ZedGraph.ZedGraphControl ZgcSehirler;
     }
 }

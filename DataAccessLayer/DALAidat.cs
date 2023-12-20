@@ -1035,5 +1035,66 @@ namespace DataAccessLayer
 
             return Borclar;
         }
+
+        //Şehirler ve o şehre bağlı üyeleri veritabanından çekiyoruz.
+        public static Dictionary<string, int> GetUyeSayilariBySehir()
+        {
+            Dictionary<string, int> sehirUyeSayilari = new Dictionary<string, int>();
+
+            try
+            {
+                using (OleDbCommand cmd = new OleDbCommand("SELECT Sehir, COUNT(*) as UyeSayisi FROM Uye GROUP BY Sehir", Baglanti.dbc))
+                {
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string sehir = reader["Sehir"].ToString();
+                            int uyeSayisi = Convert.ToInt32(reader["UyeSayisi"]);
+
+                            sehirUyeSayilari.Add(sehir, uyeSayisi);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hata yönetimi burada ele alınabilir
+                Console.WriteLine("Hata: " + ex.Message);
+            }
+
+            return sehirUyeSayilari;
+        }
+
+        public static void BorcOde(string tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("UPDATE Borc SET Odendi = true AND OdemeTarihi = @P1 WHERE Tc = @P2", Baglanti.dbc))
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.Parameters.AddWithValue("@P1",DateTime.Now.ToString("d"));
+                cmd.Parameters.AddWithValue("@P2",tc);
+            }
+        }
+
+        //
+        public static void AidatOde(string tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("UPDATE UyeAidat SET Odendi = true AND OdemeTarihi = @P1 WHERE Tc = @P2", Baglanti.dbc))
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.Parameters.AddWithValue("@P1", DateTime.Now.ToString("d"));
+                cmd.Parameters.AddWithValue("@P2", tc);
+            }
+        }
     }
 }

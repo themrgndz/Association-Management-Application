@@ -67,7 +67,7 @@
             this.TbAd.Location = new System.Drawing.Point(124, 152);
             this.TbAd.Name = "TbAd";
             this.TbAd.ReadOnly = true;
-            this.TbAd.Size = new System.Drawing.Size(165, 26);
+            this.TbAd.Size = new System.Drawing.Size(243, 26);
             this.TbAd.TabIndex = 0;
             // 
             // TbSoyad
@@ -76,7 +76,7 @@
             this.TbSoyad.Location = new System.Drawing.Point(124, 225);
             this.TbSoyad.Name = "TbSoyad";
             this.TbSoyad.ReadOnly = true;
-            this.TbSoyad.Size = new System.Drawing.Size(165, 26);
+            this.TbSoyad.Size = new System.Drawing.Size(243, 26);
             this.TbSoyad.TabIndex = 1;
             // 
             // TbYas
@@ -85,7 +85,7 @@
             this.TbYas.Location = new System.Drawing.Point(124, 298);
             this.TbYas.Name = "TbYas";
             this.TbYas.ReadOnly = true;
-            this.TbYas.Size = new System.Drawing.Size(165, 26);
+            this.TbYas.Size = new System.Drawing.Size(243, 26);
             this.TbYas.TabIndex = 2;
             // 
             // TbSehir
@@ -94,7 +94,7 @@
             this.TbSehir.Location = new System.Drawing.Point(124, 371);
             this.TbSehir.Name = "TbSehir";
             this.TbSehir.ReadOnly = true;
-            this.TbSehir.Size = new System.Drawing.Size(165, 26);
+            this.TbSehir.Size = new System.Drawing.Size(243, 26);
             this.TbSehir.TabIndex = 3;
             // 
             // TbKanGrubu
@@ -103,7 +103,7 @@
             this.TbKanGrubu.Location = new System.Drawing.Point(124, 444);
             this.TbKanGrubu.Name = "TbKanGrubu";
             this.TbKanGrubu.ReadOnly = true;
-            this.TbKanGrubu.Size = new System.Drawing.Size(165, 26);
+            this.TbKanGrubu.Size = new System.Drawing.Size(243, 26);
             this.TbKanGrubu.TabIndex = 4;
             // 
             // TbEposta
@@ -112,7 +112,7 @@
             this.TbEposta.Location = new System.Drawing.Point(124, 517);
             this.TbEposta.Name = "TbEposta";
             this.TbEposta.ReadOnly = true;
-            this.TbEposta.Size = new System.Drawing.Size(165, 26);
+            this.TbEposta.Size = new System.Drawing.Size(243, 26);
             this.TbEposta.TabIndex = 7;
             // 
             // label1
@@ -220,7 +220,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(-7, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(348, 622);
+            this.groupBox1.Size = new System.Drawing.Size(413, 622);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
@@ -230,7 +230,7 @@
             this.TbTc.Location = new System.Drawing.Point(124, 79);
             this.TbTc.Name = "TbTc";
             this.TbTc.ReadOnly = true;
-            this.TbTc.Size = new System.Drawing.Size(165, 26);
+            this.TbTc.Size = new System.Drawing.Size(243, 26);
             this.TbTc.TabIndex = 20;
             // 
             // label12
@@ -253,7 +253,7 @@
             this.DGVAidat.Location = new System.Drawing.Point(15, 19);
             this.DGVAidat.Name = "DGVAidat";
             this.DGVAidat.ReadOnly = true;
-            this.DGVAidat.Size = new System.Drawing.Size(866, 187);
+            this.DGVAidat.Size = new System.Drawing.Size(815, 187);
             this.DGVAidat.TabIndex = 18;
             // 
             // BtnAidatOde
@@ -264,15 +264,16 @@
             this.BtnAidatOde.TabIndex = 19;
             this.BtnAidatOde.Text = "Seçili Aidatı Öde";
             this.BtnAidatOde.UseVisualStyleBackColor = true;
+            this.BtnAidatOde.Click += new System.EventHandler(this.BtnAidatOde_Click_1);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DGVAidat);
             this.groupBox2.Controls.Add(this.CbAidatOde);
             this.groupBox2.Controls.Add(this.BtnAidatOde);
-            this.groupBox2.Location = new System.Drawing.Point(347, 56);
+            this.groupBox2.Location = new System.Drawing.Point(412, 56);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(901, 302);
+            this.groupBox2.Size = new System.Drawing.Size(836, 302);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             // 
@@ -295,7 +296,7 @@
             this.DGVBorc.Location = new System.Drawing.Point(15, 19);
             this.DGVBorc.Name = "DGVBorc";
             this.DGVBorc.ReadOnly = true;
-            this.DGVBorc.Size = new System.Drawing.Size(866, 192);
+            this.DGVBorc.Size = new System.Drawing.Size(815, 192);
             this.DGVBorc.TabIndex = 21;
             // 
             // CbBorcOde
@@ -321,9 +322,9 @@
             this.groupBox3.Controls.Add(this.CbBorcOde);
             this.groupBox3.Controls.Add(this.DGVBorc);
             this.groupBox3.Controls.Add(this.BtnBorcOde);
-            this.groupBox3.Location = new System.Drawing.Point(347, 364);
+            this.groupBox3.Location = new System.Drawing.Point(412, 364);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(901, 301);
+            this.groupBox3.Size = new System.Drawing.Size(836, 301);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             // 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,23 +27,14 @@ namespace DernekUyeTakip
         public UyePaneli(string tc)
         {
             InitializeComponent();
-            
             UyeDoldur(tc);
-
             UyeAidatDoldur(tc);
-
             UyeBorcDoldur(tc);
+            ComboAidatdoldur(tc);
+            ComboBorcdoldur(tc);
+        }
+        //-------------------------------------------------------------------------
         
-        }
-        //-------------------------------------------------------------------------
-
-        //Verilen tc'ye göre DataGridView'i doldurur.
-        public void UyeAidatDoldur(string tc)
-        {
-            DGVAidat.DataSource = LogicAidat.LLUyeAidatGetir(tc);
-        }
-        //-------------------------------------------------------------------------
-
         //Verilen tc'ye göre TextBox'ları doldurur.
         public void UyeDoldur(string tc)
         {
@@ -65,6 +57,82 @@ namespace DernekUyeTakip
         }
         //-------------------------------------------------------------------------
 
+        //
+        public void ComboAidatdoldur(string tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM UyeAidat Where Odendi = false AND Tc = @P1", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1",tc);
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    int[] ent = new int[10000];
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+
+                        CbAidatOde.Items.Add(int.Parse(dr["AidatId"].ToString()));
+
+                    }
+                    dr.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+        //
+
+        //
+        public void ComboBorcdoldur(string tc)
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT * FROM Borc Where Odendi = false AND Tc = @P1", Baglanti.dbc))
+            {
+                cmd.Parameters.AddWithValue("@P1", tc);
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    int[] ent = new int[10000];
+
+                    //Veritabanından bütün verileri çekiyoruz.
+                    while (dr.Read())
+                    {
+
+                        CbBorcOde.Items.Add(int.Parse(dr["BorcId"].ToString()));
+
+                    }
+                    dr.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+        //
+
         //Verilen tc'ye göre DataGridView'i doldurur.
         public void UyeBorcDoldur(string tc)
         {
@@ -72,17 +140,29 @@ namespace DernekUyeTakip
         }
         //-------------------------------------------------------------------------
 
-        //Combobox'ta seçili değere göre aidat öder.
-        private void BtnAidatOde_Click(object sender, EventArgs e)
+        //Verilen tc'ye göre DataGridView'i doldurur.
+        public void UyeAidatDoldur(string tc)
         {
-
+            DGVAidat.DataSource = LogicAidat.LLUyeAidatGetir(tc);
         }
         //-------------------------------------------------------------------------
 
         //Combobox'ta seçili değere göre borç öder.
         private void BtnBorcOde_Click(object sender, EventArgs e)
         {
+            //Teknik olarak devam edemeyeceğim için ödeme sistemini pas geçiyorum.
+            MessageBox.Show("Odeme isleminiz başarılı...","Odeme");
+            LogicAidat.LLBorcOde(TbTc.Text);
+            UyeBorcDoldur(TbTc.Text);
+        }
 
+        //Combobox'ta seçili değere göre aidat öder.
+        private void BtnAidatOde_Click_1(object sender, EventArgs e)
+        {
+            //Teknik olarak devam edemeyeceğim için ödeme sistemini pas geçiyorum.
+            MessageBox.Show("Odeme isleminiz başarılı...", "Odeme");
+            LogicAidat.LLAidatOde(TbTc.Text);
+            UyeAidatDoldur(TbTc.Text);
         }
         //-------------------------------------------------------------------------
     }

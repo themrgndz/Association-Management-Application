@@ -8,7 +8,10 @@ using DataAccessLayer;
 using EntityLayer;
 using LogicLayer;
 using ZedGraph;
-
+using System.Net.Http.Headers;
+using System.Collections;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace DernekUyeTakip
 {
@@ -24,8 +27,93 @@ namespace DernekUyeTakip
             VeriDoldur();
             DgvDoldur();
             BorcKontrol();
+            SehirGrafigiDoldur();
+            UyeSehirDagilimi();
         }
         //---------------------------------------------------------------------------------
+
+        //Şehirler ve o şehre bağlı üyeleri veritabanından çekiyoruz.
+        public void UyeSehirDagilimi()
+        {
+            // Veritabanından verileri çekiyoruz.
+            Dictionary<string, int> sehirUyeSayilari = LogicAidat.GetUyeSayilariBySehir();
+
+            // Şehirleri üye sayılarına göre sırala (en çok üyeden en aza)
+            var siraliSehirUyeSayilari = sehirUyeSayilari.OrderByDescending(pair => pair.Value);
+
+            // ZedGraph kontrolünü temizliyoruz
+            ZgcSehirler.GraphPane.CurveList.Clear();
+
+            // Grafik için bir pane oluştur
+            GraphPane grafikPane = ZgcSehirler.GraphPane;
+            grafikPane.Title.Text = "Üye Dağılımı";
+            grafikPane.XAxis.Title.Text = "Şehir";
+            grafikPane.YAxis.Title.Text = "Üye Sayısı";
+
+            // Bar tipinde bir çubuk grafik oluştur
+            double[] sehirUye = siraliSehirUyeSayilari.Select(pair => (double)pair.Value).ToArray();
+            BarItem barGrafik = grafikPane.AddBar("Üye Sayısı", null, sehirUye, Color.DarkRed);
+            barGrafik.Bar.Fill.Type = FillType.Solid;
+
+            // X ekseni etiketlerini şehir isimleri olarak ayarla
+            grafikPane.XAxis.Scale.TextLabels = siraliSehirUyeSayilari.Select(pair => pair.Key).ToArray();
+            grafikPane.XAxis.Type = AxisType.Text;
+
+            // Grafik kontrolünü yeniden çiz
+            ZgcSehirler.AxisChange();
+            ZgcSehirler.Invalidate();
+        }
+        //---------------------------------------------------------------------------------
+
+        public void SehirGrafigiDoldur()
+        {
+            using (OleDbCommand cmd = new OleDbCommand("SELECT Sehir, COUNT(*) AS UyeSayisi FROM Uye GROUP BY Sehir", Baglanti.dbc))
+            {
+                try
+                {
+                    //Eğer veritabanı bağlantısı açık değilse açıyoruz.
+                    if (cmd.Connection.State != ConnectionState.Open)
+                    {
+                        cmd.Connection.Open();
+                    }
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    {
+                        // ZedGraph veri noktalarını tutacak listeler
+                        List<string> sehirler = new List<string>();
+                        List<double> uyeSayilari = new List<double>();
+
+                        while (reader.Read())
+                        {
+                            string sehir = reader["Sehir"].ToString();
+
+                            // Try-catch bloğu ile dönüştürme hatasını kontrol etme
+                            try
+                            {
+                                double uyeSayisi = Convert.ToDouble(reader["UyeSayisi"]);
+                                uyeSayilari.Add(uyeSayisi);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Dönüştürme hatası: {ex.Message}");
+                            }
+
+                            sehirler.Add(sehir);
+                        }
+
+                        // ZedGraph grafik oluşturma
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally 
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
 
         //Her ay sonu borç kontrolü yapar
         public void BorcKontrol()

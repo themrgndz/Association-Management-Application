@@ -172,5 +172,24 @@ namespace LogicLayer
                 return DALAidat.BorcGetir(baslangic, bitis, false);
             }
         }
+
+        //Şehirler ve o şehre bağlı üyeleri veritabanından çekiyoruz.
+        public static Dictionary<string, int> GetUyeSayilariBySehir()
+        {
+
+            return DALAidat.GetUyeSayilariBySehir();
+        }
+
+        //
+        public static void LLBorcOde(string tc)
+        {
+            DALAidat.BorcOde(tc);
+        }
+
+        //
+        public static void LLAidatOde(string tc)
+        {
+            DALAidat.AidatOde(tc);
+        }
     }
 }
