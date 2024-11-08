@@ -29,13 +29,13 @@ Member Operations
 - [x]  Remove Member
 - [x]  Update Member
 - [x]  Set Member Status (Active/Inactive)
-- [x]  Filtering
 
+Filtering
 - [x]  List Members by Blood Type
 - [x]  List Members by City
 - [x]  View Members by Status (Active/Inactive)
-- [x]  Dues and Debts
 
+Dues and Debts
 - [x]  Determine Dues by Month (different dues can be set for each month if desired)
 - [x]  View Payment Status for Each Member
 - [x]  List Members with Debts and Save as PDF
